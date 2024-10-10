@@ -3,50 +3,47 @@
   description = "Hubble Flake";
 
   inputs = {
-    nixpkgs.url = "github:nixpkgs/unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, ... } {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
     let
       # --- SYSTEM SETTINGS --- #
-      systemSettings = {
-        system = "aarch64-darwin"
-        hostname = "Hubble"
-        timezone = ""
-        locale = ""
-      };
+      system = "aarch64-darwin";
+      hostname = "Hubble";
 
       # ---- USER SETTINGS ---- #
-      userSettings = {
-        dotfilesDir = "~/.dotfiles"
-        theme = "catppuccin"
-        term = "iTerm2"
-        font = ""
-      };
+      dotfilesDir = "~/.dotfiles";
+      theme = "catppuccin";
+      term = "iTerm2";
 
-      # --- ---#
+      # pkgs
       lib = nixpkgs.lib;
+      pkgs = nixpkgs.legacyPackages.${system};
       
-    in
-    darwinConfigurations = let
-      inherit (inputs.nix-darwin.lib) darwinSystem
-      in {
-        Hubble = darwinSystem {
-          system = system;
-	  specialArgs = { inherit inputs; };
+    in {
+      darwinConfigurations = {
+        Hubble = nix-darwin.lib.darwinSystem {
+          inherit system;
+	        specialArgs = { inherit inputs; };
           modules = [
-	    ./configuration.nix
-	    
-	  ];
-	};
+	          ./configuration.nix
+	        ];
+	      };
+      };
+      homeConfigurations = {
+        kepler = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./home.nix
+          ];
+        };
       };
     };
-    darwinPackages = self.darwinConfigurations."Hubble".pkgs;
-  };
 }
