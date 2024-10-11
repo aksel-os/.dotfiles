@@ -32,12 +32,12 @@
 
       # pkgs
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = nixpkgs.legacyPackages.${systemSettings.system};
       
     in {
       darwinConfigurations = {
         Hubble = nix-darwin.lib.darwinSystem {
-          inherit system;
+          inherit systemSettings.system;
 	        specialArgs = { inherit inputs; };
           modules = [
 	          ./configuration.nix
