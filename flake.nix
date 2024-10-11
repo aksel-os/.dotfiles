@@ -15,13 +15,20 @@
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
     let
       # --- SYSTEM SETTINGS --- #
-      system = "aarch64-darwin";
-      hostname = "Hubble";
+      systemSettings = {
+        system = "aarch64-darwin";
+        hostname = "Hubble";
+      };
 
       # ---- USER SETTINGS ---- #
-      dotfilesDir = "~/.dotfiles";
-      theme = "catppuccin";
-      term = "iTerm2";
+      userSettings = {
+        name = "kepler";
+        email = "akselolav@gmail.com";
+        dotfilesDir = "~/.dotfiles";
+        locale = "en_US-UTF-8";
+        theme = "catppuccin";
+        term = "iTerm2";
+      };
 
       # pkgs
       lib = nixpkgs.lib;
