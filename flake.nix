@@ -30,9 +30,9 @@
         name = "Aksel Steen";
         email = "akselolav@gmail.com";
         dotfilesDir = "~/.dotfiles";
-        locale = "en_US-UTF-8";
-        theme = "catppuccin";
-        term = "iTerm2";
+        locale = "en_US.UTF-8";
+        theme = "Catppuccin-Mocha";
+        term = "kitty";
       };
 
       # pkgs
