@@ -6,7 +6,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,19 +18,20 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
     let
-      # --- SYSTEM SETTINGS --- #
+      #--=[ SYSTEM SETTINGS ]=--#
       systemSettings = {
         system = "aarch64-darwin";
         hostname = "Hubble";
+        timezone = "Europe/Oslo";
+        locale = "en_US.UTF-8";
       };
 
-      # ---- USER SETTINGS ---- #
+      # --=[ USER SETTINGS ]=-- #
       userSettings = {
         user = "kepler";
         name = "Aksel Steen";
         email = "akselolav@gmail.com";
         dotfilesDir = "~/.dotfiles";
-        locale = "en_US.UTF-8";
         theme = "Catppuccin-Mocha";
         term = "kitty";
       };
