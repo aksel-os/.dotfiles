@@ -8,9 +8,10 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
+    ../../packages/shell/kitty.nix # My kitty config
+    ../../packages/shell/sh.nix # My zsh config
+    ../../packages/git/git.nix # My git config
     ../../packages/dev/python.nix
-    ../../packages/shell/sh.nix
-    ../../packages/git/git.nix
   ];
 
   # Let Home Manager install and manage itself.
