@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -13,8 +13,8 @@
   };
 
   imports = [
-    ./lang/python/python.nix
-    ./shell.nix
+    ../../lang/python/python.nix
+    ../../shell/sh.nix
   ];
 
   # programs.zsh = {
