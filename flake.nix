@@ -22,7 +22,8 @@
 
       # ---- USER SETTINGS ---- #
       userSettings = {
-        name = "kepler";
+        user = "kepler";
+        name = "Aksel Steen";
         email = "akselolav@gmail.com";
         dotfilesDir = "~/.dotfiles";
         locale = "en_US-UTF-8";
@@ -36,8 +37,8 @@
       
     in {
       darwinConfigurations = {
-        Hubble = nix-darwin.lib.darwinSystem {
-          inherit systemSettings.system;
+        ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
+          system = systemSettings.system;
 	        specialArgs = { inherit inputs; };
           modules = [
 	          ./configuration.nix
@@ -45,7 +46,7 @@
 	      };
       };
       homeConfigurations = {
-        kepler = home-manager.lib.homeManagerConfiguration {
+        ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
             ./home.nix

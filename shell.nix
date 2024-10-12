@@ -1,8 +1,8 @@
-{ config, pkgs, lib, ...}
+{ config, pkgs, lib, ...}:
 
 {
   programs.zsh = {
-    enable = true
+    enable = true;
     shellAliases = {
       javacc = "javac *.java";
       javacleaner = "rm *.class";
