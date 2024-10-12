@@ -8,7 +8,7 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
-    ../../packages/terminal/kitty.nix # My kitty config
+    ../../packages/terminal/${userSettings.term}.nix # My kitty config
     ../../packages/shell/sh.nix # My zsh config
     ../../packages/git/git.nix # My git config
     ../../packages/dev/python.nix
