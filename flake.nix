@@ -41,7 +41,7 @@
           system = systemSettings.system;
 	        specialArgs = { inherit inputs; };
           modules = [
-	          ./configuration.nix
+	          ./hosts/${userSettings.user}/configuration.nix
 	        ];
 	      };
       };
@@ -49,8 +49,11 @@
         ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [
-            ./home.nix
+            ./hosts/${userSettings.user}/home.nix
           ];
+          extraSpecialArgs = {
+            inherit userSettings;
+          };
         };
       };
     };

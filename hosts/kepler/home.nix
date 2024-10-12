@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "kepler";
-  home.homeDirectory = "/Users/kepler";
+  home.username = userSettings.user;
+  home.homeDirectory = "/Users/${userSettings.user}";
   home.stateVersion = "24.05"; # Please read the comment before changing.
   home.packages = [];
   home.file = {};
