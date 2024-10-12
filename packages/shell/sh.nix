@@ -12,4 +12,8 @@
     };
   };
 
+  home.packages = with pkgs; [
+    fastfetch
+  ];
+
 }
