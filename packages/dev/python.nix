@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    python3
+    python312
+    python312Packages.nltk
+    python312Packages.numpy
   ];
 }
