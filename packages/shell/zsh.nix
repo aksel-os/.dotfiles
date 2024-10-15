@@ -4,6 +4,12 @@ let
   myAliases = {
     home-rebuild = "home-manager switch --flake ~/.dotfiles/";
 
+    cat = "bat --paging=never --style=plain";
+    ls = "eza --icons -l -T -L=1";
+    tree = "eza --tree --icons";
+    htop = "btop";
+    gitfetch = "onefetch"; 
+
     python-shell = "nix develop -f ~/.dotfiles/packages/dev/python/shell.nix";
 
     javacc = "javac *.java";
@@ -30,6 +36,7 @@ in {
   };
 
   home.packages = with pkgs; [
-    fastfetch
+    fastfetch disfetch onefetch
+    btop bat eza
   ];
 }
