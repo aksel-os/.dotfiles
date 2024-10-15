@@ -10,11 +10,11 @@
   # Nix settings
   nix = {
     package = pkgs.nixFlakes;
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "weekly";
+    #   options = "--delete-older-than 7d";
+    # };
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -31,7 +31,7 @@
 
     defaults = {
       menuExtraClock.Show24Hour = true;
-      menuExtraClock.ShowSeconds = true;
+      # menuExtraClock.ShowSeconds = true;
     };
 
     dock = {
