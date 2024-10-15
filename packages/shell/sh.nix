@@ -4,6 +4,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
+      python-shell = "nix develop -f ~/.dotfiles/packages/dev/python/shell.nix";
       javacc = "javac *.java";
       javacleaner = "rm *.class";
       IN1000 = "cd ~/UiO/Semester_1/IN1000/";
