@@ -1,4 +1,4 @@
-#:catppuccin-mocha https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/catppuccin-mocha.omp.json
+#:source https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/catppuccin-mocha.omp.json
 
 version = 2
 final_space = true
