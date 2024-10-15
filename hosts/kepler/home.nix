@@ -8,10 +8,15 @@
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   imports = [
+    # Terminal ++
     ../../packages/terminal/${userSettings.term}.nix # My kitty config
     ../../packages/shell/sh.nix # My zsh config
-    ../../packages/git/git.nix # My git config
+
+    # Programming languages
     ../../packages/dev/python.nix
+
+    # Misc
+    ../../packages/git/git.nix # My git config
   ];
 
   # Let Home Manager install and manage itself.
