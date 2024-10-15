@@ -10,6 +10,7 @@ in pkgs.mkShell {
     (pkgs.${python}.withPackages (python-pkgs: with python-pkgs; [
       numpy
       nltk
+      matplotlib
     ]))
   ];
 }

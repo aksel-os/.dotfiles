@@ -50,7 +50,10 @@
       darwinConfigurations = {
         ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
           system = systemSettings.system;
-	        specialArgs = { inherit inputs; };
+	        specialArgs = { inherit inputs;
+                          inherit systemSettings;
+                          inherit userSettings;
+                        };
           modules = [
 	          ./hosts/${userSettings.user}/configuration.nix
 	        ];
