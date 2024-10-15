@@ -10,7 +10,7 @@
   imports = [
     # Terminal ++
     ../../packages/terminal/${userSettings.term}.nix # My kitty config
-    ../../packages/shell/sh.nix # My zsh config
+    ../../packages/shell/zsh.nix # My zsh config
 
     # Programming languages
     ../../packages/dev/python.nix

@@ -14,18 +14,9 @@ in {
   programs.zsh = {
     enable = true;
     shellAliases = myAliases;
-  };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = myAliases;
-  };
-
-  programs.oh-my-posh = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-    useTheme = userSettings.theme;
+    initExtra = ''
+    eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${./oh-my-posh/zen-omp.toml}"
+    '';
   };
 
   home.packages = with pkgs; [
