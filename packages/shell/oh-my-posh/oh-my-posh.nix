@@ -5,6 +5,5 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
-    useTheme = "catppuccin-mocha"; 
   };
 }
