@@ -9,7 +9,6 @@
 
   # Nix settings
   nix = {
-    warn-dirty = false;
     package = pkgs.nixFlakes;
     gc = {
       automatic = true;
