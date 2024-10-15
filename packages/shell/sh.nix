@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ...}:
+{ config, pkgs, lib, userSettings, ...}:
 
 let
   myAliases = {
@@ -19,6 +19,13 @@ in {
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
+  };
+
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    useTheme = userSettings.theme;
   };
 
   home.packages = with pkgs; [
