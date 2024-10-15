@@ -20,7 +20,7 @@ in {
     shellAliases = myAliases;
     initExtra = ''
       fastfetch
-      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${atmoic})"
+      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${atomic})"
     '';
   };
 
