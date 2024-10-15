@@ -9,8 +9,9 @@
 
   imports = [
     # Terminal ++
-    ../../packages/terminal/${userSettings.term}.nix # My kitty config
+    ../../packages/terminal/${userSettings.term}.nix # My terminal config
     ../../packages/shell/zsh.nix # My zsh config
+    ../../packages/shell/oh-my-posh/oh-my-posh.nix # My omp config
 
     # Programming languages
     ../../packages/dev/python.nix
