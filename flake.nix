@@ -3,17 +3,23 @@
   description = "Hubble Flake";
 
   inputs = {
+    # Package library
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
+    # Manages macOS like nixOS
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Manages all host side applications
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Project/ Package manager for python packages
+    poetry2nix.url = "github:nix-community/poetry2nix";
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
