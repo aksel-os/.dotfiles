@@ -9,7 +9,10 @@ let
     IN1020 = "cd ~/UiO/Semester_1/IN1020/";
     IN1140 = "cd ~/UiO/Semester_1/IN1140/";
   };
-  testPath = "https://raw.githubusercontent.com/dreamsofautonomy/zen-omp/main/zen.toml";
+
+  # oh-my-posh profiles
+  zen-omp = "https://raw.githubusercontent.com/dreamsofautonomy/zen-omp/main/zen.toml";
+  atomic = "https://raw.githubusercontent.com/BirdeeHub/birdeeSystems/539ad08db103274d645f151c5f07e9df8c3efce4/common/term/shell/atomic-emodipt.omp.json";
 
 in {
   programs.zsh = {
@@ -17,7 +20,7 @@ in {
     shellAliases = myAliases;
     initExtra = ''
       fastfetch
-      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${testPath})"
+      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${atmoic})"
     '';
   };
 
