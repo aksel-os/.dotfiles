@@ -29,6 +29,8 @@
       ponv = "po --no-verify";
       last = "log -1 HEAD";
       ll = "log --oneline";
+      # ld  = "log --pretty=format:'%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]' --decorate --date=short";
+      la = "!git config -l | grep alias | cut -c 7-";
     };
   };
 
