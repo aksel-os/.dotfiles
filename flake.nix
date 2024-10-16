@@ -18,7 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Project/ Package manager for python packages
+    # Project/ Package manager for python
     poetry2nix.url = "github:nix-community/poetry2nix";
   };
 

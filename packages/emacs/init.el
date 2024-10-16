@@ -34,11 +34,6 @@
 ;;   :custom      ; Set these variables
 ;;   :config      ; Run this code after my-package is loaded
 
-(unless (package-installed-p 'use-package))
-(package-install 'use-package)
-
-(require 'use-package)
-
 ;; Python LSP
 (use-package lsp-pyright
   :ensure t
@@ -91,3 +86,8 @@
 (setq display-line-numbers-type 'relative)
 
 (show-paren-mode 1) 
+
+;; ----=[ Modes ]=----  ;;
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\")

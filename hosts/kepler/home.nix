@@ -13,6 +13,9 @@
     ../../packages/shell/zsh.nix # My zsh config
     ../../packages/shell/oh-my-posh/oh-my-posh.nix # My omp config
 
+    # Text editor
+    ../../packages/emacs/emacs.nix
+
     # Programming languages
     ../../packages/dev/python.nix
 
