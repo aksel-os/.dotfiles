@@ -17,7 +17,7 @@
     ../../packages/dev/python.nix
 
     # Reference handling
-    ../../packages/zotero/zotero.nix
+    # ../../packages/zotero/zotero.nix # Only works on linux :(
 
     # Misc
     ../../packages/git/git.nix # My git config
