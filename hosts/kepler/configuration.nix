@@ -31,21 +31,21 @@
 
     defaults = {
       menuExtraClock.Show24Hour = true;
-      # menuExtraClock.ShowSeconds = true;
-    };
+      menuExtraClock.ShowSeconds = false;
 
-    dock = {
-      autohide = true;
-      show-recents = false;
-      # persistent-apps = [
-      #
-      # ];
-    };
+      dock = {
+        autohide = true;
+        show-recents = false;
+        # persistent-apps = [
+        #
+        # ];
+      };
 
-    finder = {
-      AppleShowAllFiles = true;
-      _FXSortFoldersFirst = true;
-      FXPreferredViewStyle = "icvn";
+      finder = {
+        AppleShowAllFiles = true;
+        _FXSortFoldersFirst = true;
+        FXPreferredViewStyle = "icvn";
+      };
     };
   };
 
