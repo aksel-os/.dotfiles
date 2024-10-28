@@ -19,11 +19,12 @@
     # Programming languages
     ../../packages/dev/python.nix
 
-    # Reference handling
-    # ../../packages/zotero/zotero.nix # Only works on linux :(
-
     # Misc
     ../../packages/git/git.nix # My git config
+
+    # Linux exclusive :(
+    # ../../packages/ida-free/ida-free.nix # Reverse engineering ++, only on linux...
+    # ../../packages/zotero/zotero.nix # Refrences
   ];
 
   # Let Home Manager install and manage itself.

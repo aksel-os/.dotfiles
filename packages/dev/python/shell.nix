@@ -8,9 +8,11 @@ let
 in pkgs.mkShell {
   packages = [
     (pkgs.${python}.withPackages (python-pkgs: with python-pkgs; [
+      pip
       numpy
       nltk
       matplotlib
+      pygame
     ]))
   ];
 }

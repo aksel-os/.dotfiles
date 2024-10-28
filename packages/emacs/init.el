@@ -19,9 +19,12 @@
 (setq custom-file (locate-user-emacs-file "custom.el")) 
 (load custom-file t t)
 
-
 (setq backup-directory-alist `(("." . ,(locate-user-emacs-file "backups"))))
 
+(setq-default tab-width 4
+              fill-column 79)
+
+;; ----=[ PACKAGES ]=----
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-refresh-contents)
@@ -81,11 +84,13 @@
 (use-package multiple-cursors
   :ensure t)
 
-;; Linjenummer - Relative
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
-(setq display-line-numbers-type 'relative)
+;; Parentheses
+(show-paren-mode 1)
 
-(show-paren-mode 1) 
+;; Doom-modeline
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 ;; ----=[ Modes ]=----
 (use-package nix-mode

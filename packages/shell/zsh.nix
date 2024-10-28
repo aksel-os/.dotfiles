@@ -2,7 +2,7 @@
 
 let
   myAliases = {
-    nix-repair = "/nix/nix-installer repair";
+    nix-fix = "/nix/nix-installer repair";
     home-rebuild = "home-manager switch --flake ~/.dotfiles/";
 
     cat = "bat --paging=never --style=plain";
