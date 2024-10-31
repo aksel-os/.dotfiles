@@ -11,7 +11,8 @@ let
     htop = "btop";
     gitfetch = "onefetch"; 
 
-    python-shell = "nix develop -f ~/.dotfiles/packages/dev/python/shell.nix";
+    python-shell = "nix develop -f ~/.dotfiles/modules/dev/python/shell.nix";
+    cc-shell = "nix develop -f ~/.dotfiles/modules/dev/cc/cc.nix";
 
     javacc = "javac *.java";
     javacleaner = "rm *.class";

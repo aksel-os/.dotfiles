@@ -9,22 +9,22 @@
 
   imports = [
     # Terminal ++
-    ../../packages/terminal/${userSettings.term}.nix # My terminal config
-    ../../packages/shell/zsh.nix # My zsh config
-    ../../packages/shell/oh-my-posh/oh-my-posh.nix # My omp config
+    ../../modules/terminal/${userSettings.term}.nix # My terminal config
+    ../../modules/shell/zsh.nix # My zsh config
+    ../../modules/shell/oh-my-posh/oh-my-posh.nix # My omp config
 
     # Text editor
-    ../../packages/emacs/emacs.nix
+    ../../modules/emacs/emacs.nix
 
     # Programming languages
-    ../../packages/dev/python.nix
+    ../../modules/dev/python.nix
 
     # Misc
-    ../../packages/git/git.nix # My git config
+    ../../modules/git/git.nix # My git config
 
     # Linux exclusive :(
-    # ../../packages/ida-free/ida-free.nix # Reverse engineering ++, only on linux...
-    # ../../packages/zotero/zotero.nix # Refrences
+    # ../../modules/ida-free/ida-free.nix # Reverse engineering ++, only on linux...
+    # ../../modules/zotero/zotero.nix # Refrences
   ];
 
   # Let Home Manager install and manage itself.
