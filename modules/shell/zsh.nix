@@ -20,6 +20,8 @@ let
     in1000 = "cd ~/uio/semester_1/in1000//";
     in1020 = "cd ~/uio/semester_1/in1020/";
     in1140 = "cd ~/uio/semester_1/in1140/";
+
+    hawk = "git";
   };
 
   # oh-my-posh profiles
