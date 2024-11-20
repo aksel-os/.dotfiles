@@ -78,7 +78,7 @@
   :ensure t
   :config
   (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'mocha)) ;; or 'latte, 'macchiato, or 'mocha)
+  (setq catppuccin-flavor 'latte)) ;; 'latte, 'frappe, 'macchiato, or 'mocha)
 
 ;; Multiple Cursors
 (use-package multiple-cursors

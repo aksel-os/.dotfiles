@@ -12,14 +12,14 @@ let
     gitfetch = "onefetch"; 
 
     python-shell = "nix develop -f ~/.dotfiles/modules/dev/python/shell.nix";
-    cc-shell = "nix develop -f ~/.dotfiles/modules/dev/cc/cc.nix";
+    cc-shell = "nix develop -f ~/.dotfiles/modules/dev/cc/shell.nix";
 
     javacc = "javac *.java";
     javacleaner = "rm *.class";
 
-    IN1000 = "cd ~/UiO/Semester_1/IN1000/";
-    IN1020 = "cd ~/UiO/Semester_1/IN1020/";
-    IN1140 = "cd ~/UiO/Semester_1/IN1140/";
+    in1000 = "cd ~/uio/semester_1/in1000//";
+    in1020 = "cd ~/uio/semester_1/in1020/";
+    in1140 = "cd ~/uio/semester_1/in1140/";
   };
 
   # oh-my-posh profiles

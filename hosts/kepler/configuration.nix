@@ -44,7 +44,7 @@
       finder = {
         AppleShowAllFiles = true;
         _FXSortFoldersFirst = true;
-        FXPreferredViewStyle = "icvn";
+        FXPreferredViewStyle = "icnv";
       };
     };
   };
