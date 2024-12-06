@@ -36,9 +36,12 @@
       dock = {
         autohide = true;
         show-recents = false;
-        # persistent-apps = [
-        #
-        # ];
+        persistent-apps = [
+          "/Applications/Arc.app"
+          "/Applications/Discord.app"
+          "${pkgs.kitty}/Applications/kitty.app"
+          "/Applications/Spotify.app"
+        ];
       };
 
       finder = {
