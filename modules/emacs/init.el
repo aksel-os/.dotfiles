@@ -1,49 +1,55 @@
-;; Dette fjerner velkomstskjermen ved oppstart av Emacs.
-(setq inhibit-splash-screen t)
+;;; -*- lexical-binding: t -*-
 
-;; Emacs ber deg iblant svare "yes" eller "no".  Dette gjør at Emacs
-;; nøyer seg med "y" eller "n".
-(setq use-short-answers t)
+;; ----=[ DEFAULTS ]=----
+(setq inhibit-splash-screen t       ; Removes splash screen
+	  default-input-method "TeX"    ; Dont really know
+	  echo-keystrokes 0.1           ; Dont really know
+	  use-short-answers t           ; Allows you to type y/n instead fo yes/no
+	  scroll-margin 1               ; Space between cursor and top/ bottom
+	  ring-bell-function 'ignore    ; No dumb alerts
+	  recentf-max-saved-items 1000)  ; Show more recent files
 
-;; Skru av blinkende peker.
-(blink-cursor-mode 0)
+(setq-default tab-width 4         ; Smaller tabs
+              fill-column 79      ; Max line width
+			  truncate-lines t)    ; Dont fold lines			  
 
-;; Disse skrur av diverse GUI-elementer.
-(menu-bar-mode 0)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
+;; ----=[ AUTOSAVE ]=----
+(defvar emacs-autosave-directory
+  (concat user-emacs-directory "autosaves/")
+  "This variable dictates where to put auto saves. It is set to a
+  directory called autosaves located wherever your .emacs.d/ is
+  located.")
 
-(global-auto-revert-mode)
-(setq global-auto-revert-non-file-buffers t
-      create-lockfiles nil)
-(setq custom-file (locate-user-emacs-file "custom.el")) 
-(load custom-file t t)
+;; Sets all files to be backed up and auto saved in a single directory.
+(setq backup-directory-alist
+      `((".*" . ,emacs-autosave-directory))
+      auto-save-file-name-transforms
+      `((".*" ,emacs-autosave-directory t)))
 
-(setq backup-directory-alist `(("." . ,(locate-user-emacs-file "backups"))))
+;; ----=[ VISUAL ]=----
+(dolist (mode
+		 '(blink-cursor-mode ; No stupid blinking cursor
+		   menu-bar-mode
+		   tool-bar-mode     ; Removes toolbars
+		   scroll-bar-mode)) ; Removes scrollbars
+  (funcall mode 0))
 
-(setq-default tab-width 4
-              fill-column 79)
+(dolist (mode
+         '(abbrev-mode                  ; E.g. sopl -> System.out.println
+           column-number-mode           ; Show column number in mode line
+           delete-selection-mode        ; Replace selected text
+           dirtrack-mode                ; directory tracking in *shell*
+           global-so-long-mode          ; Mitigate performance for long lines
+           recentf-mode                 ; Recently opened files
+           show-paren-mode))            ; Highlight matching parentheses
+  (funcall mode 1))
 
 ;; ----=[ PACKAGES ]=----
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-refresh-contents)
-(package-initialize)
-;; (use-package my-package-name
-;;   :ensure t    ; Ensure my-package is installed
-;;   :after foo   ; Load my-package after foo is loaded (seldom used)
-;;   :init        ; Run this code before my-package is loaded
-;;   :bind        ; Bind these keys to these functions
-;;   :custom      ; Set these variables
-;;   :config      ; Run this code after my-package is loaded
-
-;; Python LSP
-(use-package lsp-pyright
-  :ensure t
-  :custom (lsp-pyright-langserver-command "pyright") ;; or basedpyright
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-pyright)
-                          (lsp))))  ; or lsp-deferred
+(require 'use-package)
+(setq use-package-always-ensure t)
+;;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+;;(package-refresh-contents)
+;;(package-initialize)
 
 ;; VERTical Interactive COmpletion
 (use-package vertico
@@ -63,10 +69,6 @@
   :bind ("C-x b" . consult-buffer)
   :config
   (setq consult-preview-key (list :debounce 0.1 'any)))
-
-;; Tidligere besøkte filer
-(recentf-mode t)
-(setq recentf-max-saved-items 1000)
 
 ;; Display available keybindings in popup
 (use-package which-key
@@ -92,6 +94,64 @@
   :ensure t
   :init (doom-modeline-mode 1))
 
+;; A Git porcelain inside Emacs.
+(use-package magit
+  :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
+         (magit-post-refresh . diff-hl-magit-post-refresh))
+  :bind (:map custom-bindings-map ("C-c m" . magit-status)))
+
+;; Highlight uncommitted changes using VC
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode 1))
+
+;; ----=[ EXPERIMENTAL PACKAGES ]=----
+
+;; TODO: Make them your own
+(use-package windmove
+  :ensure nil
+  :bind (:map custom-bindings-map
+              ("M-˙" . windmove-left)
+              ("M-∆" . windmove-down)
+              ("M-˚" . windmove-up)
+              ("M-¬" . windmove-right)
+
+              ("M-ó" . windmove-swap-states-left)
+              ("M-ô" . windmove-swap-states-down)
+              ("M-" . windmove-swap-states-up)
+              ("M-ò" . windmove-swap-states-right)))
+
+;; Enrich existing commands with completion annotations
+(use-package marginalia
+  :init 
+  (marginalia-mode 1))
+
+;; Modular text completion framework
+(use-package corfu
+  :init
+  (global-corfu-mode 1)
+  (corfu-popupinfo-mode 1)
+  :config
+  (setq corfu-cycle t))
+
+(use-package orderless
+  :config
+  (setq completion-styles '(orderless basic partial-completion)
+        completion-category-overrides '((file (styles basic partial-completion)))
+        orderless-component-separator "[ |]"))
+
+;; display the definition of word at point
+(use-package define-word
+  :defer t
+  :bind (:map custom-bindings-map ("C-c D" . define-word-at-point)))
+
+;; For moving lines up and down
+(use-package move-text
+  :bind (:map custom-bindings-map
+              ("C-M-<down>" . move-text-down)
+              ("C-M-<up>" . move-text-up)))
+
+
 ;; ----=[ Modes ]=----
 (use-package nix-mode
   :mode ("\\.nix\\'" "\\.nix.in\\'"))
@@ -104,3 +164,10 @@
 (use-package nix-repl
   :ensure nix-mode
   :commands (nix-repl))
+
+;; Org-Mode
+(use-package org
+  :defer t
+  :config
+  (setq org-latex-packages-alist '(("margin=2cm" "geometry" nil)) ; Probably a better way to do this
+		org-adapt-indentation nil))

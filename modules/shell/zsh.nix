@@ -13,6 +13,7 @@ let
 
     python-shell = "nix develop -f ~/.dotfiles/modules/dev/python/shell.nix";
     cc-shell = "nix develop -f ~/.dotfiles/modules/dev/cc/shell.nix";
+    java-shell = "nix develop -f ~/.dotfiles/modules/dev/java/shell.nix";
 
     javacc = "javac *.java";
     javacleaner = "rm *.class";
@@ -37,7 +38,11 @@ in {
       eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"
     '';
   };
-
+  programs.bash = {
+    enable = true;
+    shellAliases = myAliases;
+  };
+  
   home.packages = with pkgs; [
     fastfetch disfetch onefetch
     btop bat eza

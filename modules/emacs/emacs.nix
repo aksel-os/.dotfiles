@@ -7,9 +7,10 @@ let
   };
   bs-emacs-with-packages = (pkgs.emacsPackagesFor bs-emacs).emacsWithPackages (epkgs: with epkgs; [
     vertico consult which-key doom-modeline
-    magit
-    nix-mode
-    catppuccin-theme
+    magit diff-hl
+    marginalia
+    nix-mode corfu orderless define-word
+    catppuccin-theme move-text
   ]);
 
 in {

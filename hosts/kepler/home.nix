@@ -21,7 +21,7 @@
 
     # Misc
     ../../modules/git/git.nix # My git config
-    ../../modules/wireshark/wireshark.nix
+#    ../../modules/wireshark/wireshark.nix
 
     # Linux exclusive :(
     # ../../modules/ida-free/ida-free.nix # Reverse engineering ++, only on linux...

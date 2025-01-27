@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  home.packages = [pkgs.wireshark];
+  home.packages = [ pkgs.wireshark ];
 
-  packages.wireshark = {
+  programs.wireshark = {
     enable = true;
   };
 }

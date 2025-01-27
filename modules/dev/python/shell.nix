@@ -13,6 +13,10 @@ in pkgs.mkShell {
       nltk
       matplotlib
       pygame
+      tqdm
+      pandas
+      xarray
+      netcdf4
     ]))
   ];
 }
