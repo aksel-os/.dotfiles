@@ -6,11 +6,23 @@ let
     withTreeSitter = true;
   };
   bs-emacs-with-packages = (pkgs.emacsPackagesFor bs-emacs).emacsWithPackages (epkgs: with epkgs; [
-    vertico consult which-key doom-modeline
-    magit diff-hl
+    vertico
+    consult
+    which-key
+    doom-modeline
+    magit
+    diff-hl
+    multiple-cursors
+    org-modern
     marginalia
-    nix-mode corfu orderless define-word
-    catppuccin-theme move-text
+    nix-mode
+    corfu
+    orderless
+    define-word
+    catppuccin-theme
+    move-text
+    org-appear
+    org-fragtog
   ]);
 
 in {

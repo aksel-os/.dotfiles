@@ -100,8 +100,8 @@
 ;; A Git porcelain inside Emacs.
 (use-package magit
   :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
-         (magit-post-refresh . diff-hl-magit-post-refresh))
-  :bind (:map custom-bindings-map ("C-c m" . magit-status)))
+         (magit-post-refresh . diff-hl-magit-post-refresh)))
+;;  :bind (:map custom-bindings-map ("C-c m" . magit-status)))
 
 ;; Highlight uncommitted changes using VC
 (use-package diff-hl
@@ -111,18 +111,18 @@
 ;; ----=[ EXPERIMENTAL PACKAGES ]=----
 
 ;; TODO: Make them your own
-(use-package windmove
-  :ensure nil
-  :bind (:map custom-bindings-map
-              ("M-˙" . windmove-left)
-              ("M-∆" . windmove-down)
-              ("M-˚" . windmove-up)
-              ("M-¬" . windmove-right)
-
-              ("M-ó" . windmove-swap-states-left)
-              ("M-ô" . windmove-swap-states-down)
-              ("M-" . windmove-swap-states-up)
-              ("M-ò" . windmove-swap-states-right)))
+;;(use-package windmove
+;;  :ensure nil)
+;;  :bind (:map custom-bindings-map
+;;              ("M-˙" . windmove-left)
+;;              ("M-∆" . windmove-down)
+;;              ("M-˚" . windmove-up)
+;;              ("M-¬" . windmove-right)
+;;
+;;              ("M-ó" . windmove-swap-states-left)
+;;              ("M-ô" . windmove-swap-states-down)
+;;              ("M-" . windmove-swap-states-up)
+;;              ("M-ò" . windmove-swap-states-right)))
 
 ;; Enrich existing commands with completion annotations
 (use-package marginalia
@@ -144,18 +144,31 @@
         orderless-component-separator "[ |]"))
 
 ;; display the definition of word at point
-(use-package define-word
-  :defer t
-  :bind (:map custom-bindings-map ("C-c D" . define-word-at-point)))
+;;(use-package define-word
+;;  :defer t
+;;  :bind (:map custom-bindings-map ("C-c D" . define-word-at-point)))
 
 ;; For moving lines up and down
-(use-package move-text
-  :bind (:map custom-bindings-map
-              ("C-M-<down>" . move-text-down)
-              ("C-M-<up>" . move-text-up)))
+;;(use-package move-text)
+;;  :bind (:map custom-bindings-map
+;;              ("C-M-<down>" . move-text-down)
+;;              ("C-M-<up>" . move-text-up)))
+
+;; Eglot
+(use-package eglot
+  :defer t
+  :hook (eglot-managed-mode . (lambda ()
+                                (eglot-inlay-hints-mode -1)
+                                (add-hook 'before-save-hook 'eglot-format nil t)))
+  :config
+  (setq eglot-events-buffer-size 0)
+  (add-to-list 'eglot-server-programs
+               '(web-mode . ("svelteserver" "--stdio"))))
 
 
 ;; ----=[ Modes ]=----
+
+;; -=* Nix-Mode *=-
 (use-package nix-mode
   :mode ("\\.nix\\'" "\\.nix.in\\'"))
 (use-package nix-drv-mode
@@ -168,9 +181,43 @@
   :ensure nix-mode
   :commands (nix-repl))
 
-;; Org-Mode
+;; -=* Org-Mode *=-
 (use-package org
   :defer t
   :config
-  (setq org-latex-packages-alist '(("margin=2cm" "geometry" nil)) ; Probably a better way to do this
-		org-adapt-indentation nil))
+  (setq org-adapt-indentation nil
+		org-pretty-entities t)
+  (setq org-latex-packages-alist'())
+  (add-to-list 'org-latex-packages-alist '("margin=2cm" "geometry" nil)) ; Probably a better way to do this
+  (add-to-list 'org-latex-packages-alist '(nil "parskip" nil)))
+
+;; Org-modern - Modern looks for Org
+(use-package org-modern
+  :after org
+  :hook (org-mode . org-modern-mode)
+  :config
+  (setq org-modern-block-fringe nil
+        org-modern-star 'replace))
+
+;; Org-appear
+(use-package org-appear
+  :commands (org-appear-mode)
+  :hook (org-mode . org-appear-mode)
+  :config
+  (setq org-hide-emphasis-markers t
+		org-appear-autoemphasis t
+        org-appear-autoentities t
+		org-appear-autosubmarkers t
+        org-appear-autolinks t))
+
+;; Org-appear for latex
+(use-package org-fragtog
+  :hook (org-mode-hook . org-fragtog-mode))
+
+
+;; Java
+(define-abbrev-table 'java-mode-abbrev-table
+  '(("psv" "public static void main(String[] args) {" nil 0)
+    ("sopl" "System.out.println" nil 0)
+    ("sop" "System.out.printf" nil 0)))
+(add-hook 'java-mode-hook 'eglot-ensure)
