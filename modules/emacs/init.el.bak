@@ -7,13 +7,15 @@
 	  use-short-answers t           ; Allows you to type y/n instead fo yes/no
 	  scroll-margin 1               ; Space between cursor and top/ bottom
 	  ring-bell-function 'ignore    ; No dumb alerts
-	  recentf-max-saved-items 1000)  ; Show more recent files
+	  recentf-max-saved-items 1000) ; Show more recent files
 
 (setq-default tab-width 4         ; Smaller tabs
               fill-column 79      ; Max line width
-			  truncate-lines t)    ; Dont fold lines
+			  truncate-lines t)   ; Dont fold lines
 
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 150)
+
+(setq mac-right-command-modifier 'meta)
 
 ;; ----=[ AUTOSAVE ]=----
 (defvar emacs-autosave-directory
@@ -25,7 +27,6 @@
 ;; Sets all files to be backed up and auto saved in a single directory.
 (setq backup-directory-alist
       `((".*" . ,emacs-autosave-directory))
-      auto-save-file-name-transforms
       `((".*" ,emacs-autosave-directory t)))
 
 ;; ----=[ VISUAL ]=----
@@ -42,7 +43,7 @@
            delete-selection-mode        ; Replace selected text
            dirtrack-mode                ; directory tracking in *shell*
            global-so-long-mode          ; Mitigate performance for long lines
-           recentf-mode                 ; Recently opened files
+		   recentf-mode                 ; Recently opened files
            show-paren-mode))            ; Highlight matching parentheses
   (funcall mode 1))
 
@@ -82,9 +83,8 @@
   :ensure t
   :config
   (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'latte) ;; 'latte, 'frappe, 'macchiato, or 'mocha)
+  (setq catppuccin-flavor 'macchiato) ;; 'latte, 'frappe, 'macchiato, or 'mocha)
   (catppuccin-reload))
-
 
 ;; Multiple Cursors
 (use-package multiple-cursors
@@ -108,19 +108,7 @@
 
 ;; ----=[ EXPERIMENTAL PACKAGES ]=----
 
-;; TODO: Make them your own
-(use-package windmove
-  :ensure nil
-  :bind (:map custom-bindings-map
-              ("M-˙" . windmove-left)
-              ("M-∆" . windmove-down)
-              ("M-˚" . windmove-up)
-              ("M-¬" . windmove-right)
-
-              ("M-ó" . windmove-swap-states-left)
-              ("M-ô" . windmove-swap-states-down)
-              ("M-" . windmove-swap-states-up)
-              ("M-ò" . windmove-swap-states-right)))
+;; TODO: Add windmove
 
 ;; Enrich existing commands with completion annotations
 (use-package marginalia
@@ -154,6 +142,7 @@
 
 
 ;; ----=[ Modes ]=----
+;; Nix Mode
 (use-package nix-mode
   :mode ("\\.nix\\'" "\\.nix.in\\'"))
 (use-package nix-drv-mode

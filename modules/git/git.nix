@@ -11,6 +11,9 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+    ignores = [
+      ".DS_Store"
+    ];
     aliases = {
       co = "checkout";
       ec = "config --global -e";

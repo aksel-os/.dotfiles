@@ -18,6 +18,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    
     # Project/ Package manager for python
     poetry2nix.url = "github:nix-community/poetry2nix";
   };

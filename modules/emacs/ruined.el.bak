@@ -1,13 +1,17 @@
 ;;; -*- lexical-binding: t -*-
 
 ;; ----=[ DEFAULTS ]=----
-(setq inhibit-splash-screen t       ; Removes splash screen
-	  default-input-method "TeX"    ; Dont really know
-	  echo-keystrokes 0.1           ; Dont really know
-	  use-short-answers t           ; Allows you to type y/n instead fo yes/no
-	  scroll-margin 1               ; Space between cursor and top/ bottom
-	  ring-bell-function 'ignore    ; No dumb alerts
-	  recentf-max-saved-items 1000)  ; Show more recent files
+(setq inhibit-splash-screen t         ; Removes splash screen
+	  default-input-method "TeX"      ; Dont really know
+	  echo-keystrokes 0.1             ; Dont really know
+	  use-short-answers t             ; Allows you to type y/n instead fo yes/no
+	  scroll-margin 1                 ; Space between cursor and top/ bottom
+	  ring-bell-function 'ignore      ; No dumb alerts
+	  recentf-max-saved-items 1000    ; Show more recent files
+	  mac-command-modifier nil
+	  mac-pass-command-to-system 't
+	  mac-right-command-modifier 'meta)
+
 
 (setq-default tab-width 4         ; Smaller tabs
               fill-column 79      ; Max line width
@@ -47,20 +51,7 @@
   (funcall mode 1))
 
 ;; ----=[ PACKAGES ]=----
-(require 'use-package)
-(setq use-package-always-ensure t)
-;;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;;(package-refresh-contents)
-;;(package-initialize)
-
-;; VERTical Interactive COmpletion
-(use-package vertico
-  :ensure t
-  :config
-  (setq vertico-count 25)
-  (vertico-mode 1))
-
-;; Save minibuffer history
+(require 'use-package);; Save minibuffer history
 (use-package savehist
   :config
   (savehist-mode 1))
@@ -82,9 +73,8 @@
   :ensure t
   :config
   (load-theme 'catppuccin :no-confirm)
-  (setq catppuccin-flavor 'latte) ;; 'latte, 'frappe, 'macchiato, or 'mocha)
+  (setq catppuccin-flavor 'latte) ;; 'latte, 'frappe, 'macchiato, or 'mocha
   (catppuccin-reload))
-
 
 ;; Multiple Cursors
 (use-package multiple-cursors
