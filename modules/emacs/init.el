@@ -1,13 +1,15 @@
 ;;; -*- lexical-binding: t -*-
 
 ;; ----=[ DEFAULTS ]=----
-(setq inhibit-splash-screen t       ; Removes splash screen
-	  default-input-method "TeX"    ; Dont really know
-	  echo-keystrokes 0.1           ; Dont really know
-	  use-short-answers t           ; Allows you to type y/n instead fo yes/no
-	  scroll-margin 1               ; Space between cursor and top/ bottom
-	  ring-bell-function 'ignore    ; No dumb alerts
-	  recentf-max-saved-items 1000)  ; Show more recent files
+(setq inhibit-splash-screen t             ; Removes splash screen
+	  default-input-method "TeX"          ; Dont really know
+	  echo-keystrokes 0.1                 ; Dont really know
+	  use-short-answers t                 ; Allows you to type y/n instead fo yes/no
+	  scroll-margin 1                     ; Space between cursor and top/ bottom
+	  ring-bell-function 'ignore          ; No dumb alerts
+	  recentf-max-saved-items 1000        ; Show more recent files
+	  ns-alternate-modifier 'none         ; Lets option-key stay as option
+	  ns-right-alternate-modifier 'meta)  ; Sets right option-key to meta
 
 (setq-default tab-width 4         ; Smaller tabs
               fill-column 79      ; Max line width
