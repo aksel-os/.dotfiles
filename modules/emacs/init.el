@@ -13,9 +13,13 @@
 
 (setq-default tab-width 4         ; Smaller tabs
               fill-column 79      ; Max line width
-			  truncate-lines t)    ; Dont fold lines
+			  truncate-lines t)   ; Dont fold lines
 
 (set-face-attribute 'default nil :height 140)
+
+(global-unset-key (kbd "C-x C-z"))
+(global-unset-key (kbd "C-<wheel-up>"))
+(global-unset-key (kbd "C-<wheel-down>"))
 
 ;; ----=[ AUTOSAVE ]=----
 (defvar emacs-autosave-directory
@@ -87,7 +91,6 @@
   (setq catppuccin-flavor 'latte) ;; 'latte, 'frappe, 'macchiato, or 'mocha)
   (catppuccin-reload))
 
-
 ;; Multiple Cursors
 (use-package multiple-cursors
   :ensure t)
@@ -124,6 +127,7 @@
 ;;              ("M-" . windmove-swap-states-up)
 ;;              ("M-ò" . windmove-swap-states-right)))
 
+;; -=*[ Auto completion ]*=-
 ;; Enrich existing commands with completion annotations
 (use-package marginalia
   :init 
@@ -134,14 +138,45 @@
   :init
   (global-corfu-mode 1)
   (corfu-popupinfo-mode 1)
-  :config
-  (setq corfu-cycle t))
+  :custom
+  (corfu-auto t)
+  (corfu-auto-delay 0.5)
+  (corfu-cycle t))
 
 (use-package orderless
   :config
   (setq completion-styles '(orderless basic partial-completion)
         completion-category-overrides '((file (styles basic partial-completion)))
         orderless-component-separator "[ |]"))
+
+(use-package cape
+  :init
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-elisp-block)  
+  (add-hook 'completion-at-point-functions #'cape-keyword)
+  (message (format "Loading my capf extensions: %s" completion-at-point-functions)))
+
+;; Minor mode for a nice writing environment
+(use-package olivetti
+  :defer t
+;;  :bind (:map custom-bindings-map ("C-c o" . olivetti-mode))
+  :config
+  (setq-default olivetti-body-width (+ fill-column 3)))
+
+;; Emacs support library for PDF files
+(use-package pdf-tools
+  :defer t
+  :mode "\\.pdf\\'"
+  :bind (:map pdf-view-mode-map
+              ("c" . (lambda ()
+                       (interactive)
+                       (if header-line-format
+                           (setq header-line-format nil))))
+              ("j" . pdf-view-next-line-or-next-page)
+              ("k" . pdf-view-previous-line-or-previous-page))
+  :init (pdf-loader-install)
+  :config (add-to-list 'revert-without-query ".pdf"))
 
 ;; display the definition of word at point
 ;;(use-package define-word

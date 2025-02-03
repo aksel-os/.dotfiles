@@ -23,9 +23,14 @@ let
     move-text
     org-appear
     org-fragtog
+    olivetti
+    pdf-tools
+    cape
   ]);
 
 in {
+#  services.emacs.enable = true;
+  
   programs.emacs = { 
     enable = true;
     package = bs-emacs-with-packages;
