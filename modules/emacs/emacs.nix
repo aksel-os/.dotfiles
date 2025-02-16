@@ -1,41 +1,19 @@
-{ config, pkgs, ...}:
+{ config, pkgs, inputs, ...}:
 
-let
-  bs-emacs = pkgs.emacs30.override {
-    withNativeCompilation = true;
-    withTreeSitter = true;
-  };
-  bs-emacs-with-packages = (pkgs.emacsPackagesFor bs-emacs).emacsWithPackages (epkgs: with epkgs; [
-    vertico
-    consult
-    corfu
-    cape
-    orderless
-    which-key
-    doom-modeline
-    magit
-    diff-hl
-    hl-todo
-    multiple-cursors
-    marginalia
-    nix-mode
-    define-word
-    catppuccin-theme
-    move-text
-    pdf-tools
-    org-modern
-    org-appear
-    org-fragtog
-    olivetti
-    vterm
-  ]);
+{
+  #  services.emacs.enable = true;
 
-in {
-#  services.emacs.enable = true;
+  nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   
-  programs.emacs = { 
+  programs.emacs =  { 
     enable = true;
-    package = bs-emacs-with-packages;
-    extraConfig = builtins.readFile ./init.el; 
+    package = (pkgs.emacsWithPackagesFromUsePackage {
+      # config = "github:aksel-os/.emacs.d/init.org";
+      config = "init.org";
+      package = pkgs.emacs-git;
+      defaultInitFile = true;
+      alwaysEnsure = true;
+      alwaysTangle = true;
+    });
   };
 }

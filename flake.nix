@@ -1,22 +1,20 @@
 {
-
   description = "Hubble Flake";
 
   inputs = {
-    # Package library
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
-    # Manages macOS like nixOS
     nix-darwin = {
       url = "github:LnL7/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Manages all host side applications
+    
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    flake-utils.url = "github:numtide/flake-utils";
 
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     
@@ -24,7 +22,7 @@
     poetry2nix.url = "github:nix-community/poetry2nix";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }:
+  outputs = { self, nix-darwin, nixpkgs, home-manager, emacs-overlay, ... }@inputs:
     let
       #--=[ SYSTEM SETTINGS ]=--#
       systemSettings = {
@@ -47,29 +45,32 @@
       # pkgs
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-      
+
     in {
       darwinConfigurations = {
         ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
           system = systemSettings.system;
-	        specialArgs = { inherit inputs;
-                          inherit systemSettings;
-                          inherit userSettings;
-                        };
-          modules = [
-	          ./hosts/${userSettings.user}/configuration.nix
-	        ];
+          
+          modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+          
+	        specialArgs = {
+            inherit inputs;
+            inherit systemSettings;
+            inherit userSettings;
+          };          
 	      };
       };
+      
       homeConfigurations = {
         ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            ./hosts/${userSettings.user}/home.nix
-          ];
+            
+          modules = [ ./hosts/${userSettings.user}/home.nix ];
+
           extraSpecialArgs = {
             inherit userSettings;
-          };
+            inherit inputs;            
+          };            
         };
       };
     };
