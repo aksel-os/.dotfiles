@@ -8,24 +8,26 @@ let
   bs-emacs-with-packages = (pkgs.emacsPackagesFor bs-emacs).emacsWithPackages (epkgs: with epkgs; [
     vertico
     consult
+    corfu
+    cape
+    orderless
     which-key
     doom-modeline
     magit
     diff-hl
+    hl-todo
     multiple-cursors
-    org-modern
     marginalia
     nix-mode
-    corfu
-    orderless
     define-word
     catppuccin-theme
     move-text
+    pdf-tools
+    org-modern
     org-appear
     org-fragtog
     olivetti
-    pdf-tools
-    cape
+    vterm
   ]);
 
 in {
