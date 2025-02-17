@@ -47,19 +47,17 @@
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
 
     in {
-      darwinConfigurations = {
-        ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
-          system = systemSettings.system;
+      darwinConfigurations.${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
+        system = systemSettings.system;
           
-          modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+        modules = [ ./hosts/${userSettings.user}/configuration.nix ];
           
-	        specialArgs = {
-            inherit inputs;
-            inherit systemSettings;
-            inherit userSettings;
-          };          
-	      };
-      };
+	      specialArgs = {
+          inherit inputs;
+          inherit systemSettings;
+          inherit userSettings;
+        };          
+	    };    
       
       homeConfigurations = {
         ${userSettings.user} = home-manager.lib.homeManagerConfiguration {

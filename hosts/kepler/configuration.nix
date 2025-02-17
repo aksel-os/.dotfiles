@@ -23,6 +23,8 @@
   # Nix-darwin/ System settings
   time.timeZone = systemSettings.timezone;
 
+  fonts.packages = import ../../moduels/fonts/fonts.nix { inherit pkgs; };
+  
   system = {
     keyboard = {
       enableKeyMapping = true;
