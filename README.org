@@ -1,0 +1,35 @@
+#+title: Muh Dotfiles
+#+author: Aksel Olav Steen
+#+options: toc:nil
+
+* Steps to install
+
+1. Install Nix
+#+begin_src sh
+sh <(curl -L https://nixos.org/nix/install)
+#+end_src
+
+2. Clone this repo
+#+begin_src sh
+git clone --recurse-submodules https://github.com/aksel-os/.dotfiles.git    
+#+end_src
+
+=--recurse-submodules= will also clone my emacs repo.
+
+3. Build the flake
+#+begin_src sh
+cd ~/.dotfiles/
+nix build . --extra-experimental-features nix-command flakes    
+#+end_src
+   
+* Updating
+
+After making any changes to the user level modules, run
+#+begin_src sh
+home-rebuild
+#+end_src
+
+Changes at the system level will require you to run
+#+begin_src sh
+darwin-rebuilder
+#+end_src
