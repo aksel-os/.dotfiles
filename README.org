@@ -4,22 +4,22 @@
 
 * Steps to install
 
-1. Install Nix
-#+begin_src sh
-sh <(curl -L https://nixos.org/nix/install)
-#+end_src
+  1. Install Nix
+    #+begin_src sh
+    sh <(curl -L https://nixos.org/nix/install)
+    #+end_src
 
-2. Clone this repo
-#+begin_src sh
-git clone --recurse-submodules https://github.com/aksel-os/.dotfiles.git    
-#+end_src
+  2. Clone this repo
+    #+begin_src sh
+    git clone --recurse-submodules https://github.com/aksel-os/.dotfiles.git    
+    #+end_src
 
 =--recurse-submodules= will also clone my emacs repo.
 
-3. Build the flake
-#+begin_src sh
-cd ~/.dotfiles/
-nix build . --extra-experimental-features nix-command flakes    
+  3. Build the flake
+    #+begin_src sh
+    cd ~/.dotfiles/
+    nix build . --extra-experimental-features nix-command flakes    
 #+end_src
    
 * Updating
