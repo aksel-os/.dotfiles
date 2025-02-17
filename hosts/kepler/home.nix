@@ -15,6 +15,7 @@
 
     # Text editor
     ../../modules/emacs/emacs.nix
+    ../../modules/cmake/cmake.nix
 
     # Programming languages
     ../../modules/dev/python.nix
