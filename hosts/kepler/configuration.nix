@@ -1,4 +1,4 @@
-{ config, pkgs, lib, userSettings, systemSettings, ...}:
+{ pkgs, lib, inputs, userSettings, systemSettings, ...}:
 {
 
   imports = [
@@ -17,13 +17,13 @@
     # };
     extraOptions = ''
       experimental-features = nix-command flakes
-    '';
+    '';    
   };
 
   # Nix-darwin/ System settings
-  time.timeZone = systemSettings.timezone;
-
-  fonts.packages = import ../../moduels/fonts/fonts.nix { inherit pkgs; };
+  time.timeZone = systemSettings.timezone; 
+  
+  fonts.packages = import ../../modules/fonts/fonts.nix { inherit pkgs; };
   
   system = {
     keyboard = {
@@ -41,8 +41,9 @@
         persistent-apps = [
           "/Applications/Arc.app"
           "/Applications/Discord.app"
-          "${pkgs.kitty}/Applications/kitty.app"
           "/Applications/Spotify.app"
+          "${pkgs.kitty}/Applications/kitty.app"
+          "${pkgs.emacs}/Applications/Emacs.app"
         ];
       };
 

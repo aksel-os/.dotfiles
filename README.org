@@ -18,11 +18,9 @@
 
   3. Build the flake
     #+begin_src sh
-    cd ~/.dotfiles/
-    nix build .#darwinConfigurations.Hubble.system
---extra-experimental-features "nix-command flakes"    
-#+end_src
-   
+    cd ~/.dotfiles/nix build .#darwinConfigurations.Hubble.system --extra-experimental-features "nix-command flakes"
+    ./result/sw/bin/darwin-rebuild switch --flake .#Hubble
+    #+end_src
 * Updating
 
 After making any changes to the user level modules, run

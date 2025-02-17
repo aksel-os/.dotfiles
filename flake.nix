@@ -14,12 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flake-utils.url = "github:numtide/flake-utils";
-
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
-    
-    # Project/ Package manager for python
-    poetry2nix.url = "github:nix-community/poetry2nix";
+    emacs-overlay.url = "github:nix-community/emacs-overlay";    
   };
 
   outputs = { self, nix-darwin, nixpkgs, home-manager, emacs-overlay, ... }@inputs:
@@ -45,7 +40,7 @@
       # pkgs
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-
+      
     in {
       darwinConfigurations.${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
         system = systemSettings.system;

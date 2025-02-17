@@ -3,7 +3,8 @@
 let
   myAliases = {
     nix-fix = "/nix/nix-installer repair";
-    home-rebuild = "home-manager switch --flake ~/.dotfiles/";
+    home-rebuilder = "home-manager switch --flake ~/.dotfiles/";
+    darwin-rebuilder = "darwin-rebuild switch --flake ~/.dotfiles/";
 
     cat = "bat --paging=never --style=plain";
     ls = "eza --icons -l -T -L=1";
