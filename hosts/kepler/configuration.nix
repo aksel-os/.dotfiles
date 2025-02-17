@@ -42,8 +42,8 @@
           "/Applications/Arc.app"
           "/Applications/Discord.app"
           "/Applications/Spotify.app"
-          "${pkgs.kitty}/Applications/kitty.app"
-          "${pkgs.emacs}/Applications/Emacs.app"
+          # "${pkgs.kitty}/Applications/kitty.app" 
+          # "${pkgs.emacs}/Applications/Emacs.app"
         ];
       };
 

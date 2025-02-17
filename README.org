@@ -1,3 +1,4 @@
+
 #+title: Muh Dotfiles
 #+author: Aksel Olav Steen
 #+options: toc:nil
@@ -26,7 +27,7 @@
 
 After making any changes to the user level modules, run
 #+begin_src sh
-home-rebuild
+home-rebuilder
 #+end_src
 
 Changes at the system level will require you to run
