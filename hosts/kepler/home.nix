@@ -15,6 +15,7 @@
 
     # Text editor
     ../../modules/emacs/emacs.nix
+    ../../modules/emacs/libtool.nix
     ../../modules/cmake/cmake.nix
 
     # Programming languages
