@@ -15,6 +15,7 @@
       alwaysTangle = true;
       extraEmacsPackages = epkgs: [            
         epkgs.jinx
+        epkgs.vterm
       ];
     });
   };

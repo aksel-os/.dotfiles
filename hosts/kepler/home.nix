@@ -14,8 +14,8 @@
     ../../modules/shell/oh-my-posh/oh-my-posh.nix # My omp config
 
     # Text editor
-    ../../modules/emacs/emacs.nix
-    ../../modules/emacs/libtool.nix
+    ../../modules/emacs/emacs.nix   
+    
     ../../modules/cmake/cmake.nix
 
     # Programming languages
