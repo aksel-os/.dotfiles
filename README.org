@@ -14,7 +14,7 @@
     git clone --recurse-submodules https://github.com/aksel-os/.dotfiles.git    
     #+end_src
 
-=--recurse-submodules= will also clone my emacs repo.
+    =--recurse-submodules= will also clone my emacs repo.
 
   3. Build the flake
     #+begin_src sh
