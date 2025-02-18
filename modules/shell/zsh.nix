@@ -2,7 +2,7 @@
 
 let
   myAliases = {
-    emacs = "emacsclient -ca 'emacs'";
+    # emacs = "emacsclient -ca 'emacs'";
     em = "emacs -nw";
     
     nix-fix = "/nix/nix-installer repair";
