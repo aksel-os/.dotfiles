@@ -14,10 +14,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";    
+    emacs-overlay.url = "github:nix-community/emacs-overlay";
+
+    emacs-config = {
+      url = "github:aksel-os/.emacs.d";
+      flake = false;
+    };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, emacs-overlay, ... }@inputs:
+  outputs = { self, nix-darwin, nixpkgs, home-manager, emacs-overlay, emacs-config, ... }@inputs:
     let
       #--=[ SYSTEM SETTINGS ]=--#
       systemSettings = {

@@ -1,14 +1,14 @@
 { config, pkgs, inputs, ...}:
 
 {
-  #  services.emacs.enable = true;
+  # services.emacs.enable = true;
 
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   
   programs.emacs =  { 
     enable = true;
     package = (pkgs.emacsWithPackagesFromUsePackage {
-      config = "./init.org";     
+      config = "${inputs.emacs-config}/init.org";     
       package = pkgs.emacs-git;
       defaultInitFile = true;
       alwaysEnsure = true;

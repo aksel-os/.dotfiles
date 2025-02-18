@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "emacs-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739908659,
+        "narHash": "sha256-3zwC0Cynbw7ELgRTgRUl/xO0GObg4VGsSOAnpgbic8Y=",
+        "owner": "aksel-os",
+        "repo": ".emacs.d",
+        "rev": "f7512d9b22a73641170c28bdc45960c2f5093862",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aksel-os",
+        "repo": ".emacs.d",
+        "type": "github"
+      }
+    },
     "emacs-overlay": {
       "inputs": {
         "nixpkgs": "nixpkgs",
@@ -111,6 +127,7 @@
     },
     "root": {
       "inputs": {
+        "emacs-config": "emacs-config",
         "emacs-overlay": "emacs-overlay",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",

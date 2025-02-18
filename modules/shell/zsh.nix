@@ -2,6 +2,9 @@
 
 let
   myAliases = {
+    emacs = "emacsclient -ca 'emacs'";
+    em = "emacs -nw";
+    
     nix-fix = "/nix/nix-installer repair";
     home-rebuilder = "home-manager switch --flake ~/.dotfiles/";
     darwin-rebuilder = "darwin-rebuild switch --flake ~/.dotfiles/";
@@ -18,11 +21,7 @@ let
 
     javacc = "javac *.java";
     javacleaner = "rm *.class";
-
-    in1000 = "cd ~/uio/semester_1/in1000//";
-    in1020 = "cd ~/uio/semester_1/in1020/";
-    in1140 = "cd ~/uio/semester_1/in1140/";
-
+    
     hawk = "git";
   };
 
