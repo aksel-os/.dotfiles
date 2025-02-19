@@ -1,11 +1,9 @@
-{ config, pkgs, userSettings, ... }:
+{ config, pkgs, ... }:
 
 {
-
-  home.packages = [ pkgs.texlive ];
-    programs.texlive = {
-      enable = true
-    };
+  home.packages = [ pkgs.texlive.combined.scheme-medium ];
+  
+  programs.texlive = {
+    enable = true;    
   };
-
 }

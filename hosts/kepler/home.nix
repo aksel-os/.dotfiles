@@ -9,12 +9,13 @@
 
   imports = [
     # Terminal ++
-    ../../modules/terminal/${userSettings.term}.nix # My terminal config
+    ../../modules/apps/term/${userSettings.term}.nix # My terminal config
     ../../modules/shell/zsh.nix # My zsh config
-    ../../modules/shell/oh-my-posh/oh-my-posh.nix # My omp config
+    ../../modules/shell/oh-my-posh.nix # My omp config
 
     # Text editor
-    ../../modules/emacs/emacs.nix   
+    ../../modules/editors/emacs.nix
+    # ../../modules/latex/latex.nix
     
     ../../modules/cmake/cmake.nix
 
@@ -22,7 +23,7 @@
     ../../modules/dev/python.nix
 
     # Misc
-    ../../modules/git/git.nix # My git config
+    ../../modules/shell/git.nix # My git config
   ];
   
   # Let Home Manager install and manage itself.
