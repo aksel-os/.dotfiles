@@ -8,7 +8,8 @@
   programs.emacs =  { 
     enable = true;
     package = (pkgs.emacsWithPackagesFromUsePackage {
-      config = "${inputs.emacs-config}/init.org";     
+      # config = "${inputs.emacs-config}/init.org";
+      config = "~/.emacs.d/init.org";
       package = pkgs.emacs-git;
       defaultInitFile = true;
       alwaysEnsure = true;
