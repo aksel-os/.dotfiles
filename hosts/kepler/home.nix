@@ -9,7 +9,7 @@
 
   imports = [
     # Terminal ++
-    ../../modules/apps/term/${userSettings.term}.nix # My terminal config
+    ../../modules/desktop/term/${userSettings.term}.nix # My terminal config
     ../../modules/shell/zsh.nix # My zsh config
     ../../modules/shell/oh-my-posh.nix # My omp config
 
