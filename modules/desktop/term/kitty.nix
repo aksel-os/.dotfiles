@@ -6,9 +6,8 @@
     enable = true;
     themeFile = userSettings.theme;
 
-    font = {
-      package = pkgs.jetbrains-mono;
-      name = "jetbrains-mono";
+    font = {      
+      name = "JetBrainsMono Nerd Font Mono";
       size = 16;
     };
 
