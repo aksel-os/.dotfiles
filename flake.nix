@@ -26,15 +26,15 @@
     let
       #--=[ SYSTEM SETTINGS ]=--#
       systemSettings = {
-        system = "x86_64-linux";
-        hostname = "sinnoh";
+        system = "ARCHITECTURE";
+        hostname = "HOSTNAME";
         timezone = "Europe/Oslo";
         locale = "en_US.UTF-8";
       };
 
       # --=[ USER SETTINGS ]=-- #
       userSettings = {
-        user = "empoleon";
+        user = "USERNAME";
         name = "Aksel Steen";
         email = "akselolav@gmail.com";
         dotfilesDir = "~/.dotfiles";
@@ -53,8 +53,8 @@
         system = systemSettings.system;
           
         modules = [ ./hosts/${userSettings.user}/configuration.nix ];
-          
-	specialArgs = {
+
+        specialArgs = {
           inherit inputs;
           inherit systemSettings;
           inherit userSettings;
@@ -73,17 +73,6 @@
             inherit inputs;            
           };            
         };
-
-#        "empoleon" = home-manager.lib.homeManagerConfiguration {
-#          inherit pkgs;
-#
-#          modules = [ ./hosts/sinnoh/home.nix ];
-#
-#          extraSpecialArgs = {
-#            inherit userSettings;
-#            inherit inputs;
-#          };
-#        };
       };
     };
 }

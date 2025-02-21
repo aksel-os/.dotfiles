@@ -17,9 +17,19 @@
 
     =--recurse-submodules= will also clone my emacs repo.
 
-  3. Build the flake
+  3. cd into =.dotfiles=
+   #+begin_src sh
+   cd ~/.dotfiles/
+   #+end_src
+
+  4. Change placeholders in flake
+   #+begin_src sh
+   sed -e "s/ARCHITECTURE/your_architecture/g" -e "s/HOSTNAME/your_hostname/g" -e "s/USERNAME/your_username/g" flake.nix   
+   #+end_src
+
+  5. Build the flake
     #+begin_src sh
-    cd ~/.dotfiles/
+    
     nix build .#darwinConfigurations.Hubble.system --extra-experimental-features "nix-command flakes"
     ./result/sw/bin/darwin-rebuild switch --flake .#Hubble
     #+end_src
