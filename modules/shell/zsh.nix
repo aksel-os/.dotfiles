@@ -35,7 +35,7 @@ in {
     enable = true;
     shellAliases = myAliases;
     initExtra = ''
-      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"
+      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"      
     '';
   };
   programs.bash = {
