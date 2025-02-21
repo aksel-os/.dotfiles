@@ -26,15 +26,15 @@
     let
       #--=[ SYSTEM SETTINGS ]=--#
       systemSettings = {
-        system = "aarch64-darwin";
-        hostname = "Hubble";
+        system = "x86_64-linux";
+        hostname = "sinnoh";
         timezone = "Europe/Oslo";
         locale = "en_US.UTF-8";
       };
 
       # --=[ USER SETTINGS ]=-- #
       userSettings = {
-        user = "kepler";
+        user = "empoleon";
         name = "Aksel Steen";
         email = "akselolav@gmail.com";
         dotfilesDir = "~/.dotfiles";
@@ -44,7 +44,9 @@
 
       # pkgs
       lib = nixpkgs.lib;
-      pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+      # pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+      system = systemSettings.system;
+      pkgs = import nixpkgs { inherit system; };
       
     in {
       darwinConfigurations.${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
@@ -52,7 +54,7 @@
           
         modules = [ ./hosts/${userSettings.user}/configuration.nix ];
           
-	      specialArgs = {
+	specialArgs = {
           inherit inputs;
           inherit systemSettings;
           inherit userSettings;
@@ -63,13 +65,25 @@
         ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
             
-          modules = [ ./hosts/${userSettings.user}/home.nix ];
+          modules = [ ./hosts/${systemSettings.hostname}/home.nix ];
 
           extraSpecialArgs = {
+            inherit systemSettings;
             inherit userSettings;
             inherit inputs;            
           };            
         };
+
+#        "empoleon" = home-manager.lib.homeManagerConfiguration {
+#          inherit pkgs;
+#
+#          modules = [ ./hosts/sinnoh/home.nix ];
+#
+#          extraSpecialArgs = {
+#            inherit userSettings;
+#            inherit inputs;
+#          };
+#        };
       };
     };
 }

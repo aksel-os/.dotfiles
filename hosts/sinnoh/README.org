@@ -1,0 +1,3 @@
+#+title: Sinnoh
+
+Any system with Sinnoh as host is an Arch or Arch-adjunct system. \\
