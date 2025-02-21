@@ -1,11 +1,11 @@
-{ lib, pkgs, inputs, userSettings, systemSettings, ...}:
+{ lib, pkgs, inputs, userSettings, ...}:
 
 {
   home = {
-    username = "empoleon";
-    homeDirectory = "/home/empoleon";
+    username = userSettings.user;
+    homeDirectory = "/home/${userSettings.user}";
 
-    stateVersion = "24.05";
+    stateVersion = "24.05"; # Don't change
   };
 
   imports = [
@@ -24,5 +24,6 @@
     ../../modules/shell/git.nix
   ];
 
+  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
