@@ -24,12 +24,14 @@
 
   4. Change placeholders in flake
    #+begin_src sh
-   sed -e "s/ARCHITECTURE/your_architecture/g" -e "s/HOSTNAME/your_hostname/g" -e "s/USERNAME/your_username/g" flake.nix   
+   sed -i '' -e 's/ARCHITECTURE/your_architecture/g' -e 's/HOSTNAME/your_hostname/g' -e 's/USERNAME/your_username/g' flake.nix
    #+end_src
 
+   Note: mac requires and empty string for =-i=, if on you're on linux you should
+   remove the empty string
+
   5. Build the flake
-    #+begin_src sh
-    
+    #+begin_src sh    
     nix build .#darwinConfigurations.Hubble.system --extra-experimental-features "nix-command flakes"
     ./result/sw/bin/darwin-rebuild switch --flake .#Hubble
     #+end_src
@@ -37,7 +39,7 @@
 
 After making any changes to the user level modules, run
 #+begin_src sh
-home-rebuilder
+make home TRAINER_USER_PROFILE=username
 #+end_src
 
 Changes at the system level will require you to run
