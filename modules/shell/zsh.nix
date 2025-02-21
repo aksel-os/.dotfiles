@@ -2,7 +2,7 @@
 
 let
   myAliases = {
-    # emacs = "emacsclient -ca 'emacs'";
+    emacs = "emacsclient -ca 'emacs'";
     em = "emacs -nw";
     
     nix-fix = "/nix/nix-installer repair";
@@ -35,7 +35,7 @@ in {
     enable = true;
     shellAliases = myAliases;
     initExtra = ''
-      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"      
+      eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"
     '';
   };
   programs.bash = {
