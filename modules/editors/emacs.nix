@@ -1,7 +1,7 @@
-{ config, pkgs, inputs, ...}:
+{ config, pkgs, inputs, systemSettings, ...}:
 
 {
-  # services.emacs.enable = true;
+  services.emacs.enable = if (systemSettings.hostname == "sinnoh") then true else false;
 
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   
@@ -10,7 +10,7 @@
     package = (pkgs.emacsWithPackagesFromUsePackage {
       # config = "${inputs.emacs-config}/init.org";
       config = "~/.emacs.d/init.org";
-      package = pkgs.emacs-git;
+      package = if (systemSettings.hostname == "sinnoh") then pkgs.emacs-pgtk else pkgs.emacs-git;
       defaultInitFile = true;
       alwaysEnsure = true;
       alwaysTangle = true;
