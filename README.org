@@ -34,3 +34,6 @@ Changes at the system level will require you to run
 #+begin_src sh
 darwin-rebuilder
 #+end_src
+
+* Future plans
+Make a cli like GUIX to manage things. Inspired by librephenix and hlissner's dotfiles

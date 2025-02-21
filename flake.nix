@@ -60,15 +60,25 @@
 	    };    
       
       homeConfigurations = {
-        ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
+        "kepler" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
             
-          modules = [ ./hosts/${userSettings.user}/home.nix ];
+          modules = [ ./hosts/kepler/home.nix ];
 
           extraSpecialArgs = {
             inherit userSettings;
             inherit inputs;            
           };            
+        };
+        "empoleon" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+
+          modules = [ ./hosts/sinnoh/home.nix ];
+
+          extraSpecialArgs = {
+            inherit userSettings;
+            inherit inputs;
+          };
         };
       };
     };
