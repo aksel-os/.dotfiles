@@ -33,7 +33,7 @@
 
   5. Build the flake
     #+begin_src sh    
-    nix build .#darwinConfigurations.Hubble.system --extra-experimental-features "nix-command flakes"
+    nix build .#darwinConfigurations.kepler.system --extra-experimental-features "nix-command flakes"
     ./result/sw/bin/darwin-rebuild switch --flake .#Hubble
     #+end_src
 * Updating
