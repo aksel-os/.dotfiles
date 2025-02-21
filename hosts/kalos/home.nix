@@ -13,6 +13,7 @@
     ../../modules/desktop/term/${userSettings.term}.nix # My terminal config
     ../../modules/shell/zsh.nix # My zsh config
     ../../modules/shell/oh-my-posh.nix # My omp config
+    ../../modules/shell/direnv.nix
 
     # Text editor
     ../../modules/editors/emacs.nix
