@@ -3,6 +3,20 @@
 #+author: Aksel Olav Steen
 #+options: toc:nil
 
+* Introduction
+  This are my dotfiles, there are many like them, but these are mine. My
+  dotfiles is my best friend. It is my life. \\
+  
+  Hosts are split into 3 categories:
+  - [[./hosts/sinnoh/README.org][Sinnoh]]: Arch/Arch-like systems
+    + Usernames: Gen IV pokemon
+  - [[./hosts/kalos/README.org][Kalos]]: Darwin systems
+    * Usernames: Gen VI pokemon
+  - [[./hosts/johto/README.org][Johto]]: NixOS systems
+    * Usernames: Gen II pokemon
+
+   
+
 * Steps to install
 
   1. Install Nix

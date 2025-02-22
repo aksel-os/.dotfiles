@@ -1,0 +1,5 @@
+#+title: Johto
+Any system with Johto as host is a NixOS system.
+
+Current:
+- misdreavus
