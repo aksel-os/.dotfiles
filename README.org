@@ -63,4 +63,4 @@ make system arg=nixos or darwin
 #+end_src
 
 * Future plans
-Make a cli like GUIX to manage things. Inspired by librephenix and hlissner's dotfiles
+Make a cli like GUIX to manage things. Inspired by librephoenix and hlissner's dotfiles
