@@ -1,5 +1,5 @@
 {
-  description = "Hubble Flake";
+  description = "Muh Nix Flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -43,23 +43,39 @@
       };
 
       # pkgs
-      lib = nixpkgs.lib;
       # pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+      lib = nixpkgs.lib;
       system = systemSettings.system;
       pkgs = import nixpkgs { inherit system; };
       
     in {
-      darwinConfigurations.${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
-        system = systemSettings.system;
-          
-        modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+      nixosConfigurations = {
+        ${systemSettings.user} = lib.nixosSystem {
+          system = systemSettings.system;
 
-        specialArgs = {
-          inherit inputs;
-          inherit systemSettings;
-          inherit userSettings;
-        };          
-	    };    
+          modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+
+          specialArgs = {
+            inherit inputs;
+            inherit userSettings;
+            inherit systemSettings;
+          }
+        };
+      };
+      
+      darwinConfigurations = {
+        ${systemSettings.user} = nix-darwin.lib.darwinSystem {
+          system = systemSettings.system;
+          
+          modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+
+          specialArgs = {
+            inherit inputs;
+            inherit userSettings;
+            inherit systemSettings;
+          };
+        };
+      };    
       
       homeConfigurations = {
         ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
@@ -68,9 +84,9 @@
           modules = [ ./hosts/${systemSettings.hostname}/home.nix ];
 
           extraSpecialArgs = {
-            inherit systemSettings;
-            inherit userSettings;
             inherit inputs;            
+            inherit userSettings;
+            inherit systemSettings;
           };            
         };
       };
