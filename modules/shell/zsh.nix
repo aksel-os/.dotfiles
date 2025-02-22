@@ -38,14 +38,6 @@ in {
       eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"
       eval "$(direnv hook zsh)"
 
-      # OpenSSH
-      if [ -z "$SSH_AUTH_SOCK" ] ; then
-      eval `ssh-agent -s`
-      ssh-add ~/.ssh/github_ed25519
-      ssh-add ~/.ssh/uio_ed25519
-      fi
-      # End OpenSSH
-
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
       . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
