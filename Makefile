@@ -12,3 +12,17 @@ home-news:
 .PHONY: clean-home
 clean-home:
 	nix-collect-garbage -d
+
+.PHONY: system
+system:
+ifeq ($(arg),nixos)
+	sudo nixos-rebuild switch --flake .#{TRAINER_HOST_PROFILE}
+endif
+
+ifeq ($(arg),darwin)
+	nix run nix-darwin -- switch --flake .#{TRAINER_HOST_PROFILE}
+endif
+
+ifeq ($(arg),)
+	@echo "Please provide a valid system argument: nixos or darwin."
+endif
