@@ -59,7 +59,7 @@
             inherit inputs;
             inherit userSettings;
             inherit systemSettings;
-          }
+          };
         };
       };
       
