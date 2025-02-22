@@ -17,7 +17,7 @@
 
     # Text editor
     ../../modules/editors/emacs.nix
-    # ../../modules/latex/latex.nix
+    ../../modules/latex/latex.nix
     
     ../../modules/cmake/cmake.nix
 
