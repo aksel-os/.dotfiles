@@ -36,7 +36,7 @@
    cd ~/.dotfiles/
    #+end_src
 
-  4. Change placeholders in flake
+  4. Change placeholders in =flake.nix= and =.envrc=
    #+begin_src sh
    sed -i '' -e 's/ARCHITECTURE/your_architecture/g' -e 's/HOSTNAME/your_hostname/g' -e 's/USERNAME/your_username/g' flake.nix
    sed -i '' -e 's/USERNAME/your_username/g' -e 's/HOSTNAME/your_hostname/g' .envrc
@@ -47,8 +47,8 @@
 
   5. Build the flake
     #+begin_src sh    
-    nix build .#darwinConfigurations.kepler.system --extra-experimental-features "nix-command flakes"
-    ./result/sw/bin/darwin-rebuild switch --flake .#Hubble
+    make system arg=nixos or darwin
+    make home TRAINER_USER_PROFILE="username"
     #+end_src
 * Updating
 
