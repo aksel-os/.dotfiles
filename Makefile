@@ -16,11 +16,11 @@ clean-home:
 .PHONY: system
 system:
 ifeq ($(arg),nixos)
-	sudo nixos-rebuild switch --flake .#{TRAINER_HOST_PROFILE}
+	sudo nixos-rebuild switch --flake .#${TRAINER_HOST_PROFILE}
 endif
 
 ifeq ($(arg),darwin)
-	nix run nix-darwin -- switch --flake .#{TRAINER_HOST_PROFILE}
+	nix run nix-darwin -- switch --flake .#${TRAINER_HOST_PROFILE}
 endif
 
 ifeq ($(arg),)

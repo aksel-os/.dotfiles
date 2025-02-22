@@ -39,7 +39,7 @@
   4. Change placeholders in flake
    #+begin_src sh
    sed -i '' -e 's/ARCHITECTURE/your_architecture/g' -e 's/HOSTNAME/your_hostname/g' -e 's/USERNAME/your_username/g' flake.nix
-   sed -i '' -e 's/USERNAME/your_username/g' .envrc
+   sed -i '' -e 's/USERNAME/your_username/g' -e 's/HOSTNAME/your_hostname/g' .envrc
    #+end_src
 
    Note: mac requires and empty string for =-i=, if you're on linux you should
@@ -59,7 +59,7 @@ make home
 
 Changes at the system level will require you to run
 #+begin_src sh
-darwin-rebuilder
+make system arg=nixos or darwin
 #+end_src
 
 * Future plans
