@@ -48,7 +48,7 @@
   5. Build the flake
     #+begin_src sh    
     make system arg=nixos or darwin
-    make home TRAINER_USER_PROFILE="username"
+    make home TRAINER_USER_PROFILE="your_username"
     #+end_src
 * Updating
 
