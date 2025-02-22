@@ -50,10 +50,10 @@
       
     in {
       nixosConfigurations = {
-        ${systemSettings.user} = lib.nixosSystem {
+        ${systemSettings.hostname} = lib.nixosSystem {
           system = systemSettings.system;
 
-          modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+          modules = [ ./hosts/${systemSettings.hostname}/configuration.nix ];
 
           specialArgs = {
             inherit inputs;
@@ -64,10 +64,10 @@
       };
       
       darwinConfigurations = {
-        ${systemSettings.user} = nix-darwin.lib.darwinSystem {
+        ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
           system = systemSettings.system;
           
-          modules = [ ./hosts/${userSettings.user}/configuration.nix ];
+          modules = [ ./hosts/${systemSettings.hostname}/configuration.nix ];
 
           specialArgs = {
             inherit inputs;
