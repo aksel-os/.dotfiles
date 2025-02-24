@@ -36,7 +36,7 @@ in {
     shellAliases = myAliases;
     initExtra = ''
       eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"
-      eval "$(direnv hook zsh)"
+      # eval "$(${pkgs.direnv} hook zsh)"
 
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then

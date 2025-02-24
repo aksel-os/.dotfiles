@@ -9,14 +9,15 @@
     enable = true;
     package = (pkgs.emacsWithPackagesFromUsePackage {
       # config = "${inputs.emacs-config}/init.org";
-      config = "~/.emacs.d/init.org";
+      config = "./init.org";
       package = if (systemSettings.hostname != "kalos") then pkgs.emacs-pgtk else pkgs.emacs-git;
       defaultInitFile = true;
       alwaysEnsure = true;
       alwaysTangle = true;
-      extraEmacsPackages = epkgs: [            
-        epkgs.jinx
-        epkgs.vterm
+      extraEmacsPackages = epkgs: with epkgs; [
+        # The following packages are for some reason not downloaded from the config
+        jinx
+        vterm
       ];
     });
   };
