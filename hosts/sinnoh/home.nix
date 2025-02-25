@@ -12,9 +12,12 @@
     # Terminal ++
     ../../modules/shell/zsh.nix
     ../../modules/shell/oh-my-posh.nix
+    ../../modules/shell/direnv.nix
 
     # Editor
     ../../modules/editors/emacs.nix
+    ../../modules/latex/latex.nix
+
     ../../modules/cmake/cmake.nix
 
     # Programming languages

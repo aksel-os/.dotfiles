@@ -1,7 +1,7 @@
 { config, pkgs, inputs, systemSettings, ...}:
 
 {
-  services.emacs.enable = if (systemSettings.hostname != "kalos") then true else false;
+  # services.emacs.enable = if (systemSettings.hostname != "kalos") then true else false;
 
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   
