@@ -3,6 +3,8 @@
 let
   myAliases = {
     em = "emacs -nw";
+    vi = "emacs -nw";
+    nvim = "emacs -nw";
     
     nix-fix = "/nix/nix-installer repair";
     home-rebuilder = "home-manager switch --flake ~/.dotfiles/";

@@ -6,10 +6,10 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = ''
-      $hostname$username$directory$git_branch$git_state$git_status$fill$cmd_duration$fill$line_break$character
-      '';
+      format = "$hostname$username$directory$git_branch$git_state$git_status$fill$cmd_duration$line_break$character";
 
+      add_newline = false;
+      
       directory = {
         truncate_to_repo = true;
         truncation_length = 1;
@@ -37,18 +37,18 @@
         stashed = "≡";
       };
 
-      cmd_duration = {
-        format = "[$duration]($style)";
-        style = "yellow";
-      };
-
       fill = {
         symbol = " ";
       };
 
+      cmd_duration = {
+        format = "[$duration]($style) ";
+        style = "yellow";
+      };
+      
       character = {
-        success_symbol = "[❯](bold-cyan)";
-        error_symbol = "[❯](bold-red)";
+        success_symbol = "[](bold cyan)";
+        error_symbol = "[](bold red)";
       };
     };
   };
