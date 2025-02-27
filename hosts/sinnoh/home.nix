@@ -11,7 +11,7 @@
   imports = [
     # Terminal ++
     ../../modules/shell/zsh.nix
-    ../../modules/shell/oh-my-posh.nix
+    ../../modules/shell/starship.nix
     ../../modules/shell/direnv.nix
 
     # Editor
