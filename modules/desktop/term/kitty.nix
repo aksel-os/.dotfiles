@@ -12,6 +12,7 @@
     };
 
     settings = {
+      cursor_shape = "block";
       cursor_blink_interval = 0;
       copy_on_select = "no";
       enable_audio_bell = "no";
