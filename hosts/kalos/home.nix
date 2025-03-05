@@ -26,6 +26,7 @@
 
     # Misc
     ../../modules/shell/git.nix # My git config
+    # ../../modules/apps/zotero.nix 
   ];
   
   # Let Home Manager install and manage itself.
