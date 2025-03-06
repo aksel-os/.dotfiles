@@ -34,16 +34,17 @@
     defaults = {
       menuExtraClock.Show24Hour = true;
       menuExtraClock.ShowSeconds = false;
+      # controlcenter.BatteryShowPercentage = true;
 
       dock = {
         autohide = true;
         show-recents = false;
         persistent-apps = [
-          "/Applications/Arc.app"
+          "/Applications/Zen.app"
           "/Applications/Discord.app"
           "/Applications/Spotify.app"
           # "${pkgs.kitty}/Applications/kitty.app" 
-          # "${pkgs.emacs}/Applications/Emacs.app"
+          "${pkgs.emacs}/Applications/Emacs.app"
         ];
       };
 
