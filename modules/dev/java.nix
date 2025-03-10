@@ -2,7 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    java
     jdt-language-server
   ];
+  
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk;
+  };
 }
