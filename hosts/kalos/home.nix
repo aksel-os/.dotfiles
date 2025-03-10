@@ -23,6 +23,7 @@
 
     # Programming languages
     ../../modules/dev/python.nix
+    ../../modules/dev/java.nix
 
     # Misc
     ../../modules/shell/git.nix # My git config
