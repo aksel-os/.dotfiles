@@ -51,6 +51,6 @@ in {
   
   home.packages = with pkgs; [
     fastfetch disfetch onefetch
-    btop bat eza
+    btop bat eza wget
   ];
 }

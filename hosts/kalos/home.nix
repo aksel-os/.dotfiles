@@ -22,10 +22,8 @@
     ../../modules/cmake/cmake.nix
 
     # Programming languages
-    ../../modules/dev/python.nix
-    ../../modules/dev/java.nix
-
-    # Misc
+    ../../modules/dev
+    
     ../../modules/shell/git.nix # My git config
     # ../../modules/apps/zotero.nix 
   ];
