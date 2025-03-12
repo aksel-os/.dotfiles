@@ -10,6 +10,7 @@
     userEmail = userSettings.email;
     extraConfig = {
       init.defaultBranch = "main";
+      pull.rebase = false;
     };
     ignores = [
       ".DS_Store"

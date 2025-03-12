@@ -10,21 +10,22 @@
 
   imports = [
     # Terminal ++
-    ../../modules/desktop/term/${userSettings.term}.nix # My terminal config
+    ../../modules/desktop/term/kitty.nix # My terminal config
     ../../modules/shell/zsh.nix # My zsh config
     ../../modules/shell/starship.nix # My omp config
     ../../modules/shell/direnv.nix
+    ../../modules/shell/git.nix # My git config
 
     # Text editor
     ../../modules/editors/emacs.nix
     ../../modules/latex/latex.nix
 
     # Programming languages
+    # ../../modules/dev
     ../../modules/dev/python.nix
     ../../modules/dev/java.nix
     ../../modules/dev/c.nix
     
-    ../../modules/shell/git.nix # My git config
     # ../../modules/apps/zotero.nix 
   ];
   
