@@ -1,13 +1,8 @@
 { pkgs, lib, ... }:
 
 {
-  java = with pkgs; [
+  home.packages = with pkgs; [
     jdk
     jdt-language-server
   ];
-  
-  # programs.java = {
-  #   enable = true;
-  #   package = pkgs.jdk;
-  # };
 }

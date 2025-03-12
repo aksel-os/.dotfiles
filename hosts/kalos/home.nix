@@ -18,11 +18,11 @@
     # Text editor
     ../../modules/editors/emacs.nix
     ../../modules/latex/latex.nix
-    
-    ../../modules/cmake/cmake.nix
 
     # Programming languages
-    ../../modules/dev
+    ../../modules/dev/python.nix
+    ../../modules/dev/java.nix
+    ../../modules/dev/c.nix
     
     ../../modules/shell/git.nix # My git config
     # ../../modules/apps/zotero.nix 

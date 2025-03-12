@@ -1,10 +1,9 @@
 { pkgs, lib, ... }:
 
-with pkgs;
 {
-  c = [
+  home.packages = with pkgs; [
     gcc
     cmake
-    clang
+    # clang # Causes collision with gcc beacuse both install c++ bins (why?)
   ];
 }
