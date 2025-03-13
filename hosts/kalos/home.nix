@@ -22,6 +22,7 @@
 
     # Programming languages
     # ../../modules/dev
+    ../../modules/dev/hunspell.nix
     ../../modules/dev/python.nix
     ../../modules/dev/java.nix
     ../../modules/dev/c.nix
