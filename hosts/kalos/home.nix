@@ -18,6 +18,7 @@
 
     # Text editor
     ../../modules/editors/emacs.nix
+    ../../modules/editors/neovim.nix # Ptuey!
     ../../modules/latex/latex.nix
 
     # Programming languages
