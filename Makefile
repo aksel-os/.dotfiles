@@ -9,8 +9,8 @@ home:
 home-news:
 	home-manager news --flake .#${TRAINER_USER_PROFILE}
 
-.PHONY: clean-home
-clean-home:
+.PHONY: home-clean
+home-clean:
 	nix-collect-garbage -d
 
 .PHONY: system
