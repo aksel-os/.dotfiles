@@ -19,6 +19,7 @@ jobs:
       - name: Update the flake
       - run: nix flake update
 
+      - name: Commit and push if there are changes
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "actions: update flake.lock"
