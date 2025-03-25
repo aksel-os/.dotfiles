@@ -27,8 +27,11 @@
     ../../modules/dev/python.nix
     ../../modules/dev/java.nix
     ../../modules/dev/c.nix
-    
-    # ../../modules/apps/zotero.nix 
+
+    # Applications
+    # ../../modules/apps/
+    # ../../modules/apps/zotero.nix
+    ../../modules/apps/pandoc.nix
   ];
   
   # Let Home Manager install and manage itself.
