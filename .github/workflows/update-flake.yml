@@ -14,13 +14,13 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Install Nix
-      - uses: cachix/install-nix-action@v20
+        uses: cachix/install-nix-action@v20
 
       - name: Update the flake
-      - run: nix flake update
+        run: nix flake update
 
       - name: Commit and push if there are changes
-      - uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "actions: update flake.lock"
           branch: main
