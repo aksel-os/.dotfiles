@@ -26,15 +26,15 @@
     let
       #--=[ SYSTEM SETTINGS ]=--#
       systemSettings = {
-        system = "ARCHITECTURE";
-        hostname = "HOSTNAME";
+        system = "aarch64-darwin";
+        hostname = "kalos";
         timezone = "Europe/Oslo";
         locale = "en_US.UTF-8";
       };
 
       # --=[ USER SETTINGS ]=-- #
       userSettings = {
-        user = "USERNAME";
+        user = "kepler";
         name = "Aksel Steen";
         email = "akselolav@gmail.com";
         dotfilesDir = "~/.dotfiles";
