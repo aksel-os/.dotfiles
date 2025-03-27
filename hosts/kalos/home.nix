@@ -32,10 +32,11 @@
     # ../../modules/apps/
     ../../modules/apps/zotero.nix
     ../../modules/apps/pandoc.nix
-    ../../modules/apps/wireshark.nix
 
-    # CTF
+    # Security
+    ../../modules/apps/wireshark.nix
     ../../modules/apps/sqlmap.nix
+    ../../modules/apps/john.nix
   ];
   
   # Let Home Manager install and manage itself.
