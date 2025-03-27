@@ -18,7 +18,7 @@
 
     # Text editor
     ../../modules/editors/emacs.nix
-    # ../../modules/editors/neovim.nix # Ptuey!
+    ../../modules/editors/neovim.nix # Ptuey!
     ../../modules/latex/latex.nix
 
     # Programming languages
@@ -30,8 +30,12 @@
 
     # Applications
     # ../../modules/apps/
-    # ../../modules/apps/zotero.nix
+    ../../modules/apps/zotero.nix
     ../../modules/apps/pandoc.nix
+    ../../modules/apps/wireshark.nix
+
+    # CTF
+    ../../modules/apps/sqlmap.nix
   ];
   
   # Let Home Manager install and manage itself.

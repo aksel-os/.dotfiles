@@ -5,11 +5,10 @@
 
   ];
 
-  services.nix-daemon.enable = true;
-
   # Nix settings
   nix = {
-    package = pkgs.nixFlakes;
+    enable = true;
+    package = pkgs.nixVersions.stable;
     # gc = {
     #   automatic = true;
     #   dates = "weekly";
@@ -40,10 +39,11 @@
         autohide = true;
         show-recents = false;
         persistent-apps = [
-          "/Applications/Zen.app"
+          "/Applications/Zen Browser.app"
           "/Applications/Discord.app"
           "/Applications/Spotify.app"
-          # "${pkgs.kitty}/Applications/kitty.app" 
+          "/Applications/Microsoft Outlook.app"
+          "${pkgs.kitty}/Applications/kitty.app" 
           "${pkgs.emacs}/Applications/Emacs.app"
         ];
       };
