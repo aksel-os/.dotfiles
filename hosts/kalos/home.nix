@@ -37,6 +37,11 @@
     ../../modules/apps/wireshark.nix
     ../../modules/apps/sqlmap.nix
     ../../modules/apps/john.nix
+
+    # Virtualization
+    ../../modules/apps/vm/qemu.nix
+    ../../modules/apps/vm/libvirt.nix
+    ../../modules/apps/vm/virt-manager.nix
   ];
   
   # Let Home Manager install and manage itself.

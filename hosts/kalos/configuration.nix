@@ -8,16 +8,20 @@
   # Nix settings
   nix = {
     enable = true;
+    
     package = pkgs.nixVersions.stable;
+    
     # gc = {
     #   automatic = true;
-    #   dates = "weekly";
+    #   interval = "weekly";
     #   options = "--delete-older-than 7d";
     # };
+    
     extraOptions = ''
       experimental-features = nix-command flakes
-    '';    
+    '';
   };
+
 
   # Nix-darwin/ System settings
   time.timeZone = systemSettings.timezone; 
@@ -44,7 +48,7 @@
           "/Applications/Spotify.app"
           "/Applications/Microsoft Outlook.app"
           "${pkgs.kitty}/Applications/kitty.app" 
-          "${pkgs.emacs}/Applications/Emacs.app"
+          # "${pkgs.emacs}/Applications/Emacs.app"
         ];
       };
 
@@ -54,6 +58,12 @@
         FXPreferredViewStyle = "icnv";
       };
     };
+  };
+
+  # Use Touch ID for sudo
+  security.pam.services.sudo_local = {
+    enable = true;
+    touchIdAuth = true;
   };
 
   users.users.${userSettings.user} = {
