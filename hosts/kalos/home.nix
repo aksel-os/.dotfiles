@@ -37,6 +37,7 @@
     ../../modules/apps/wireshark.nix
     ../../modules/apps/sqlmap.nix
     ../../modules/apps/john.nix
+    ../../modules/apps/steghide.nix
 
     # Virtualization
     ../../modules/apps/vm/qemu.nix
