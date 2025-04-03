@@ -9,10 +9,6 @@ home:
 home-news:
 	home-manager news --flake .#${TRAINER_USER_PROFILE}
 
-.PHONY: home-clean
-home-clean:
-	nix-collect-garbage -d
-
 .PHONY: system
 system:
 ifeq ($(arg),nixos)
@@ -26,3 +22,7 @@ endif
 ifeq ($(arg),)
 	@echo "Please provide a valid system argument: nixos or darwin."
 endif
+
+.PHONY: clean
+clean:
+	nix-collect-garbage -d
