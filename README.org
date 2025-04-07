@@ -67,16 +67,9 @@ To update the flake.lock run the following:
 make update
 #+end_src
 
-#+HTML_HEAD: <style>
-#+HTML_HEAD: .note { border: 1px solid #ccc; background-color: #f9f9f9; padding: 10px; margin: 10px 0; }
-#+HTML_HEAD: </style>
-
-#+BEGIN_HTML
-<div class="note">
+** NOTE
 Both =system= and =home= has =update= as a dependency. To run =system= or =home=
 without =update= you should append the =-o= flag, e.g. =make -o home=. 
-</div>
-#+END_HTML
 
 * Future plans
 Make a cli like GUIX to manage things. Inspired by librephoenix and hlissner's dotfiles
