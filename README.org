@@ -67,9 +67,10 @@ To update the flake.lock run the following:
 make update
 #+end_src
 
-#+begin_src markdown
-[!NOTE] Both =system= and =home= has =update= as a dependency. To run =system= or =home=
+#+begin_note
+Both =system= and =home= has =update= as a dependency. To run =system= or =home=
 without =update= you should append the =-o= flag, e.g. =make -o home=. 
-#+end_src
+#+end_note
+
 * Future plans
 Make a cli like GUIX to manage things. Inspired by librephoenix and hlissner's dotfiles
