@@ -10,6 +10,7 @@ let
     darwin-rebuilder = "darwin-rebuild switch --flake ~/.dotfiles/";
 
     cat = "bat --paging=never --style=plain";
+    bat = "bat --paging=never --style=plain";
     ls = "eza --icons -l -T -L=1";
     tree = "eza --tree --icons";
     htop = "btop";
