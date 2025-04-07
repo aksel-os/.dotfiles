@@ -62,5 +62,13 @@ Changes at the system level will require you to run
 make system arg=nixos or darwin
 #+end_src
 
+To update the flake.lock run the following:
+#+begin_src sh
+make update
+#+end_src
+
+NOTE: Both =system= and =home= has =update= as a dependency. To run =system= or =home=
+without =update= you should append the =-o= flag, e.g. =make -o home=. 
+
 * Future plans
 Make a cli like GUIX to manage things. Inspired by librephoenix and hlissner's dotfiles
