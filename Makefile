@@ -23,6 +23,12 @@ ifeq ($(arg),)
 	@echo "Please provide a valid system argument: nixos or darwin."
 endif
 
+.PHONY: update
+update:
+	nix flake update
+
 .PHONY: clean
 clean:
 	nix-collect-garbage -d
+
+

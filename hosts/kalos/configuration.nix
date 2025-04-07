@@ -48,7 +48,7 @@
           "/Applications/Spotify.app"
           "/Applications/Microsoft Outlook.app"
           "${pkgs.kitty}/Applications/kitty.app" 
-          # "${pkgs.emacs}/Applications/Emacs.app"
+          "${pkgs.emacs}/Applications/emacs-31.0.50.app"
         ];
       };
 
