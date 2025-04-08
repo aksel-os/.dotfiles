@@ -26,7 +26,6 @@
               nix-darwin,
               nixpkgs,
               home-manager,
-              mac-app-util,
               emacs-overlay,
               emacs-config,
               ... }@inputs:
