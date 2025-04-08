@@ -14,11 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    mac-app-util = {
-      url = "github:hraban/mac-app-util";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     emacs-overlay.url = "github:nix-community/emacs-overlay";
 
     emacs-config = {
@@ -79,8 +74,7 @@
         ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
           system = systemSettings.system;
           
-          modules = [ ./hosts/${systemSettings.hostname}/configuration.nix
-                      mac-app-util.darwinModules.default ];
+          modules = [ ./hosts/${systemSettings.hostname}/configuration.nix ];
 
           specialArgs = {
             inherit inputs;
