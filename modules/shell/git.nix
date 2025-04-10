@@ -12,9 +12,13 @@
       init.defaultBranch = "main";
       pull.rebase = false;
     };
+    
     ignores = [
       ".DS_Store"
+      ".envrc"
+      ".direnv"
     ];
+    
     aliases = {
       co = "checkout";
       ec = "config --global -e";
