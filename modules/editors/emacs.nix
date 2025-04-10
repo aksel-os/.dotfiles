@@ -12,6 +12,8 @@
                 else
                   (pkgs.emacs-git).overrideAttrs (o: {
                     patches = [
+                      "${inputs.emacs-plus}/patches/emacs-31/fix-window-role.patch"
+                      "${inputs.emacs-plus}/patches/emacs-31/round-undecorated-frame.patch"
                       "${inputs.emacs-plus}/patches/emacs-31/system-appearance.patch"
                     ];
                   });

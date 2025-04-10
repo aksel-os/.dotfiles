@@ -33,6 +33,7 @@
     # ../../modules/apps/
     ../../modules/apps/zotero.nix
     ../../modules/apps/pandoc.nix
+    ../../modules/apps/qbittorrent.nix
 
     # Security
     ../../modules/apps/wireshark.nix
