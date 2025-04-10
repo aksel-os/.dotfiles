@@ -3,11 +3,11 @@
     "emacs-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1744274141,
-        "narHash": "sha256-/x4BXWTZqLGEmtfx9J8zdY//GkVtznQds+9grpxRJLU=",
+        "lastModified": 1744284160,
+        "narHash": "sha256-AyAzP5FoWlVs4gGPp2stHYEYxX73qf9JbSy9hNF4CEo=",
         "owner": "aksel-os",
         "repo": ".emacs.d",
-        "rev": "7aead1e7dccd286477e408928db9ba65706e2a9b",
+        "rev": "2fd5e45e484f0a0dbd7cdf231bec30e31b3194dd",
         "type": "github"
       },
       "original": {
@@ -22,11 +22,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1744251194,
-        "narHash": "sha256-b/Z86SyevaaPX5zC4yZsrIinYgCokNltNL5KV/1z8pQ=",
+        "lastModified": 1744276890,
+        "narHash": "sha256-S41b5ga3Qql00A5u025IL4FI5ZU7kjqGW+8Ml0O9BUM=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "8b3ca61c2811c31d90ab8d6b1b30bcd83a8be483",
+        "rev": "be75f7ec9e7d6eee5a0f98b702716b3d55e7a8a7",
         "type": "github"
       },
       "original": {
