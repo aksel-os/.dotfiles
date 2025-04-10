@@ -20,6 +20,11 @@
       url = "github:aksel-os/.emacs.d";
       flake = false;
     };
+
+    emacs-plus = {
+      url = "github:d12frosted/homebrew-emacs-plus";
+      flake = false;
+    };
   };
 
   outputs = { self,
@@ -28,6 +33,7 @@
               home-manager,
               emacs-overlay,
               emacs-config,
+              emacs-plus,
               ... }@inputs:
     let
       #--=[ SYSTEM SETTINGS ]=--#

@@ -16,7 +16,10 @@
       cursor_blink_interval = 0;
       copy_on_select = "no";
       enable_audio_bell = "no";
-      macos_option_as_alt = "right";
+      macos_option_as_alt = "left";
+      remember_window_size = "no";
+      initial_window_width = "95c";
+      initial_window_height = "25c";
     };
 
     keybindings = {

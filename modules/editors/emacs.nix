@@ -1,8 +1,6 @@
 { config, pkgs, inputs, systemSettings, ...}:
 
 {
-  # services.emacs.enable = if (systemSettings.hostname != "kalos") then true else false;
-
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   
   programs.emacs =  { 
@@ -10,14 +8,18 @@
     package = (pkgs.emacsWithPackagesFromUsePackage {
       config = "${inputs.emacs-config}/init.org";
       # config = "./init.org";
-      package = if (systemSettings.hostname != "kalos") then pkgs.emacs-pgtk else pkgs.emacs-git;
+      package = if (systemSettings.hostname != "kalos") then pkgs.emacs-pgtk
+                else
+                  (pkgs.emacs-git).overrideAttrs (o: {
+                    patches = [
+                      "${inputs.emacs-plus}/patches/emacs-31/system-appearance.patch"
+                    ];
+                  });
+      
       defaultInitFile = true;
       alwaysEnsure = true;
       alwaysTangle = true;
       extraEmacsPackages = epkgs: with epkgs; [
-        # The following packages are for some reason not downloaded from the
-        # config
-        emacsql
         jinx
         vterm
       ];

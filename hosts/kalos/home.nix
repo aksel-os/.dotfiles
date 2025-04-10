@@ -27,6 +27,7 @@
     ../../modules/dev/python.nix
     ../../modules/dev/java.nix
     ../../modules/dev/c.nix
+    ../../modules/dev/nix.nix
 
     # Applications
     # ../../modules/apps/
