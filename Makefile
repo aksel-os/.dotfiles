@@ -2,7 +2,7 @@
 # it will controll my nix with commands like this, and hopefully more
 
 .PHONY: home
-home: update
+home:
 	nix run home-manager -- switch --flake .#${TRAINER_USER_PROFILE} --show-trace
 
 .PHONY: home-news
