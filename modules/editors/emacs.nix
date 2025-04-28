@@ -9,7 +9,7 @@
       config = "${inputs.emacs-config}/init.org";
       # config = "./init.org";
       package = if (systemSettings.hostname != "kalos") then pkgs.emacs-pgtk
-                else pkgs.emacs-git;
+                else
                   (pkgs.emacs-git).overrideAttrs (o: {
                     patches = [
                       "${inputs.emacs-plus}/patches/emacs-31/fix-window-role.patch"
