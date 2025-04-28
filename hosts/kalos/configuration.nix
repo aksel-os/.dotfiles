@@ -11,11 +11,11 @@
     
     package = pkgs.nixVersions.stable;
     
-    # gc = {
-    #   automatic = true;
-    #   interval = "weekly";
-    #   options = "--delete-older-than 7d";
-    # };
+    gc = {
+      automatic = true;
+      interval = { Minute = 0; Hour = 10; Weekday = 1; };
+      options = "--delete-older-than 7d";
+    };
     
     extraOptions = ''
       experimental-features = nix-command flakes
