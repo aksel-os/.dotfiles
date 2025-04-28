@@ -22,6 +22,24 @@
     '';
   };
 
+  homebrew = {
+    enable = true;
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+      upgrade = true;
+    };
+    taps = [
+      {
+        name = "d12frosted/emacs-plus";
+        clone_target = "https://github.com/d12frosted/homebrew-emacs-plus.git";
+        force_auto_update = true;    
+      }
+    ];
+    brews = [
+      "emacs-plus@31"
+    ];
+  };
 
   # Nix-darwin/ System settings
   time.timeZone = systemSettings.timezone; 
