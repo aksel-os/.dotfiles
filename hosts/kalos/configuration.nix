@@ -37,7 +37,6 @@
       }
     ];
     brews = [
-      "emacs-plus@31"
     ];
   };
 

@@ -4,7 +4,7 @@
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
   
   programs.emacs =  { 
-    enable = false;
+    enable = true;
     package = (pkgs.emacsWithPackagesFromUsePackage {
       config = "${inputs.emacs-config}/init.org";
       # config = "./init.org";
