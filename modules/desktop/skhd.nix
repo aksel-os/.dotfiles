@@ -2,8 +2,8 @@
 
 {
   services.skhd = {
-    enable = true;
-    config = ''
+    enable = false;
+    skhdConfig = ''
       # open terminal
       cmd - return : /Users/kepler/.nix-profile/bin/kitty
       cmd - e : /Users/kepler/.nix-profile/bin/emacs-31.05.50
@@ -24,6 +24,10 @@
       cmd - 7 : yabai -m space --focus 7
       cmd - 8 : yabai -m space --focus 8  
       cmd - 9 : yabai -m space --focus 9
+
+      # move focus between displays
+      shift + cmd - up : yabai -m display --focus east
+      shoft + cmd - down : yabai -m display --focus west
 
       # move app to workspace
       shift + cmd - 1 : yabai -m window --space 1
