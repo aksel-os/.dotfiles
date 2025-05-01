@@ -1,9 +1,17 @@
-{ pkgs, lib, inputs, userSettings, systemSettings, ...}:
+{ pkgs, userSettings, systemSettings, ...}:
+
 {
-
   imports = [
-
+    ../../modules/desktop/yabai.nix
+    ../../modules/desktop/skhd.nix
   ];
+
+  environment = {
+    variables = {
+      EDITOR = "emacs";
+      VISUAL = "emacs";
+    };
+  };
 
   # Nix settings
   nix = {
