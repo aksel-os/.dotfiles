@@ -13,7 +13,7 @@
       force_tty = false;
       vim_keys = true;
 
-      update_ms = 2000;
+      update_ms = 100; 
 
       graph_symbol = "braille"; # choose between braille, block or tty
       shown_boxes = "cpu mem net proc";
