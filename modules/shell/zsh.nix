@@ -45,13 +45,14 @@ in {
       # End Nix
     '';
   };
+  
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
   };
   
   home.packages = with pkgs; [
-    fastfetch disfetch onefetch
+    disfetch onefetch
     bat eza wget
   ];
 }
