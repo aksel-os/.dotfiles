@@ -15,6 +15,8 @@
     ../../modules/shell/starship.nix # My omp config
     ../../modules/shell/direnv.nix
     ../../modules/shell/git.nix # My git config
+    ../../modules/shell/btop.nix
+    ../../modules/shell/fastfetch.nix
 
     # Text editor
     ../../modules/editors/emacs.nix
