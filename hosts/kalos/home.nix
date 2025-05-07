@@ -30,6 +30,7 @@
     ../../modules/dev/java.nix
     ../../modules/dev/c.nix
     ../../modules/dev/nix.nix
+    ../../modules/dev/html.nix
 
     # Applications
     # ../../modules/apps/
