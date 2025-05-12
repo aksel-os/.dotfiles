@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # NB!!! the terminal command is "tshark" not "wireshark"

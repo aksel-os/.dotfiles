@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, systemSettings, ...}:
+{ pkgs, inputs, systemSettings, ...}:
 
 {
   nixpkgs.overlays = [ (import inputs.emacs-overlay) ];

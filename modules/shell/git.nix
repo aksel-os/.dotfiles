@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, ... }:
+{ pkgs, ... }:
 
 {
 
@@ -6,8 +6,8 @@
 
   programs.git = {
     enable = true;
-    userName = userSettings.name;
-    userEmail = userSettings.email;
+    userName = "Aksel O. Steen";
+    userEmail = "akselolav@akselos.com";
     extraConfig = {
       init.defaultBranch = "main";
       pull.rebase = false;

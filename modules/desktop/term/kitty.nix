@@ -1,10 +1,10 @@
-{ config, pkgs, userSettings, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = [ pkgs.kitty ];
   programs.kitty = {
     enable = true;
-    themeFile = userSettings.theme;
+    themeFile = "catppuccin-mocha";
 
     font = {      
       name = "JetBrainsMono Nerd Font Mono";

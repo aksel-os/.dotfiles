@@ -24,6 +24,19 @@
       repo = "flake-parts";
     };
 
+    agenix = {
+      type = "github";
+      owner = "ryantm";
+      repo = "agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    homebrew = {
+      type = "github";
+      owner = "zhaofengli";
+      repo = "nix-homebrew";
+    };
+
     emacs-overlay = {
       type = "github";
       owner = "nix-community";
@@ -46,9 +59,12 @@
   };
 
   outputs = { self,
-              darwin,
               nixpkgs,
+              darwin,
               home-manager,
+              flake-parts,
+              agenix,
+              homebrew,
               emacs-overlay,
               emacs-config,
               emacs-plus,
@@ -65,11 +81,6 @@
       # --=[ USER SETTINGS ]=-- #
       userSettings = {
         user = "kepler";
-        name = "Aksel Steen";
-        email = "akselolav@gmail.com";
-        dotfilesDir = "~/.dotfiles";
-        theme = "Catppuccin-Mocha";
-        term = "kitty";
       };
 
       # pkgs
