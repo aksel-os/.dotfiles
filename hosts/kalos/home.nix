@@ -11,12 +11,7 @@
   imports = [
     # Terminal ++
     ../../modules/desktop/term/kitty.nix # My terminal config
-    ../../modules/shell/zsh.nix # My zsh config
-    ../../modules/shell/starship.nix # My omp config
-    ../../modules/shell/direnv.nix
-    ../../modules/shell/git.nix # My git config
-    ../../modules/shell/btop.nix
-    ../../modules/shell/fastfetch.nix
+    ../../modules/shell
 
     # Text editor
     ../../modules/editors/emacs.nix
@@ -26,11 +21,7 @@
     # Programming languages
     # ../../modules/dev
     ../../modules/dev/hunspell.nix
-    ../../modules/dev/python.nix
-    ../../modules/dev/java.nix
-    ../../modules/dev/c.nix
-    ../../modules/dev/nix.nix
-    ../../modules/dev/html.nix
+    ../../modules/dev
 
     # Applications
     # ../../modules/apps/
