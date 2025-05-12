@@ -14,9 +14,7 @@
     ../../modules/shell
 
     # Text editor
-    ../../modules/editors/emacs.nix
-    ../../modules/editors/neovim.nix # Ptuey!
-    ../../modules/latex/latex.nix
+    ../../modules/editors
 
     # Programming languages
     # ../../modules/dev

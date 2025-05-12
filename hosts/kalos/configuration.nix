@@ -51,7 +51,7 @@
   # Nix-darwin/ System settings
   time.timeZone = systemSettings.timezone; 
   
-  fonts.packages = import ../../modules/fonts/fonts.nix { inherit pkgs; };
+  fonts.packages = import ../../modules/system/fonts.nix { inherit pkgs; };
   
   system = {
     keyboard = {
