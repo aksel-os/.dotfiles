@@ -1,6 +1,24 @@
+flake := justfile_directory()
+rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
+
 [private]
 default:
-    @just --list --unsorted
+    @just --list # --unsorted
+
+[group('rebuild')]
+[private]
+builder goal *args:
+    nh {{ if os() == "macos" { "darwin" } else { "os" } }} {{ goal }} --hostname $(hostname) {{ args }}
+
+[group('rebuild')]
+switch *args: (builder "switch" args)
+
+[group('rebuild')]
+[macos] # Only avaliable for macos
+provision host:
+    nix run github:nix-darwin/nix-darwin -- switch --flake {{ flake }}#$(hostname)
+    sudo -i nix-env --uninstall nix
+
 
 [group('dev')]
 update *input:
