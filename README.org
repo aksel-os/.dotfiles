@@ -18,7 +18,6 @@
    
 
 * Steps to install
-
   1. Install Nix
     #+begin_src sh
     sh <(curl -L https://nixos.org/nix/install)
@@ -36,40 +35,30 @@
    cd ~/.dotfiles/
    #+end_src
 
-  4. Change placeholders in =flake.nix= and =.envrc=
-   #+begin_src sh
-   sed -i '' -e 's/ARCHITECTURE/your_architecture/g' -e 's/HOSTNAME/your_hostname/g' -e 's/USERNAME/your_username/g' flake.nix
-   sed -i '' -e 's/USERNAME/your_username/g' -e 's/HOSTNAME/your_hostname/g' .envrc
-   #+end_src
+  4. Build the flake
+    #+begin_src sh
+    nix develop
 
-   Note: mac requires and empty string for =-i=, if you're on linux you should
-   remove the empty string
+    # mac
+    just provision
 
-  5. Build the flake
-    #+begin_src sh    
-    make system arg=nixos or darwin
-    make home TRAINER_USER_PROFILE="your_username"
+    # linux
+    just switch .    
     #+end_src
+
+    
 * Updating
-
-After making any changes to the user level modules, run
+  To apply changes made to the =./modules= or =./hosts=, run the following:
 #+begin_src sh
-make home
+just switch .
 #+end_src
 
-Changes at the system level will require you to run
+  To update the flake.lock run the following:
 #+begin_src sh
-make system arg=nixos or darwin
+just update
+
+# or
+
+just update <pkg>
 #+end_src
 
-To update the flake.lock run the following:
-#+begin_src sh
-make update
-#+end_src
-
-** NOTE
-Both =system= and =home= has =update= as a dependency. To run =system= or =home=
-without =update= you should append the =-o= flag, e.g. =make -o home=. 
-
-* Future plans
-Make a cli like GUIX to manage things. Inspired by librephoenix and hlissner's dotfiles
