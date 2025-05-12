@@ -25,8 +25,12 @@ endif
 
 .PHONY: update
 update:
-	nix flake update
+	nix flake update \
+		--refresh \
+		--commit-lock-file \
+		--commit-lockfile-summary "chore: update all inputs" \
 
 .PHONY: clean
 clean:
-	nix-collect-garbage -d
+	nix-collect-garbage --delete-older-than 3d
+	nix store optimise

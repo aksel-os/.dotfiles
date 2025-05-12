@@ -36,9 +36,7 @@
     ../../modules/apps/steghide.nix
 
     # Virtualization
-    ../../modules/apps/vm/qemu.nix
-    ../../modules/apps/vm/libvirt.nix
-    ../../modules/apps/vm/virt-manager.nix
+    ../../modules/apps/vm
   ];
   
   # Let Home Manager install and manage itself.

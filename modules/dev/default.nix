@@ -1,5 +1,6 @@
 {
   imports = [
+    ./just.nix
     ./nix.nix
     ./python.nix
     ./java.nix

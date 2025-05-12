@@ -1,5 +1,7 @@
-{ pkgs, lib, ... }:
-
 {
-  import qemu.nix;
+  imports = [
+    ./qemu.nix
+    ./libvirt.nix
+    ./virt-manager.nix
+  ];
 }
