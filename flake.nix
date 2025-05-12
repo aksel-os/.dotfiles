@@ -4,31 +4,49 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
+    darwin = {
+      type = "github";
+      owner = "nix-darwin";
+      repo = "nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
+    }; 
+
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      type = "github";
+      owner = "nix-community";
+      repo = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    flake-parts = {
+      type = "github";
+      owner = "hercules-ci";
+      repo = "flake-parts";
+    };
+
+    emacs-overlay = {
+      type = "github";
+      owner = "nix-community";
+      repo = "emacs-overlay";
+    };
 
     emacs-config = {
-      url = "github:aksel-os/.emacs.d";
+      type = "github";
+      owner = "aksel-os";
+      repo = ".emacs.d";
       flake = false;
     };
 
     emacs-plus = {
-      url = "github:d12frosted/homebrew-emacs-plus";
+      type = "github";
+      owner = "d12frosted";
+      repo = "homebrew-emacs-plus";
       flake = false;
     };
   };
 
   outputs = { self,
-              nix-darwin,
+              darwin,
               nixpkgs,
               home-manager,
               emacs-overlay,
@@ -76,7 +94,7 @@
       };
       
       darwinConfigurations = {
-        ${systemSettings.hostname} = nix-darwin.lib.darwinSystem {
+        ${systemSettings.hostname} = darwin.lib.darwinSystem {
           system = systemSettings.system;
           
           modules = [ ./hosts/${systemSettings.hostname}/configuration.nix ];
