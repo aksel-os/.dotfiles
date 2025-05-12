@@ -1,6 +1,9 @@
 {
   description = "Muh Nix Flake";
 
+  outputs =
+    inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./modules/flake-parts ]; };
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
@@ -22,6 +25,13 @@
       type = "github";
       owner = "hercules-ci";
       repo = "flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
+    systems = {
+      type = "github";
+      owner = "nix-systems";
+      repo = "default";
     };
 
     agenix = {
@@ -57,79 +67,4 @@
       flake = false;
     };
   };
-
-  outputs = { self,
-              nixpkgs,
-              darwin,
-              home-manager,
-              flake-parts,
-              agenix,
-              homebrew,
-              emacs-overlay,
-              emacs-config,
-              emacs-plus,
-              ... }@inputs:
-    let
-      #--=[ SYSTEM SETTINGS ]=--#
-      systemSettings = {
-        system = "aarch64-darwin";
-        hostname = "kalos";
-        timezone = "Europe/Oslo";
-        locale = "en_US.UTF-8";
-      };
-
-      # --=[ USER SETTINGS ]=-- #
-      userSettings = {
-        user = "kepler";
-      };
-
-      # pkgs
-      # pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-      lib = nixpkgs.lib;
-      system = systemSettings.system;
-      pkgs = import nixpkgs { inherit system; };
-      
-    in {
-      nixosConfigurations = {
-        ${systemSettings.hostname} = lib.nixosSystem {
-          system = systemSettings.system;
-
-          modules = [ ./hosts/${systemSettings.hostname}/configuration.nix ];
-
-          specialArgs = {
-            inherit inputs;
-            inherit userSettings;
-            inherit systemSettings;
-          };
-        };
-      };
-      
-      darwinConfigurations = {
-        ${systemSettings.hostname} = darwin.lib.darwinSystem {
-          system = systemSettings.system;
-          
-          modules = [ ./hosts/${systemSettings.hostname}/configuration.nix ];
-
-          specialArgs = {
-            inherit inputs;
-            inherit userSettings;
-            inherit systemSettings;
-          };
-        };
-      };    
-      
-      homeConfigurations = {
-        ${userSettings.user} = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-            
-          modules = [ ./hosts/${systemSettings.hostname}/home.nix ];
-
-          extraSpecialArgs = {
-            inherit inputs;            
-            inherit userSettings;
-            inherit systemSettings;
-          };            
-        };
-      };
-    };
 }

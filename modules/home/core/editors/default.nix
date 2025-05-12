@@ -2,6 +2,6 @@
   imports = [
     ./emacs.nix
     ./latex.nix
-    ./nvim.nix
+    ./neovim.nix
   ];
 }

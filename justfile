@@ -1,14 +1,17 @@
 flake := justfile_directory()
-rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
+rebuild := if os() == "macos" { "sudo darwin-rebuild" } else { "nixos-rebuild" }
 
 [private]
 default:
-    @just --list # --unsorted
+    @just --list --unsorted
 
 [group('rebuild')]
 [private]
 builder goal *args:
-    nh {{ if os() == "macos" { "darwin" } else { "os" } }} {{ goal }} --hostname $(hostname) {{ args }}
+    {{ rebuild }} {{ goal }} \
+    --flake {{ flake }} \
+    {{ args }}
+    
 
 [group('rebuild')]
 switch *args: (builder "switch" args)

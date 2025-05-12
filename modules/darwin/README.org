@@ -1,0 +1,27 @@
+#+title: Darwin modules
+
+#+begin_src 
+darwin/
+├── homebrew/
+│   ├── homebrew.nix     # Declerative install of brew
+│   └── environment.nix  # Disables brew env variables
+│
+├── security/
+│   └── pam.nix          # Pam autenticate
+│
+├── services/
+│   ├── skhd.nix         # Keybinds for yabai
+│   └── yabai.nix        # Window manager for mac
+│
+├── system/              # Any system configurations
+│   ├── finder.nix      
+│   ├── wm.nix
+│   ├── dock.nix
+│   ├── clock.nix
+│   ├── keyboard.nix
+│   └── misc.nix
+│
+├── nix.nix              # Nix-darwin settings
+│
+└── misc.nix             # Let nix manage these inputs
+#+end_src

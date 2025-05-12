@@ -1,17 +1,11 @@
-{ pkgs, userSettings, systemSettings, ...}:
+{ pkgs, ... }:
+
 
 {
   imports = [
     ../../modules/desktop/yabai.nix
     ../../modules/desktop/skhd.nix
   ];
-
-  environment = {
-    variables = {
-      EDITOR = "emacs";
-      VISUAL = "emacs";
-    };
-  };
 
   # Nix settings
   nix = {
@@ -49,9 +43,9 @@
   };
 
   # Nix-darwin/ System settings
-  time.timeZone = systemSettings.timezone; 
+  time.timeZone = "Europe/Oslo"; 
   
-  fonts.packages = import ../../modules/system/fonts.nix { inherit pkgs; };
+  # fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   
   system = {
     keyboard = {
@@ -89,9 +83,8 @@
     touchIdAuth = true;
   };
 
-  users.users.${userSettings.user} = {
+  users.users."kepler" = {
     # isNormalUser = true;
-    description = userSettings.user;
     shell = pkgs.zsh;
   };
 

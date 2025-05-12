@@ -9,22 +9,20 @@
   };
 
   imports = [
+    # inputs.home-manager.nixosModules.home-manager
+
     # Terminal ++
-    ../../modules/shell/zsh.nix
-    ../../modules/shell/starship.nix
-    ../../modules/shell/direnv.nix
+    # ../../modules/desktop/term/kitty.nix
+    # ../../modules/shell
 
     # Editor
-    ../../modules/editors/emacs.nix
-    ../../modules/latex/latex.nix
-
-    ../../modules/cmake/cmake.nix
+    # ../../modules/editors
 
     # Programming languages
-    ../../modules/dev/python.nix
+    # ../../modules/dev
 
-    # Misc.
-    ../../modules/shell/git.nix
+    # Virtualization
+    # ../../modules/apps/vm
   ];
 
   # Let Home Manager install and manage itself.
