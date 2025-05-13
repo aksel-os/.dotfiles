@@ -2,6 +2,6 @@
   systems = {
     name = "kepler";
     os = "darwin";
-    system = "aarch64";
+    arch = "aarch64";
   };
 }

@@ -1,20 +1,22 @@
 { inputs, withSystem, ... }:
 let
-  customLib = inputs.nixpkgs.lib.makeExtensible (
+  _lib = inputs.nixpkgs.lib;
+  
+  _customLib = _lib.makeExtensible (
     self:
     let
       lib = self;
     in
       {
-        builders = import ./builders.nix { inherit lib inputs withSystem; };
+        builder = import ./builder.nix { inherit lib inputs withSystem; };
 
-        inherit (self.builders) mkSystems;
+        inherit (self.builder) mkSystems;
       }
   );
 
-  lib = customLib.extend (_: _: inputs.nixpkgs.lib);
+  trainerLib = _customLib.extend (_: _: _lib);
 in
 {
-  flake.lib = lib;
-  perSystem._module.args.lib = lib;
+  flake.lib = trainerLib;
+  perSystem._module.args.lib = trainerLib;
 }

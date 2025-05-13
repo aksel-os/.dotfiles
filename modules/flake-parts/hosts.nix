@@ -15,8 +15,8 @@ let
   
 in { 
   flake = {
-    darwinConfigurations = mkSystems (filter (x: x.system == "darwin") systems);
-    nixosConfigurations = mkSystems (filter (x: x.system == "nixos" ||
-                                                x.system == "linux") systems);
+    darwinConfigurations = mkSystems (filter (x: x.os == "darwin") systems);
+    nixosConfigurations = mkSystems (filter (x: x.os == "nixos" ||
+                                                x.os == "linux") systems);
   };
 }

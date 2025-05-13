@@ -9,13 +9,15 @@ let
     
   mkSystem = {
     name,
-    system,
-    os,
+    arch ? "x86_64",
+    os ? "nixos",
     modules,
     ...
   }@args:
     let
-      system = if (os == "nixos") then "${system}-linux" else "{system}-{os}"; 
+      system = if (os == "nixos") then "${arch}-linux"
+               else (if (os == "macos") then "${arch}-darwin"
+                     else "{arch}-{os}"); 
     in
       withSystem system (
         { self', inputs' }:
