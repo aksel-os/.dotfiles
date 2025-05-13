@@ -43,8 +43,8 @@ let
               # Home.nix and Configurations.nix are
               # imported through default.nix
 
-              [ "${self}/hosts/${name}/home.nix"
-                "${self}/hosts/${name}/configuration.nix" ]
+              [ "${self}/hosts/${name}/home.nix" ]
+              [ "${self}/hosts/${name}/configuration.nix" ]
 
               (singleton {
                 _module.args = 

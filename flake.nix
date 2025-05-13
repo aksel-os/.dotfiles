@@ -27,6 +27,7 @@
       type = "github";
       owner = "hercules-ci";
       repo = "flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
     systems = {
