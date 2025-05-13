@@ -1,14 +1,22 @@
-{ inputs, config, pkgs, userSettings, ... }:
+{ lib, pkgs, config, self, self', inputs, inputs', ... }:
 
-{  
-  home = {
-    username = userSettings.user;
-    homeDirectory = "/Users/${userSettings.user}";
+{
+  home-manager = {
+    verbose = true;
+    backupFileExtension = "bak";
     
-    stateVersion = "24.05";  # Please read the comment before changing.
-  };
-
-  imports = [
+    extraSpecialArgs = {
+      inherit self self';
+      inherit inputs inputs';
+    };
+  
+    home.stateVersion = "24.05";  # Please read the comment before changing.
+  
+    # Let Home Manager install and manage itself.
+  
+    imports = [
+      inputs.home-manager.darwinModules.home-manager
+      
     # Terminal ++
     ../../modules/desktop/term/kitty.nix # My terminal config
     ../../modules/shell
@@ -35,8 +43,8 @@
 
     # Virtualization
     ../../modules/apps/vm
-  ];
+    ];
+  };
   
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

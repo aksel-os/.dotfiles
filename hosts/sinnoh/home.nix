@@ -9,6 +9,8 @@
   };
 
   imports = [
+    inputs.home-manager.nixosModules.home-manager
+
     # Terminal ++
     ../../modules/desktop/term/kitty.nix
     ../../modules/shell
