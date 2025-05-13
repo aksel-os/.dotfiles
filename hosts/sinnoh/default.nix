@@ -5,7 +5,7 @@
     # arch
 
     {
-      name = "empoleon";
+      name = "sinnoh"; # empoleon
       os = "linux";
       arch = "x86_64";
     }

@@ -11,16 +11,16 @@ let
     name,
     arch ? "x86_64",
     os ? "nixos",
-    modules,
+    modules ? [],
     ...
   }@args:
     let
       system = if (os == "nixos") then "${arch}-linux"
                else (if (os == "macos") then "${arch}-darwin"
-                     else "{arch}-{os}"); 
+                     else "${arch}-${os}"); 
     in
       withSystem system (
-        { self', inputs' }:
+        { self', inputs', ... }:
 
         let
           eval = evalModules {
@@ -43,8 +43,8 @@ let
               # Home.nix and Configurations.nix are
               # imported through default.nix
 
-              [ "$(self)/hosts/$(name)/home.nix"
-                "$(self)/hosts/$(name)/configuration.nix" ]
+              [ "${self}/hosts/${name}/home.nix"
+                "${self}/hosts/${name}/configuration.nix" ]
 
               (singleton {
                 _module.args = 

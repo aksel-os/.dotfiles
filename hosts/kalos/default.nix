@@ -5,7 +5,7 @@
     # arch
 
     {
-      name = "kepler";
+      name = "kalos"; # kepler
       os = "darwin";
       arch = "aarch64";
     }

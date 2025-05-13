@@ -5,14 +5,13 @@ let
   
   inherit (builtins) filter;
   inherit (lib.builder) mkSystems;
-  inherit (lib.lists) concatLists;
 
   hostPath = ../../hosts;
   
   kalos = import (hostPath + /kalos);
   sinnoh = import (hostPath + /sinnoh);
   johto = import (hostPath + /johto);
-  systems = concatLists [kalos.systems  sinnoh.systems  johto.systems];
+  systems = kalos.systems ++ sinnoh.systems ++ johto.systems;
 
 in {
   flake = {
