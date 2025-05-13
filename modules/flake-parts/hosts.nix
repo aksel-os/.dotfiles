@@ -5,10 +5,12 @@ let
 
   inherit (builtins) filter;
   inherit (lib.builder) mkSystems;
+
+  hostPath = ../../hosts;
   
-  kalos = import ./kalos;
-  sinnoh = import ./sinnnoh;
-  johto = import ./johto;
+  kalos = import hostPath + /kalos;
+  sinnoh = import hostPath + /sinnnoh;
+  johto = import hostPath + /johto;
   systems = kalos.systems // sinnoh.systems // johto.systems;
   
 in { 
