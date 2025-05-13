@@ -83,7 +83,7 @@ let
           };
         in
           # 
-          eval // optionalAttrs (os == "darwin") {system = eval.config.system.build.toplevel; }
+          eval // optionalAttrs (os == "darwin") { system = eval.config.system.build.toplevel; }
       );
 
   mkSystems =
@@ -96,6 +96,6 @@ let
     );
       
 in {
-  inherit mkSystem mkSystems;
+  inherit mkSystems;
 }
 

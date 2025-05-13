@@ -1,20 +1,16 @@
-{ inputs, withSystem, ... }:
+{ lib, inputs, withSystem, ... }:
+
 let
-  _lib = inputs.nixpkgs.lib;
-  
-  _customLib = _lib.makeExtensible (
-    self:
-    let
+  customLib = lib.fixedPoints.makeExtensible (
+    self: {
       lib = self;
-    in
-      {
-        builder = import ./builder.nix { inherit lib inputs withSystem; };
+      builder = import ./builder.nix { inherit lib inputs withSystem; };
 
-        inherit (self.builder) mkSystems;
-      }
-  );
+      inherit (self.builder) mkSystems;
+    });
 
-  trainerLib = _customLib.extend (_: _: _lib);
+  trainerLib = customLib.extend (_: _: lib);
+  
 in
 {
   flake.lib = trainerLib;

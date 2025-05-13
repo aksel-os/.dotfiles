@@ -1,7 +1,13 @@
 {
-  systems = {
-    name = "kepler";
-    os = "darwin";
-    arch = "aarch64";
-  };
+  systems = [
+    # name
+    # os
+    # arch
+
+    {
+      name = "kepler";
+      os = "darwin";
+      arch = "aarch64";
+    }
+  ];
 }
