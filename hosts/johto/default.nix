@@ -1,0 +1,10 @@
+{
+  systems = [
+    # name
+    # os
+    # arch
+    
+    {
+    }
+  ];
+}
