@@ -6,7 +6,7 @@
     FXPreferredViewStyle = "icnv";
     };
 
-    CustomUserPreferences ."com.apple.finder" = {
+    CustomUserPreferences."com.apple.finder" = {
       _FXSortFoldersFirst = true;
     };
   };
