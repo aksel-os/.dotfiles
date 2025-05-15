@@ -4,7 +4,7 @@ let
   inherit (inputs.self) lib;
   
   inherit (builtins) filter;
-  inherit (lib.builder) mkSystems;
+  inherit (lib.builder) mkHosts;
 
   hostPath = ../../hosts;
   
@@ -15,8 +15,8 @@ let
 
 in {
   flake = {
-    darwinConfigurations = mkSystems (filter (x: x.os == "darwin") systems);
-    nixosConfigurations = mkSystems (filter (x: x.os == "nixos" ||
+    darwinConfigurations = mkHosts (filter (x: x.os == "darwin") systems);
+    nixosConfigurations = mkHosts (filter (x: x.os == "nixos" ||
                                                 x.os == "linux") systems);
   };
 }

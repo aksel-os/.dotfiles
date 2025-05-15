@@ -5,8 +5,10 @@ let
     self: {
       lib = self;
       builder = import ./builder.nix { inherit lib inputs withSystem; };
+      hosts = import ./host_builder.nix { inherit lib inputs withSystem; };
 
       inherit (self.builder) mkSystems;
+      inherit (self.hosts) mkHosts;
     });
 
   trainerLib = customLib.extend (_: _: lib);
