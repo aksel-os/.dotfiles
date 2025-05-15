@@ -1,7 +1,7 @@
-{ lib, pkgs, config, self, self', inputs, inputs', ... }:
+{ self, self', inputs, inputs', ... }:
 
 {
-  home-manager = {
+  inputs.home-manager = {
     verbose = true;
     backupFileExtension = "bak";
     
@@ -11,12 +11,14 @@
     };
   
     home.stateVersion = "24.05";  # Please read the comment before changing.
+    home.sessionVariables = {
+      EDITOR = "emacs";
+      VISUAL = "emacs";
+    };
   
     # Let Home Manager install and manage itself.
   
-    imports = [
-      inputs.home-manager.darwinModules.home-manager
-      
+    users."kepler".imports = [
     # Terminal ++
     ../../modules/desktop/term/kitty.nix # My terminal config
     ../../modules/shell

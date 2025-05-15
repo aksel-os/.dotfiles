@@ -39,11 +39,8 @@ let
             class = os;
             
             modules = concatLists [
-              # Hosts have a defined path
-              # Home.nix and Configurations.nix are
-              # imported through default.nix
-
-              [ "${self}/hosts/${name}/home.nix" ]
+              
+              [ "${self}/hosts/${name}/home.nix" ]              
               [ "${self}/hosts/${name}/configuration.nix" ]
 
               (singleton {
@@ -78,7 +75,7 @@ let
               }))
 
               # Append extra modules
-              (args.modules or [])
+              modules
             ];
           };
         in

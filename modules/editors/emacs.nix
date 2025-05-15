@@ -1,23 +1,22 @@
-{ pkgs, inputs, systemSettings, ...}:
+{ pkgs, inputs, ...}:
 
+let
+  emacs-pkg = if (inputs.network.hostName != "kalos") then pkgs.emacs-pgtk
+              else
+                (pkgs.emacs-git).overrideAttrs (o: {
+                  patches = [
+                    "${inputs.emacs-plus}/patches/emacs-31/fix-window-role.patch"
+                    "${inputs.emacs-plus}/patches/emacs-31/round-undecorated-frame.patch"
+                    "${inputs.emacs-plus}/patches/emacs-31/system-appearance.patch"
+                  ];
+                });
+in
 {
-  nixpkgs.overlays = [ (import inputs.emacs-overlay) ];
-  
   programs.emacs =  { 
     enable = true;
     package = (pkgs.emacsWithPackagesFromUsePackage {
       config = "${inputs.emacs-config}/init.org";
-      # config = "./init.org";
-      package = if (systemSettings.hostname != "kalos") then pkgs.emacs-pgtk
-                else
-                  (pkgs.emacs-git).overrideAttrs (o: {
-                    patches = [
-                      "${inputs.emacs-plus}/patches/emacs-31/fix-window-role.patch"
-                      "${inputs.emacs-plus}/patches/emacs-31/round-undecorated-frame.patch"
-                      "${inputs.emacs-plus}/patches/emacs-31/system-appearance.patch"
-                    ];
-                  });
-
+      package = emacs-pkg;
       defaultInitFile = true;
       alwaysEnsure = true;
       alwaysTangle = true;

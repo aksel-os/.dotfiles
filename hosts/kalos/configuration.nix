@@ -1,17 +1,11 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
+
 
 {
   imports = [
     ../../modules/desktop/yabai.nix
     ../../modules/desktop/skhd.nix
   ];
-
-  environment = {
-    variables = {
-      EDITOR = "emacs";
-      VISUAL = "emacs";
-    };
-  };
 
   # Nix settings
   nix = {
@@ -51,7 +45,7 @@
   # Nix-darwin/ System settings
   time.timeZone = "Europe/Oslo"; 
   
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
+  # fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
   
   system = {
     keyboard = {
