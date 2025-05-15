@@ -9,20 +9,20 @@
   };
 
   imports = [
-    inputs.home-manager.nixosModules.home-manager
+    # inputs.home-manager.nixosModules.home-manager
 
     # Terminal ++
-    ../../modules/desktop/term/kitty.nix
-    ../../modules/shell
+    # ../../modules/desktop/term/kitty.nix
+    # ../../modules/shell
 
     # Editor
-    ../../modules/editors
+    # ../../modules/editors
 
     # Programming languages
-    ../../modules/dev
+    # ../../modules/dev
 
     # Virtualization
-    ../../modules/apps/vm
+    # ../../modules/apps/vm
   ];
 
   # Let Home Manager install and manage itself.
