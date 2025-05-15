@@ -4,6 +4,7 @@
   imports = [
     ../../modules/desktop/yabai.nix
     ../../modules/desktop/skhd.nix
+    ../../modules/shell/manuals.nix
   ];
 
   environment = {

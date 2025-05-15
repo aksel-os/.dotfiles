@@ -1,14 +1,12 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ man-pages
-                               linux-manual
-                               man-pages-posix
-                             ];
+  environment.systemPackages = with pkgs; [ man-pages
+                                            man-pages-posix
+                                          ];
 
   documentation = {
     enable = true;
-    dev.enable = true;
     man.enable = true;
   };
 }
