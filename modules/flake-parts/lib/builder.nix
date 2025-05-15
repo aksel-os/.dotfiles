@@ -51,9 +51,8 @@ let
         } specialArgs;
 
         modules = concatLists [
-              
-          [ "${self}/hosts/${host}/home.nix" ]              
-          [ "${self}/hosts/${host}/configuration.nix" ]
+
+          [ "${self}/modules/${class}" ]
 
           (singleton {
             _module.args = withSystem system (

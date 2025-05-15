@@ -1,8 +1,9 @@
 { self, self', inputs, inputs', ... }:
 
 {
-  inputs.home-manager = {
+  home-manager = {
     verbose = true;
+    useUserPackages = true;
     backupFileExtension = "bak";
     
     extraSpecialArgs = {

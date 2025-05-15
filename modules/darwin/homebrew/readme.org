@@ -1,0 +1,4 @@
+#+title: Homebrew
+
+=brew.nix= handles brew installs through nix-darwin, whilst =environment.nix=
+changes some weird brew env variables.

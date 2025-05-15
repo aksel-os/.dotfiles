@@ -26,18 +26,11 @@ let
     hawk = "git";
   };
 
-  # oh-my-posh profiles
-  zen-omp = "https://raw.githubusercontent.com/dreamsofautonomy/zen-omp/main/zen.toml";
-  atomic = "https://raw.githubusercontent.com/BirdeeHub/birdeeSystems/539ad08db103274d645f151c5f07e9df8c3efce4/common/term/shell/atomic-emodipt.omp.json";
-  test = "https://github.com/charlesroper/oh-my-posh-themes/blob/main/pwsh.omp.json";
-
 in {
   programs.zsh = {
     enable = true;
     shellAliases = myAliases;
     initContent = ''
-      # eval "$(${pkgs.oh-my-posh}/bin/oh-my-posh init zsh --config ${zen-omp})"      
-
       # Nix
       if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
       . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'

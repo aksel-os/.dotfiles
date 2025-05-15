@@ -1,0 +1,9 @@
+#+title: Services
+
+Any module configured via the =services= attribute
+
+#+begin_src 
+services/
+├── skhd.nix
+└── yabai.nix
+#+end_src
