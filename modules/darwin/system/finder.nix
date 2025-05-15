@@ -1,11 +1,13 @@
 {
-  system.defaults.finder = {
-    AppleShowAllFileExtensions = true;
+  system.defaults = {
+    finder = {
+    AppleShowAllExtensions = true;
     AppleShowAllFiles = true;
     FXPreferredViewStyle = "icnv";
-  };
+    };
 
-  CustomUserPreferences."com.apple.finder" = {
-    _FXSortFoldersFirst = true;
+    CustomUserPreferences ."com.apple.finder" = {
+      _FXSortFoldersFirst = true;
+    };
   };
 }

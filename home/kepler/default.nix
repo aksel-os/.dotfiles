@@ -1,7 +1,6 @@
 let
   homePath = ../modules/home;
 
-  core = homePath + /core;
   optionals = [
     (homePath + /optional/dev)
     (homePath + /optional/ctf)
@@ -10,7 +9,5 @@ let
   ];
 
 in {
-  imports = [
-    core
-  ] ++ optionals;
+  imports = optionals;
 }

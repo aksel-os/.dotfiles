@@ -46,7 +46,7 @@ let
         # there's _module.args. If specialArgs.modulesPath is defined it will be
         # used as the base path for disabledModules.
         specialArgs = recursiveUpdate {
-          inherit inputs modulesPath;
+          inherit self inputs modulesPath;
           
         } specialArgs;
 
@@ -56,10 +56,10 @@ let
 
           (singleton {
             _module.args = withSystem system (
-              { inputs', ... }:
+              { self', inputs', ... }:
               {
                 inherit baseModules modules;
-                inherit inputs';
+                inherit self' inputs';
               }
             );
           })

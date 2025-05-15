@@ -12,7 +12,7 @@ in {
       inherit host;
       class = "darwin"; 
       arch = "aarch64";
-      modules = [] ++ [ shared ];
+      modules = [] ++ shared;
     }
   ];
 }

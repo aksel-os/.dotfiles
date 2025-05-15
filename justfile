@@ -1,5 +1,5 @@
 flake := justfile_directory()
-rebuild := if os() == "macos" { "sudo darwin-rebuild" } else { "nixos-rebuild" }
+rebuild := if os() == "macos" { "darwin-rebuild" } else { "nixos-rebuild" }
 
 [private]
 default:

@@ -6,10 +6,10 @@
 , inputs
 , inputs'
 , config
+, ...
 }:
 
 let
-  inherit (lib.attrsets) genAttrs;
   inherit (lib.modules) mkForce;
   
 in {
@@ -34,6 +34,8 @@ in {
         nix.package = mkForce config.nix.package;
         home.stateVersion = if pkgs.stdenv.isDarwin then "24.05" else config.system.stateVersion;
       }
+
+      (self + /modules/home/core)
     ];
   };
 }
