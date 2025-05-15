@@ -24,9 +24,9 @@ let
   }:
     
     let
-      nixpkgs = inputs.nixpkgs or (throw "\t\tNo nixpkgs input found!");
+      nixpkgs = inputs.nixpkgs or (throw "No nixpkgs input found!");
       darwin = inputs.darwin or inputs.nix-darwin or
-        (throw "\t\tNo nix-darwin input found!");
+        (throw "No nix-darwin input found!");
 
       modulesPath = if class == "darwin" then "${darwin}/modules"
                     else "${nixpkgs}/nixos/modules";
@@ -48,7 +48,7 @@ let
         specialArgs = recursiveUpdate {
           inherit inputs modulesPath;
           
-        } specialArgs; # Append additional args
+        } specialArgs;
 
         modules = concatLists [
               
@@ -72,7 +72,7 @@ let
             nixpkgs.hostPlatform = mkDefault system;
           })
 
-          # Only used by NixOS
+          # Only used by Linux
           (optionals (class != "darwin") (singleton {
             nixpkgs.flake.source = nixpkgs.outPath;
           }))

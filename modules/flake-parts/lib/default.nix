@@ -11,7 +11,7 @@ let
       lib = self;
       builder = import ./builder.nix { inherit lib inputs withSystem; };
 
-      inherit (self.builder) mkSystems;
+      inherit (self.builder) mkSystems mkSystem;
     });
 
   trainerLib = customLib.extend (_: _: lib);
