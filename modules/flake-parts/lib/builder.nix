@@ -28,7 +28,7 @@ let
       darwin = inputs.darwin or inputs.nix-darwin or
         (throw "No nix-darwin input found!");
 
-      modulesPath = if class == "darwin" then "${darwin}/modules"
+      modulesPath = if (class == "darwin") then "${darwin}/modules"
                     else "${nixpkgs}/nixos/modules";
       
       baseModules = import "${modulesPath}/module-list.nix";
@@ -46,7 +46,8 @@ let
         # there's _module.args. If specialArgs.modulesPath is defined it will be
         # used as the base path for disabledModules.
         specialArgs = recursiveUpdate {
-          inherit self inputs modulesPath;
+          inherit self inputs;
+          # inherit modulesPath;
           
         } specialArgs;
 
@@ -58,7 +59,7 @@ let
             _module.args = withSystem system (
               { self', inputs', ... }:
               {
-                inherit baseModules modules;
+                # inherit baseModules modules;
                 inherit self' inputs';
               }
             );
@@ -89,7 +90,7 @@ let
           }))
 
           # Append extra modules
-          baseModules
+          # baseModules
           modules
         ];
       };
