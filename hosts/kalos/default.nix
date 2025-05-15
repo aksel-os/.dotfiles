@@ -1,12 +1,10 @@
-{
-  systems = [
-    # name
-    # os
-    # arch
+let host = "kalos";
 
+in {
+  systems = [
     {
-      name = "kalos"; # kepler
-      os = "darwin";
+      inherit host;
+      class = "darwin"; 
       arch = "aarch64";
     }
   ];

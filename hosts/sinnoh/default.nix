@@ -1,12 +1,13 @@
-{
+let host = "sinnoh";
+
+in {
   systems = [
-    # name
     # os
     # arch
 
     # {
-    #   name = "sinnoh"; # empoleon
-    #   os = "linux";
+    #   inherit host;
+    #   class = "linux";
     #   arch = "x86_64";
     # }
   ];

@@ -1,8 +1,9 @@
-{
+let host = "johto";
+
+in {
   systems = [
-    # name
-    # os
+    # inherit host
+    # class
     # arch
-    
   ];
 }

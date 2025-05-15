@@ -1,36 +1,35 @@
-{ lib, inputs, withSystem, ... }:
+{
+  inputs ? throw "No inputs provided"
+, lib ? inputs.nixpkgs.lib
+, withSystem
+, ...
+}:
 
 let
-  inherit
-    (lib)
-    recursiveUpdate
-    concatLists
-    singleton # Create single element list
-    mkDefault # Set low prio in case of overriding
-    optionals # Return list if true
-    listToAttrs
-  ;
+  inherit (inputs) self;
+  
+  inherit (lib.attrsets) recursiveUpdate listToAttrs;
+  inherit (lib.lists) singleton optionals concatLists;
+  inherit (lib.modules) mkDefault;
     
   mkHost = {
-    self,
-      name,
-      os ? "nixos",
-      arch ? "x86_64",
-      nixpkgs,
-      darwin,
-      modules ? [ ],
-      specialArgs ? { },
-    ...
+      name
+    , os
+    , arch
+    , modules ? [ ]
+    , specialArgs ? { }
+    , ...
   }:
     let
-      libSystem = if os == "darwin" then darwin.lib.darwinSystem else nixpkgs.lib.gnixosSystem;
+      libSystem = if os == "darwin" then inputs.darwin.lib.darwinSystem else inputs.nixpkgs.lib.nixosSystem;
       system = if (os == "nixos") then "${arch}-linux"
                else (if (os == "macos") then "${arch}-darwin"
                      else "${arch}-${os}");
     in
       libSystem {
+        
         specialArgs = recursiveUpdate {
-          inherit inputs;
+          inherit lib inputs self;
           
         } specialArgs; # Append additional args
         
@@ -58,12 +57,12 @@ let
 
           # Only used by NixOS
           (optionals (os != "darwin") (singleton {
-            flake.source = nixpkgs.outPath;
+            flake.source = inputs.nixpkgs.outPath;
           }))
           
           # Only used by Darwin
           (optionals (os == "darwin") (singleton {
-            nixpkgs.source = mkDefault nixpkgs;
+            nixpkgs.source = mkDefault inputs.nixpkgs;
 
             system = {
               checks.verifyNixPath = false;
@@ -83,6 +82,7 @@ let
     listToAttrs (
       map (host: {
         name = host.name;
+        
         value = mkHost host;
       }) hosts
     );
