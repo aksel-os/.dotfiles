@@ -45,7 +45,7 @@
     };
 
     homebrew = {
-      enable = true;
+      enable = false;
       caskArgs.require_sha = true;
 
       onActivation = {
