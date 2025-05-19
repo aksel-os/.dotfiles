@@ -20,7 +20,7 @@
 * Steps to install
   1. Install Nix
     #+begin_src sh
-    sh <(curl -L https://nixos.org/nix/install)
+    sh <(curl -L https://nixos.org/nix/install) --daemon
     #+end_src
 
   2. Clone this repo
@@ -43,14 +43,14 @@
     just provision
 
     # linux
-    just switch .    
+    just switch  
     #+end_src
 
     
 * Updating
   To apply changes made to the =./modules= or =./hosts=, run the following:
 #+begin_src sh
-just switch .
+just switch
 #+end_src
 
   To update the flake.lock run the following:
