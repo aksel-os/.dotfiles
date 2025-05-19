@@ -28,12 +28,14 @@ in {
 
       # Users who can interact with the nix daemon
       allowed-users = [
+        "kepler"
         "@wheel"
         "root"
       ];
 
       # Users who can manage the nix store
       trusted-users = [
+        "kepler"
         "@wheel"
         "root"
       ];

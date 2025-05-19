@@ -19,7 +19,7 @@
 * Steps to install
   1. Install Nix
     #+begin_src sh
-    sh <(curl -L https://nixos.org/nix/install) --daemon
+    sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
     #+end_src
 
   2. Clone this repo

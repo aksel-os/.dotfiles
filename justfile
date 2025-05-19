@@ -18,8 +18,10 @@ switch *args: (builder "switch" args)
 
 [group('rebuild')]
 [macos] # Only avaliable for macos
-provision host:
-    nix run github:nix-darwin/nix-darwin -- switch --flake {{ flake }}#$(hostname)
+provision:
+    sudo nix run github:nix-darwin/nix-darwin \
+    --extra-experimental-features 'nix-command flakes' \
+     -- switch --flake {{ flake }}
     sudo -i nix-env --uninstall nix
 
 
