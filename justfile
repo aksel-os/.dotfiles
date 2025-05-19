@@ -5,6 +5,24 @@ rebuild := if os() == "macos" { "sudo darwin-rebuild" } else { "nixos-rebuild" }
 default:
     @just --list --unsorted
 
+
+[group('build')]
+[macos] # Only avaliable for macos
+provision:
+    sudo nix run github:nix-darwin/nix-darwin \
+    --extra-experimental-features 'nix-command flakes' \
+    -- switch --flake {{ flake }}
+    sudo -i nix-env --uninstall nix
+
+[group('build')]
+[linux]
+setup:
+    sudo nixos-rebuild \
+    --extra-experimental-features 'nix-command flakes' \
+    -- switch --flake {{ flake }}
+    sudo -i nix-env --uninstall nix
+
+
 [group('rebuild')]
 [private]
 builder goal *args:
@@ -12,17 +30,8 @@ builder goal *args:
     --flake {{ flake }} \
     {{ args }}
     
-
 [group('rebuild')]
 switch *args: (builder "switch" args)
-
-[group('rebuild')]
-[macos] # Only avaliable for macos
-provision:
-    sudo nix run github:nix-darwin/nix-darwin \
-    --extra-experimental-features 'nix-command flakes' \
-     -- switch --flake {{ flake }}
-    sudo -i nix-env --uninstall nix
 
 
 [group('dev')]
@@ -32,6 +41,7 @@ update *input:
     --commit-lock-file \
     --commit-lockfile-summary \
     "flake: update {{ if input == "" { "all inputs" } else { input } }}"
+
 
 [group('utils')]
 verify *args:
