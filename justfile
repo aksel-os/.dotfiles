@@ -28,7 +28,8 @@ setup:
 builder goal *args:
     {{ rebuild }} {{ goal }} \
     --flake {{ flake }} \
-    {{ args }}
+    {{ args }} \
+    |& nom && nvd diff /run/current-system result
     
 [group('rebuild')]
 switch *args: (builder "switch" args)

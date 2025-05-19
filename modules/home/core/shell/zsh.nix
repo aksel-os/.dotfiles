@@ -41,5 +41,6 @@ in {
   
   home.packages = with pkgs; [
     disfetch onefetch wget
+    nvd nix-output-monitor
   ];
 }
