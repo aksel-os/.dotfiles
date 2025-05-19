@@ -15,7 +15,6 @@
   - [[./hosts/johto/README.org][Johto]]: NixOS systems
     * Usernames: Gen II pokemon
 
-   
 
 * Steps to install
   1. Install Nix

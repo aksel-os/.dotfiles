@@ -1,0 +1,21 @@
+#+title: Core
+
+This folder contains all the modules that are shared between all systems,
+regardless of architecture or os.
+
+#+begin_src 
+core/
+├── users/
+│   ├── root.nix         # potential root settings
+│   └── **.nix
+│
+├── nix/
+│   ├── nix.nix          # settings for mr. nix
+│   ├── system.nix       # system settings for nix
+│   ├── nixpkgs.nix      # config for nixpkgs
+│   └── substituters.nix # trusted substituters for nixpkgs
+│
+├── environment.nix      # environment variables and font
+│
+└── fonts.nix            # default font
+#+end_src

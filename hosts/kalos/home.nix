@@ -1,14 +1,25 @@
-{ inputs, config, pkgs, userSettings, ... }:
+{ self, self', inputs, inputs', ... }:
 
-{  
-  home = {
-    username = userSettings.user;
-    homeDirectory = "/Users/${userSettings.user}";
+{
+  home-manager = {
+    verbose = true;
+    useUserPackages = true;
+    backupFileExtension = "bak";
     
-    stateVersion = "24.05";  # Please read the comment before changing.
-  };
-
-  imports = [
+    extraSpecialArgs = {
+      inherit self self';
+      inherit inputs inputs';
+    };
+  
+    home.stateVersion = "24.05";  # Please read the comment before changing.
+    home.sessionVariables = {
+      EDITOR = "emacs";
+      VISUAL = "emacs";
+    };
+  
+    # Let Home Manager install and manage itself.
+  
+    users."kepler".imports = [
     # Terminal ++
     ../../modules/desktop/term/kitty.nix # My terminal config
     ../../modules/shell
@@ -35,8 +46,8 @@
 
     # Virtualization
     ../../modules/apps/vm
-  ];
+    ];
+  };
   
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
