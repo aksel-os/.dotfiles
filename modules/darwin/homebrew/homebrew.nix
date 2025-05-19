@@ -19,33 +19,33 @@
       # Automatically migrate existing Homebrew installations
       autoMigrate = true;
 
-      # Declerative tap management, I can't be bothered to pin a specific rev
+      # Declerative tap management
       taps = {
         "homebrew/homebrew-core" = pkgs.fetchFromGitHub {
           owner = "homebrew";
           repo = "homebrew-core";
-          rev = "master";
-          hash = "sha256-mWyYitwaozxVX8WfRTS8mHkyS2CLjRLizYo0qpxDd7M=";
+          rev = "da3f6d90344231a582630ad915b4f1aee516f57d";
+          hash = "sha256-6bpTS9EhefG9Ir5TgAHa1wxz4wB6/3GeOdx6KFWYtsI=";
         };
 
         "homebrew/homebrew-cask" = pkgs.fetchFromGitHub {
           owner = "homebrew";
           repo = "homebrew-cask";
-          rev = "master";
-          hash = "sha256-QrDu6Uqeuf4jDhAfbMlceEBBPkWC5tSEPun16XXL9DA=";
+          rev = "da8791ec611a7d32d4767ab697c7c09fe757b8cc";
+          hash = "sha256-aS1ZEGDMKG9Dg3k40+aKrl1GnWxO78lxTwJ2PIh32+g=";
         };
 
         "d12frosted/homebrew-emacs-plus" = pkgs.fetchFromGitHub {
           owner = "d12frosted";
           repo = "homebrew-emacs-plus";
-          rev = "master";
+          rev = "3e95d573d5f13aba7808193b66312b38a7c66851";
           hash = "sha256-Eepinxv05Yl79AoPVJveGDZPKHhlAes7XtUvrssflrU=";
         };
       };
     };
 
     homebrew = {
-      enable = true;
+      enable = false;
       caskArgs.require_sha = true;
 
       onActivation = {
