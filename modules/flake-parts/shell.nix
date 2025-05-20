@@ -1,5 +1,5 @@
 {
-  perSystem = { pkgs, ... }:
+  perSystem = { pkgs, inputs', ... }:
     {
       devShells = {
         default = pkgs.mkShellNoCC {
@@ -8,10 +8,11 @@
           shellHook = ''
           $/bin/zsh
           '';
-          packages = with pkgs; [
-            just
-            git
-            zsh
+          packages = [
+            pkgs.just
+            pkgs.git
+            pkgs.zsh
+            inputs'.agenix.packages.agenix
           ];
         };
       };

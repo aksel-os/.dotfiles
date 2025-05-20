@@ -6,7 +6,9 @@ let
   optionals = (self + /modules/home/optional);
 
 in {
-  imports = [ optionals ];
+  imports = [ optionals
+              ./secrets.nix
+            ];
 
   config = {
     home = {

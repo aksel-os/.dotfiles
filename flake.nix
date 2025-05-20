@@ -41,6 +41,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    secrets = {
+      url = "git+ssh://git@github.com/aksel-os/.secrets.git?shallow=1";
+      flake = false;
+    };
+
     homebrew = {
       type = "github";
       owner = "zhaofengli";
