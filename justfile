@@ -38,7 +38,7 @@ switch *args: (builder "switch" args)
 [group('dev')]
 update *input:
     nix flake update {{ input }} \
-    --refresh \\
+    --refresh \
     --commit-lock-file \
     --commit-lockfile-summary \
     "flake: update {{ if input == "" { "all inputs" } else { input } }}"
@@ -50,6 +50,10 @@ verify *args:
 
 [group('utils')]
 repair: (verify "--check-contents --repair")
+
+[group('utils')]
+check:
+    nix flake check --option allow-import-from-derivation false
 
 [group('utils')]
 clean:
