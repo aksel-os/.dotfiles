@@ -6,5 +6,6 @@
     ./finder.nix
     ./misc.nix
     ./wm.nix
+    ./darwin.nix # required after sudo
   ];
 }
