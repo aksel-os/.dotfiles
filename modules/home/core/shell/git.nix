@@ -43,7 +43,7 @@
       };
       
       url = {
-        "git@github.com/".insteadOf = "gh:";
+        "git@github.com:".insteadOf = "gh:";
       };
     };
   };

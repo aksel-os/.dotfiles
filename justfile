@@ -52,8 +52,8 @@ verify *args:
 repair: (verify "--check-contents --repair")
 
 [group('utils')]
-check:
-    nix flake check --option allow-import-from-derivation false
+check *args:
+    nix flake check --option allow-import-from-derivation false {{ args }}
 
 [group('utils')]
 clean:
