@@ -42,22 +42,22 @@
     just provision
 
     # linux
-    just switch  
+    just setup  
     #+end_src
 
     
 * Updating
-  To apply changes made to the =./modules= or =./hosts=, run the following:
-#+begin_src sh
-just switch
-#+end_src
+  To apply changes made to the =./modules=, =./homes= or =./hosts=, run the following:
+  #+begin_src sh
+  just switch
+  #+end_src
 
   To update the flake.lock run the following:
-#+begin_src sh
-just update
+  #+begin_src sh
+  just update
 
-# or
+  # or
 
-just update <pkg>
-#+end_src
+  just update <pkg>
+  #+end_src
 
