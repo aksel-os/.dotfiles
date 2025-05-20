@@ -1,8 +1,6 @@
 {
   pkgs,
-  osConfig,
   inputs,
-  config,
   ...
 }:
 
@@ -32,10 +30,6 @@ let
   };
   
 in {
-  imports = [
-    inputs.agenix.darwinModules.default
-  ];
-  
   age = {
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"
