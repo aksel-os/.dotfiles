@@ -7,7 +7,7 @@ let
 
 in {
   imports = [ optionals
-              ./secrets.nix
+              ./ssh.nix
             ];
 
   config = {

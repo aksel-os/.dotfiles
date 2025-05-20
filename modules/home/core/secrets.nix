@@ -1,12 +1,14 @@
 {
   pkgs,
   osConfig,
-  secrets,
+  inputs,
   config,
   ...
 }:
 
 let
+  inherit (inputs) secrets;
+  
   primaryUser = if pkgs.stdenv.isDarwin
                 then osConfig.system.primaryUser
                 else "wheel";
@@ -19,7 +21,7 @@ let
 
   mkSecret = {
     file,
-    mode ? 400,
+    mode ? "400",
     owner ? "root",
     group ? "root",
     ...
@@ -32,7 +34,7 @@ let
 in {
   age = {
     identityPaths = [
-      "etc/ssh/ssh_host_ed25519_key"
+      "/etc/ssh/ssh_host_ed25519_key"
       "${sshDir}/id_ed25519"
     ];
 
