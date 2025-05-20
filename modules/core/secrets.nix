@@ -10,14 +10,14 @@ let
   inherit (inputs) secrets;
   
   primaryUser = if pkgs.stdenv.isDarwin
-                then osConfig.system.primaryUser
-                else "wheel";
+                then "kepler"
+                else "empoleon";
   
   userGroup = if pkgs.stdenv.isDarwin
               then "admin"
               else "users";
   
-  sshDir = config.home-manager.users.kepler.home.homeDirectory + "/.ssh";
+  sshDir = "/Users/kepler/.ssh";
 
   mkSecret = {
     file,
@@ -32,6 +32,10 @@ let
   };
   
 in {
+  imports = [
+    inputs.agenix.darwinModules.default
+  ];
+  
   age = {
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"
