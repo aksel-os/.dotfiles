@@ -1,7 +1,8 @@
-{ pkgs, inputs, osConfig, ...}:
+{ pkgs, inputs, ...}:
 
 let
-  emacs-pkg = if (osConfig.networking.hostName != "kalos") then pkgs.emacs-pgtk
+  emacs-pkg = if pkgs.stdenv.isLinux
+              then pkgs.emacs-pgtk
               else
                 (pkgs.emacs-git).overrideAttrs (o: {
                   patches = [
@@ -10,8 +11,7 @@ let
                     "${inputs.emacs-plus}/patches/emacs-31/system-appearance.patch"
                   ];
                 });
-in
-{
+in {
   programs.emacs =  { 
     enable = true;
     package = (pkgs.emacsWithPackagesFromUsePackage {
