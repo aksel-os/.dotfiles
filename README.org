@@ -23,7 +23,7 @@
 
   2. Clone this repo
     #+begin_src sh
-    git clone --recurse-submodules git@github.com:aksel-os/.dotfiles.git
+    git clone --recurse-submodules git@github.com:aksel-os/.dotfiles
         
     # or
 
