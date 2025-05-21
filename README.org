@@ -1,4 +1,3 @@
-
 #+title: Muh Dotfiles
 #+author: Aksel Olav Steen
 #+options: toc:nil
@@ -24,6 +23,10 @@
 
   2. Clone this repo
     #+begin_src sh
+    git clone --recurse-submodules git@github.com:aksel-os/.dotfiles.git
+        
+    # or
+
     git clone --recurse-submodules https://github.com/aksel-os/.dotfiles.git    
     #+end_src
 
