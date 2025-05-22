@@ -1,7 +1,45 @@
-{ osConfig, ... }:
+{
+  osConfig,
+  lib,
+  ...
+}:
 
 let
   inherit (osConfig.age) secrets;
+  inherit (lib.lists) forEach;
+  
+  ifiServers = [
+    "login" # login.ifi
+    "adenin"
+    "sytosin"
+    "tymin"
+    "guanin"
+  ];
+
+  uioServers = [
+    "login"
+    "morgoth"
+    "gothmog"
+    "soria"
+    "moria"
+  ];
+  
+  mkServers = {
+    servers,
+    user ? "akselos",
+    hostname ? "uio.no",
+    proxyJump ? null,
+  }:
+  {
+    matchBlocks = forEach servers (server: {
+      ${server} = {
+        inherit user proxyJump;
+        hostname = "${server}.${hostname}";
+        identityFile = secrets.uni-ssh.path;
+      };
+    });
+  };  
+
 in
 {
   programs.ssh = {
