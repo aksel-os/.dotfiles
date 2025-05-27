@@ -1,7 +1,12 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  config,
+  ...
+}:
 
 {
   home.packages = [ pkgs.kitty ];
+  
   programs.kitty = {
     enable = true;
     themeFile = "catppuccin-mocha";
@@ -34,4 +39,36 @@
       "cmd+9" = "goto_tab 9";
     };
   };
+
+  # Take from: https://gist.github.com/eg-ayoub/0066d7bbc4456ef5d06b8277437dc0dd
+  home.file = {
+      "${config.xdg.configHome}/kitty/dark-theme.auto.conf" = {
+        text = ''
+          include ${pkgs.kitty-themes}/share/kitty-themes/themes/catppuccin-mocha.conf
+          '';
+        # not necessary.
+        onChange = ''
+          ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true
+          '';
+      };
+
+      "${config.xdg.configHome}/kitty/light-theme.auto.conf" = {
+        text = ''
+          include ${pkgs.kitty-themes}/share/kitty-themes/themes/catppuccin-latte.conf
+          '';
+        onChange = ''
+          ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true
+          '';
+      };
+
+      "${config.xdg.configHome}/kitty/no-preference-theme.auto.conf" = {
+        text = ''
+          include ${pkgs.kitty-themes}/share/kitty-themes/themes/catppuccin-mocha.conf
+          '';
+        onChange = ''
+          ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true
+          '';
+      };
+
+    };
 }
