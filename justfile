@@ -41,7 +41,7 @@ update *input:
     --refresh \
     --commit-lock-file \
     --commit-lockfile-summary \
-    "flake: update {{ if input == "" { "all inputs" } else { input } }}"
+    "flake: updated {{ if input == "" { "all inputs" } else { input } }}"
 
 
 [group('utils')]

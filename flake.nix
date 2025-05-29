@@ -1,13 +1,12 @@
 {
   description = "Muh Nix Flake";
 
-  outputs =
-    inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./modules/flake-parts ]; };
+  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./modules/flake-parts];};
 
   inputs = {
     # Nix
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    
+
     home-manager = {
       type = "github";
       owner = "nix-community";
@@ -27,14 +26,14 @@
       owner = "nix-systems";
       repo = "default";
     };
-    
+
     # Darwin
     darwin = {
       type = "github";
       owner = "nix-darwin";
       repo = "nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
-    }; 
+    };
 
     homebrew = {
       type = "github";

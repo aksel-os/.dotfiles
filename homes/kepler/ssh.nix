@@ -2,12 +2,10 @@
   osConfig,
   lib,
   ...
-}:
-
-let
+}: let
   inherit (osConfig.age) secrets;
   inherit (lib.lists) forEach;
-  
+
   ifiServers = [
     "login" # login.ifi
     "adenin"
@@ -23,14 +21,13 @@ let
     "soria"
     "moria"
   ];
-  
+
   mkServers = {
     servers,
     user ? "akselos",
     hostname ? "uio.no",
     proxyJump ? null,
-  }:
-  {
+  }: {
     matchBlocks = forEach servers (server: {
       ${server} = {
         inherit user proxyJump;
@@ -38,10 +35,8 @@ let
         identityFile = secrets.uni-ssh.path;
       };
     });
-  };  
-
-in
-{
+  };
+in {
   programs.ssh = {
     enable = true;
 
@@ -74,6 +69,6 @@ in
     extraConfig = ''
       Host *
         UseRoaming no
-    '';     
+    '';
   };
 }

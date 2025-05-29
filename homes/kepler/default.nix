@@ -1,14 +1,11 @@
-{ self, ... }:
-
-let
+{self, ...}: let
   # homePath = (self + /modules/home);
-
-  optionals = (self + /modules/home/optional);
-
+  optionals = self + /modules/home/optional;
 in {
-  imports = [ optionals
-              ./ssh.nix
-            ];
+  imports = [
+    optionals
+    ./ssh.nix
+  ];
 
   config = {
     home = {
