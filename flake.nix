@@ -5,15 +5,9 @@
     inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./modules/flake-parts ]; };
 
   inputs = {
+    # Nix
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     
-    darwin = {
-      type = "github";
-      owner = "nix-darwin";
-      repo = "nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    }; 
-
     home-manager = {
       type = "github";
       owner = "nix-community";
@@ -33,7 +27,22 @@
       owner = "nix-systems";
       repo = "default";
     };
+    
+    # Darwin
+    darwin = {
+      type = "github";
+      owner = "nix-darwin";
+      repo = "nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    }; 
 
+    homebrew = {
+      type = "github";
+      owner = "zhaofengli";
+      repo = "nix-homebrew";
+    };
+
+    # Secrets
     agenix = {
       type = "github";
       owner = "ryantm";
@@ -46,12 +55,7 @@
       flake = false;
     };
 
-    homebrew = {
-      type = "github";
-      owner = "zhaofengli";
-      repo = "nix-homebrew";
-    };
-
+    # Emacs, my beloved
     emacs-overlay = {
       type = "github";
       owner = "nix-community";
