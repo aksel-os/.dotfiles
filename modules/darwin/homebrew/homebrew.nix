@@ -1,10 +1,8 @@
 {
-  pkgs
-, config
-, ...
-}:
-
-{
+  pkgs,
+  config,
+  ...
+}: {
   config = {
     nix-homebrew = {
       enable = true;
@@ -13,7 +11,7 @@
       enableRosetta = true;
 
       user = "kepler";
-      
+
       mutableTaps = false;
 
       # Automatically migrate existing Homebrew installations
@@ -54,14 +52,13 @@
         cleanup = "uninstall";
       };
 
-      taps = builtins.attrNames config.nix-homebrew.taps; 
+      taps = builtins.attrNames config.nix-homebrew.taps;
 
       brews = [
-        
       ];
-      
+
       casks = [
-        
+        "racket"
       ];
     };
   };

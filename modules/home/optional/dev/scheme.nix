@@ -1,3 +1,6 @@
 {pkgs, ...}: {
-  home.packages = [pkgs.mitscheme];
+  home.packages = [
+    pkgs.tinyscheme
+    # pkgs.racket # Allows platforms.unix, but not platforms.darwin ???
+  ];
 }
