@@ -6,5 +6,6 @@
     ./java.nix
     ./c.nix
     ./html.nix
+    ./scheme.nix
   ];
 }
