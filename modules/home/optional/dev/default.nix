@@ -7,6 +7,6 @@
     ./c.nix
     ./html.nix
     ./scheme.nix
-    ./postgresql.nix
+    ./sql.nix
   ];
 }
