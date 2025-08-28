@@ -9,5 +9,6 @@
     ./fastfetch.nix
     ./btop.nix
     ./nh.nix
+    ./dust.nix
   ];
 }
