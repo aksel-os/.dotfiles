@@ -47,6 +47,11 @@ in {
         identityFile = secrets.keys-github.path;
       };
 
+      "github.uio.no" = {
+        user = "git";
+        identityFile = secrets.uni-github.path;
+      };
+
       "uio" = {
         user = "akselos";
         hostname = "login.uio.no";

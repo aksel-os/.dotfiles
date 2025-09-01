@@ -1,7 +1,2 @@
 result
-flake.nix
 .envrc
-
-# One might wonder why? Well, the flake.nix rarely ever changes, and this
-# allows me to have a template flake which I can fill in with the required
-# info.
