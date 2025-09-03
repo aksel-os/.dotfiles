@@ -58,10 +58,16 @@ in {
         identityFile = secrets.uni-ssh.path;
       };
 
+      "morgoth" = {
+        user = "akselos";
+        hostname = "morgoth.uio.no";
+        identityFile = secrets.uni-ssh.path;
+      };
+
       "ifi" = {
         user = "akselos";
         hostname = "login.ifi.uio.no";
-        proxyJump = "uio";
+        proxyJump = "morgoth";
         identityFile = secrets.uni-ssh.path;
       };
 
