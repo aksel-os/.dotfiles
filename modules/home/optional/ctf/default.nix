@@ -5,5 +5,6 @@
     # ./ida-free.nix
     ./steghide.nix
     ./wireshark.nix
+    ./exiftool.nix
   ];
 }
