@@ -71,6 +71,36 @@ in {
         identityFile = secrets.uni-ssh.path;
       };
 
+      # To be optimized
+
+      "adenin" = {
+        user = "akselos";
+        hostname = "adenin.ifi.uio.no";
+        proxyJump = "morgoth";
+        identityFile = secrets.uni-ssh.path;
+      };
+
+      "tymin" = {
+        user = "akselos";
+        hostname = "tymin.ifi.uio.no";
+        proxyJump = "morgoth";
+        identityFile = secrets.uni-ssh.path;
+      };
+
+      "sytosin" = {
+        user = "akselos";
+        hostname = "sytosin.ifi.uio.no";
+        proxyJump = "morgoth";
+        identityFile = secrets.uni-ssh.path;
+      };
+
+      "guanin" = {
+        user = "akselos";
+        hostname = "guanin.ifi.uio.no";
+        proxyJump = "morgoth";
+        identityFile = secrets.uni-ssh.path;
+      };
+
       "*.uio.no !login.uio.no" = {
         proxyJump = "akselos@login.uio.no";
       };
