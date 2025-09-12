@@ -6,30 +6,28 @@
 
 let
   inherit (inputs) secrets;
-  
-  primaryUser = if pkgs.stdenv.isDarwin
-                then "kepler"
-                else "empoleon";
-  
-  userGroup = if pkgs.stdenv.isDarwin
-              then "admin"
-              else "users";
-  
+
+  primaryUser = if pkgs.stdenv.isDarwin then "kepler" else "empoleon";
+
+  userGroup = if pkgs.stdenv.isDarwin then "admin" else "users";
+
   sshDir = "/Users/kepler/.ssh";
 
-  mkSecret = {
-    file,
-    mode ? "400",
-    owner ? "root",
-    group ? "root",
-    ...
-  }:
-  {
-    file = "${secrets}/${file}.age";
-    inherit mode owner group;
-  };
-  
-in {
+  mkSecret =
+    {
+      file,
+      mode ? "400",
+      owner ? "root",
+      group ? "root",
+      ...
+    }:
+    {
+      file = "${secrets}/${file}.age";
+      inherit mode owner group;
+    };
+
+in
+{
   age = {
     identityPaths = [
       "/etc/ssh/ssh_host_ed25519_key"

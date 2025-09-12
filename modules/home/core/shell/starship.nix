@@ -9,7 +9,7 @@
       format = "$hostname$username$directory$git_branch$git_state$git_status$fill$cmd_duration$line_break$character";
 
       add_newline = false;
-      
+
       directory = {
         truncate_to_repo = true;
         truncation_length = 1;
@@ -45,7 +45,7 @@
         format = "[$duration]($style) ";
         style = "yellow";
       };
-      
+
       character = {
         success_symbol = "[](bold cyan)";
         error_symbol = "[](bold red)";

@@ -1,3 +1,4 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.exiftool];
+{ pkgs, ... }:
+{
+  home.packages = [ pkgs.exiftool ];
 }

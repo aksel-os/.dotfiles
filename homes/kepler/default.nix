@@ -1,7 +1,9 @@
-{self, ...}: let
+{ self, ... }:
+let
   # homePath = (self + /modules/home);
   optionals = self + /modules/home/optional;
-in {
+in
+{
   imports = [
     optionals
     ./ssh.nix

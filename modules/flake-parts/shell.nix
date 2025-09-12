@@ -1,12 +1,13 @@
 {
-  perSystem = { pkgs, inputs', ... }:
+  perSystem =
+    { pkgs, inputs', ... }:
     {
       devShells = {
         default = pkgs.mkShellNoCC {
           name = "dotfiles-shell";
           meta.description = "Dev environment for dotfiles";
           shellHook = ''
-          $/bin/zsh
+            $/bin/zsh
           '';
           packages = [
             pkgs.just

@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   config = {
     nix-homebrew = {
       enable = true;

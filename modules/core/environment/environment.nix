@@ -6,8 +6,9 @@
 
 let
   inherit (lib.modules) mkIf;
-  
-in {
+
+in
+{
   environment.variables = {
     EDITOR = "emacs";
     VISUAL = "emacs";

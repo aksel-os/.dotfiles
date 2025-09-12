@@ -2,7 +2,8 @@
   osConfig,
   lib,
   ...
-}: let
+}:
+let
   inherit (osConfig.age) secrets;
   inherit (lib.lists) forEach;
 
@@ -22,21 +23,24 @@
     "moria"
   ];
 
-  mkServers = {
-    servers,
-    user ? "akselos",
-    hostname ? "uio.no",
-    proxyJump ? null,
-  }: {
-    matchBlocks = forEach servers (server: {
-      ${server} = {
-        inherit user proxyJump;
-        hostname = "${server}.${hostname}";
-        identityFile = secrets.uni-ssh.path;
-      };
-    });
-  };
-in {
+  mkServers =
+    {
+      servers,
+      user ? "akselos",
+      hostname ? "uio.no",
+      proxyJump ? null,
+    }:
+    {
+      matchBlocks = forEach servers (server: {
+        ${server} = {
+          inherit user proxyJump;
+          hostname = "${server}.${hostname}";
+          identityFile = secrets.uni-ssh.path;
+        };
+      });
+    };
+in
+{
   programs.ssh = {
     enable = true;
 

@@ -1,6 +1,8 @@
-let host = "johto";
+let
+  host = "johto";
 
-in {
+in
+{
   systems = [
     # inherit host
     # class

@@ -13,7 +13,7 @@
       ".envrc"
       ".direnv"
     ];
-    
+
     aliases = {
       co = "checkout";
       ec = "config --global -e";
@@ -41,7 +41,7 @@
       branch = {
         sort = "committerdate";
       };
-      
+
       url = {
         "git@github.com:".insteadOf = "gh:";
       };

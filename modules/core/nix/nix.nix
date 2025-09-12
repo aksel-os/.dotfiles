@@ -1,22 +1,32 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   inherit (lib.attrsets) filterAttrs mapAttrs;
   inherit (lib.modules) mkForce mkDefault;
-  
+
   flakes = filterAttrs (name: value: value ? outputs) inputs;
 
-in {
+in
+{
   nix = {
     # https://discourse.nixos.org/t/how-to-pin-nix-registry-nixpkgs-to-release-channel/14883/4
-    registry = (mapAttrs (_: flake: {inherit flake; }) flakes) // {
+    registry = (mapAttrs (_: flake: { inherit flake; }) flakes) // {
       # https://github.com/NixOS/nixpkgs/pull/388090
       nixpkgs = mkForce { flake = inputs.nixpkgs; };
     };
-    
+
     gc = {
       automatic = true;
-      interval = mkDefault { Minute = 0; Hour = 10; Weekday = 1; };
+      interval = mkDefault {
+        Minute = 0;
+        Hour = 10;
+        Weekday = 1;
+      };
       options = "--delete-older-than 7d";
     };
 
@@ -56,7 +66,7 @@ in {
       ];
 
       # I'm not dirty, nor smelly!
-      warn-dirty = false; 
+      warn-dirty = false;
     };
   };
 }

@@ -1,10 +1,10 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 
 let
   myAliases = {
-    em = "emacs -nw";    
+    em = "emacs -nw";
     evim = "emacs -nw";
-    
+
     nix-fix = "/nix/nix-installer repair";
 
     cat = "bat --paging=never --style=plain";
@@ -12,15 +12,16 @@ let
     ls = "eza --icons -l -T -L=1";
     tree = "eza --tree --icons";
     htop = "btop";
-    gitfetch = "onefetch"; 
+    gitfetch = "onefetch";
 
     javacc = "javac *.java";
     javacleaner = "rm *.class";
-    
+
     hawk = "git";
   };
 
-in {
+in
+{
   programs.zsh = {
     enable = true;
     shellAliases = myAliases;
@@ -33,14 +34,17 @@ in {
       ## End Nix
     '';
   };
-  
+
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
   };
-  
+
   home.packages = with pkgs; [
-    disfetch onefetch wget
-    nvd nix-output-monitor
+    disfetch
+    onefetch
+    wget
+    nvd
+    nix-output-monitor
   ];
 }

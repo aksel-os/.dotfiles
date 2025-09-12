@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.libvirt ];  
+  home.packages = [ pkgs.libvirt ];
 }

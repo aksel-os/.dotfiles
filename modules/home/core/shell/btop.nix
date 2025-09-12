@@ -13,13 +13,13 @@
       force_tty = false;
       vim_keys = true;
 
-      update_ms = 100; 
+      update_ms = 100;
 
       graph_symbol = "braille"; # choose between braille, block or tty
       shown_boxes = "cpu mem net proc";
 
       background_update = true;
-      
+
       clock_format = "%X";
 
       # Processes
@@ -33,13 +33,12 @@
       proc_mem_bytes = false;
       proc_cpu_graphs = true;
       proc_info_smaps = false;
-      
+
       proc_left = true;
       proc_filter_kernel = true;
 
       proc_aggregate = false;
-      
-      
+
       # CPU
       cpu_graph_upper = "total";
       cpu_graph_lower = "iowait";
@@ -50,12 +49,12 @@
       cpu_single_graph = false;
       cpu_bottom = false;
       show_uptime = true;
-      
+
       check_temp = true;
       cpu_sensor = "Auto";
       show_coretemp = true;
       temp_scale = "celsius";
-      
+
       base_10_sizes = false;
       show_cpu_freq = true;
 

@@ -1,9 +1,10 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ man-pages
-                                            man-pages-posix
-                                          ];
+  environment.systemPackages = with pkgs; [
+    man-pages
+    man-pages-posix
+  ];
 
   documentation = {
     enable = true;

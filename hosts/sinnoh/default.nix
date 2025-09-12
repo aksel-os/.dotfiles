@@ -1,6 +1,8 @@
-let host = "sinnoh";
+let
+  host = "sinnoh";
 
-in {
+in
+{
   systems = [
     # os
     # arch
@@ -11,4 +13,4 @@ in {
     #   arch = "x86_64";
     # }
   ];
-} 
+}

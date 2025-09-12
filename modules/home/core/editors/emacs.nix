@@ -2,10 +2,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   emacs-pkg =
-    if pkgs.stdenv.isLinux
-    then pkgs.emacs-pgtk
+    if pkgs.stdenv.isLinux then
+      pkgs.emacs-pgtk
     else
       (pkgs.emacs-git).overrideAttrs (o: {
         patches = [
@@ -14,7 +15,8 @@
           "${inputs.emacs-plus}/patches/emacs-31/system-appearance.patch"
         ];
       });
-in {
+in
+{
   programs.emacs = {
     enable = true;
     package = pkgs.emacsWithPackagesFromUsePackage {
@@ -23,8 +25,8 @@ in {
       defaultInitFile = true;
       alwaysEnsure = true;
       alwaysTangle = true;
-      extraEmacsPackages = epkgs:
-        with epkgs; [
+      extraEmacsPackages =
+        epkgs: with epkgs; [
           jinx
           vterm
         ];

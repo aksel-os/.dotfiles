@@ -1,4 +1,10 @@
-{ lib, pkgs, inputs, userSettings, ...}:
+{
+  lib,
+  pkgs,
+  inputs,
+  userSettings,
+  ...
+}:
 
 {
   home = {

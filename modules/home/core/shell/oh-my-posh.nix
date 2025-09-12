@@ -1,4 +1,10 @@
-{ config, pkgs, lib, userSettings, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  userSettings,
+  ...
+}:
 
 {
   programs.oh-my-posh = {

@@ -18,22 +18,22 @@
         "break"
         {
           type = "custom";
-          format =  "┌──────────────────────Hardware──────────────────────┐";
+          format = "┌──────────────────────Hardware──────────────────────┐";
         }
         {
           type = "host";
-          key =  " PC";
-          keyColor =  "green";
+          key = " PC";
+          keyColor = "green";
         }
         {
           type = "cpu";
-          key =  "│ ├";
-          keyColor =  "green";
+          key = "│ ├";
+          keyColor = "green";
         }
         {
           type = "gpu";
           key = "│ ├󰍛";
-          keyColor =  "green";
+          keyColor = "green";
         }
         {
           type = "memory";
@@ -111,17 +111,17 @@
         }
         "break"
         {
-            type = "custom";
-            format = "┌───────────────────────Uptime───────────────────────┐";
+          type = "custom";
+          format = "┌───────────────────────Uptime───────────────────────┐";
         }
         {
-            type = "uptime";
-            key = "  Uptime ";
-            keyColor = "magenta";
+          type = "uptime";
+          key = "  Uptime ";
+          keyColor = "magenta";
         }
         {
-            type = "custom";
-            format = "└────────────────────────────────────────────────────┘";
+          type = "custom";
+          format = "└────────────────────────────────────────────────────┘";
         }
         "break"
       ];

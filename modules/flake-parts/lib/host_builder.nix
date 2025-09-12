@@ -3,46 +3,41 @@
   lib ? inputs.nixpkgs.lib,
   withSystem,
   ...
-}: let
+}:
+let
   inherit (inputs) self;
 
   inherit (lib.attrsets) recursiveUpdate listToAttrs;
   inherit (lib.lists) singleton optionals concatLists;
   inherit (lib.modules) mkDefault;
 
-  mkHost = {
-    name,
-    os,
-    arch,
-    modules ? [],
-    specialArgs ? {},
-    ...
-  }: let
-    libSystem =
-      if os == "darwin"
-      then inputs.darwin.lib.darwinSystem
-      else inputs.nixpkgs.lib.nixosSystem;
-    system =
-      if (os == "nixos")
-      then "${arch}-linux"
-      else
-        (
-          if (os == "macos")
-          then "${arch}-darwin"
-          else "${arch}-${os}"
-        );
-  in
+  mkHost =
+    {
+      name,
+      os,
+      arch,
+      modules ? [ ],
+      specialArgs ? { },
+      ...
+    }:
+    let
+      libSystem =
+        if os == "darwin" then inputs.darwin.lib.darwinSystem else inputs.nixpkgs.lib.nixosSystem;
+      system =
+        if (os == "nixos") then
+          "${arch}-linux"
+        else
+          (if (os == "macos") then "${arch}-darwin" else "${arch}-${os}");
+    in
     libSystem {
-      specialArgs =
-        recursiveUpdate {
-          inherit lib inputs self;
-        }
-        specialArgs; # Append additional args
+      specialArgs = recursiveUpdate {
+        inherit lib inputs self;
+      } specialArgs; # Append additional args
 
       modules = concatLists [
         # Hosts have a defined path
-        ["${self}/hosts/${name}/home.nix"]
-        ["${self}/hosts/${name}/configuration.nix"]
+        [ "${self}/hosts/${name}/home.nix" ]
+        [ "${self}/hosts/${name}/configuration.nix" ]
 
         (singleton {
           _module.args = withSystem system (
@@ -50,7 +45,8 @@
               self',
               inputs',
               ...
-            }: {
+            }:
+            {
               inherit self' inputs';
             }
           );
@@ -85,16 +81,17 @@
       ];
     };
 
-  mkHosts = hosts:
+  mkHosts =
+    hosts:
     listToAttrs (
       map (host: {
         name = host.name;
 
         value = mkHost host;
-      })
-      hosts
+      }) hosts
     );
-in {
+in
+{
   inherit
     mkHosts
     ;

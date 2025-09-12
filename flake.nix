@@ -1,7 +1,8 @@
 {
   description = "Muh Nix Flake";
 
-  outputs = inputs: inputs.flake-parts.lib.mkFlake {inherit inputs;} {imports = [./modules/flake-parts];};
+  outputs =
+    inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } { imports = [ ./modules/flake-parts ]; };
 
   inputs = {
     # Nix

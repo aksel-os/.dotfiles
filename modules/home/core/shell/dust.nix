@@ -1,3 +1,4 @@
-{pkgs, ...}: {
-  home.packages = [pkgs.du-dust];
+{ pkgs, ... }:
+{
+  home.packages = [ pkgs.du-dust ];
 }
