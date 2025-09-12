@@ -6,5 +6,6 @@
     ./steghide.nix
     ./wireshark.nix
     ./exiftool.nix
+    ./postman.nix
   ];
 }
