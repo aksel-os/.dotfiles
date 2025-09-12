@@ -7,5 +7,6 @@
     ./wireshark.nix
     ./exiftool.nix
     ./postman.nix
+    ./nmap.nix
   ];
 }
