@@ -10,5 +10,6 @@
     ./btop.nix
     ./nh.nix
     ./dust.nix
+    ./inetutils.nix
   ];
 }
