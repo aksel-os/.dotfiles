@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ pkgs.qemu ];
+  home.packages = [
+    pkgs.qemu
+    pkgs.qemu_full
+  ];
 }
 
 # Creating an image:

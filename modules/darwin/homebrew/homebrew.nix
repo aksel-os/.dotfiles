@@ -60,6 +60,7 @@
 
       casks = [
         "racket"
+        "utm"
       ];
     };
   };
