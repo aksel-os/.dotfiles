@@ -62,6 +62,7 @@ let
               }:
               {
                 inherit self' inputs';
+                inherit baseModules;
               }
             );
           })

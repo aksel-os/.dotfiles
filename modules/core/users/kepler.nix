@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  users.users.kepler = {
-    home = if pkgs.stdenv.isDarwin then "/Users/kepler" else "/home/kepler";
+  users.users.kepler = lib.mkIf pkgs.stdenv.isDarwin {
+    home = "/Users/kepler";
     shell = pkgs.zsh;
   };
 }

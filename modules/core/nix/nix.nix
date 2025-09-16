@@ -20,16 +20,7 @@ in
       nixpkgs = mkForce { flake = inputs.nixpkgs; };
     };
 
-    gc = {
-      automatic = true;
-      interval = mkDefault {
-        Minute = 0;
-        Hour = 10;
-        Weekday = 1;
-      };
-      options = "--delete-older-than 7d";
-    };
-
+    
     settings = {
 
       # Nix store optimize automatically
@@ -38,6 +29,7 @@ in
 
       # Users who can interact with the nix daemon
       allowed-users = [
+        "misdreavus"
         "kepler"
         "@wheel"
         "root"
@@ -45,6 +37,7 @@ in
 
       # Users who can manage the nix store
       trusted-users = [
+        "misdreavus"
         "kepler"
         "@wheel"
         "root"

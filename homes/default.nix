@@ -26,8 +26,15 @@ in
         inherit inputs inputs';
       };
 
-      users.kepler = {
+      users.kepler = lib.mkIf pkgs.stdenv.isDarwin {
         imports = [ ./kepler ];
+      };
+
+      users.misdreavus = lib.mkIf pkgs.stdenv.isLinux {
+        imports = [
+          ./misdreavus
+          ../modules/home/optional/hyprland
+        ];
       };
 
       sharedModules = [
