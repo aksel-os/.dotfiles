@@ -278,10 +278,10 @@
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1747748326,
-        "narHash": "sha256-Ih4Uo+5TNP2j4qOaBKDro8nNeE1pTCJOK9qZCNRZhAY=",
+        "lastModified": 1758063049,
+        "narHash": "sha256-qCKfwtw8oHBKaN5/yjZt1nWxTo4mGekXfT+qXxBvyoo=",
         "ref": "refs/heads/main",
-        "rev": "a519adee35e72d0d650966c657b92c0f4129662b",
+        "rev": "2cfcbec00c16a6d2dd05879d3177dc3d07f42cc4",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/aksel-os/.secrets.git"
