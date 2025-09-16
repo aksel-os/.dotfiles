@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }:
 
@@ -9,7 +10,7 @@
 
   programs.kitty = {
     enable = true;
-    themeFile = "catppuccin-mocha";
+    themeFile = "Catppuccin-Mocha";
 
     font = {
       name = "JetBrainsMono Nerd Font Mono";
@@ -44,7 +45,7 @@
   home.file = {
     "${config.xdg.configHome}/kitty/dark-theme.auto.conf" = {
       text = ''
-        include ${pkgs.kitty-themes}/share/kitty-themes/themes/catppuccin-mocha.conf
+        include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Mocha.conf
       '';
       # not necessary.
       onChange = ''
@@ -54,7 +55,7 @@
 
     "${config.xdg.configHome}/kitty/light-theme.auto.conf" = {
       text = ''
-        include ${pkgs.kitty-themes}/share/kitty-themes/themes/catppuccin-latte.conf
+        include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Latte.conf
       '';
       onChange = ''
         ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true
@@ -63,7 +64,7 @@
 
     "${config.xdg.configHome}/kitty/no-preference-theme.auto.conf" = {
       text = ''
-        include ${pkgs.kitty-themes}/share/kitty-themes/themes/catppuccin-mocha.conf
+        include ${pkgs.kitty-themes}/share/kitty-themes/themes/Catppuccin-Mocha.conf
       '';
       onChange = ''
         ${pkgs.procps}/bin/pkill -USR1 -u $USER kitty || true

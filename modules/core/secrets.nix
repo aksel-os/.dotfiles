@@ -1,17 +1,18 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }:
 
 let
   inherit (inputs) secrets;
 
-  primaryUser = if pkgs.stdenv.isDarwin then "kepler" else "empoleon";
+  primaryUser = if pkgs.stdenv.isDarwin then "kepler" else "misdreavus";
 
-  userGroup = if pkgs.stdenv.isDarwin then "admin" else "users";
+  userGroup = if pkgs.stdenv.isDarwin then "admin" else "root";
 
-  sshDir = "/Users/kepler/.ssh";
+  sshDir = if pkgs.stdenv.isDarwin then "/Users/kepler/.ssh" else "/home/misdreavus/.ssh";
 
   mkSecret =
     {
