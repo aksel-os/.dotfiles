@@ -1,9 +1,9 @@
 {
-  osConfig,
+  config,
   ...
 }:
 let
-  inherit (osConfig.sops-nix) secrets;
+  inherit (config.sops) secrets;
 
 in
 {
@@ -14,31 +14,31 @@ in
       "github.com" = {
         user = "git";
         hostname = "github.com";
-        identityFile = secrets."keys/ssh/github".path;
+        identityFile = secrets.keys-ssh-github.path;
       };
 
       "github.uio.no" = {
         user = "git";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "uio" = {
         user = "akselos";
         hostname = "login.uio.no";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "morgoth" = {
         user = "akselos";
         hostname = "morgoth.uio.no";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "ifi" = {
         user = "akselos";
         hostname = "login.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       # To be optimized
@@ -47,28 +47,28 @@ in
         user = "akselos";
         hostname = "adenin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "tymin" = {
         user = "akselos";
         hostname = "tymin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "sytosin" = {
         user = "akselos";
         hostname = "sytosin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "guanin" = {
         user = "akselos";
         hostname = "guanin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets.keys-ssh-uni.path;
       };
 
       "*.uio.no !login.uio.no" = {

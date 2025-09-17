@@ -4,7 +4,7 @@
     ./nix
     ./users
     ./fonts.nix
-    ./secrets.nix
+    # ./secrets.nix
     ./environment
   ];
 }
