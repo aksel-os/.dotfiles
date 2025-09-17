@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, secrets, ... }:
 
 {
   imports = [
@@ -8,13 +8,7 @@
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
 
-    defaultSopsFile = "${inputs.secrets}/secrets.yaml";
+    defaultSopsFile = "${secrets}/secrets.yaml";
     validateSopsFiles = false;
-
-    secrets = {
-      "keys/ssh/github" = { };
-
-      "keys/ssh/uni" = { };
-    };
   };
 }

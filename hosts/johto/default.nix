@@ -13,7 +13,6 @@ in
       arch = "aarch64";
       modules = [
         ./vm/hardware.nix
-        ./sops.nix
       ]
       ++ shared;
     }
