@@ -1,6 +1,10 @@
 { self, lib, ... }:
 
 {
+  imports = [
+    ./sops.nix
+  ];
+
   config = {
     home = {
       username = lib.mkDefault "misdreavus";

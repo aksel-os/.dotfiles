@@ -5,8 +5,9 @@ let
 in
 {
   imports = [
-    optionals
     ./ssh.nix
+    ./sops.nix
+    optionals
   ];
 
   config = {
