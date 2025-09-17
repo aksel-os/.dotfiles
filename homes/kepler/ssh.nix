@@ -11,6 +11,15 @@ in
     enable = true;
 
     matchBlocks = {
+      "*" = {
+        # https://security.stackexchange.com/questions/110639/how-exploitable-is-the-recent-useroaming-ssh-vulnerability
+        # useRoaming = false;
+        controlMaster = "auto";
+        controlPath = "/tmp/%r@%h:%p";
+        compression = true;
+        forwardX11 = false;
+      };
+
       "github.com" = {
         user = "git";
         hostname = "github.com";
@@ -76,10 +85,5 @@ in
       };
     };
 
-    # https://security.stackexchange.com/questions/110639/how-exploitable-is-the-recent-useroaming-ssh-vulnerability
-    extraConfig = ''
-      Host *
-        UseRoaming no
-    '';
   };
 }

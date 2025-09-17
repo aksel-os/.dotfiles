@@ -62,6 +62,7 @@
       casks = [
         "racket"
         "utm"
+        "raycast"
       ];
     };
   };
