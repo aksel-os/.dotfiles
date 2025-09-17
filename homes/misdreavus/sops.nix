@@ -1,14 +1,10 @@
-{ inputs, secrets, ... }:
+{ inputs, ... }:
 
 {
-  imports = [
-    inputs.sops-nix.homeManagerModules.sops
-  ];
-
   sops = {
     age.keyFile = "/var/lib/sops-nix/key.txt";
 
-    defaultSopsFile = "${secrets}/secrets.yaml";
+    defaultSopsFile = "${inputs.secrets}/secrets.yaml";
     validateSopsFiles = false;
   };
 }

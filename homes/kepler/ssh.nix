@@ -19,26 +19,26 @@ in
 
       "github.uio.no" = {
         user = "git";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "uio" = {
         user = "akselos";
         hostname = "login.uio.no";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "morgoth" = {
         user = "akselos";
         hostname = "morgoth.uio.no";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "ifi" = {
         user = "akselos";
         hostname = "login.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       # To be optimized
@@ -47,28 +47,28 @@ in
         user = "akselos";
         hostname = "adenin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "tymin" = {
         user = "akselos";
         hostname = "tymin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "sytosin" = {
         user = "akselos";
         hostname = "sytosin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "guanin" = {
         user = "akselos";
         hostname = "guanin.ifi.uio.no";
         proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uni".path;
+        identityFile = secrets."keys/ssh/uio".path;
       };
 
       "*.uio.no !login.uio.no" = {

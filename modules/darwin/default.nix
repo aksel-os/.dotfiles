@@ -6,5 +6,6 @@
     ./homebrew # nix-darwin can manage homebrew aswell
     ./nix.nix # some specific nix-darwin settings
     ./misc.nix # allow nix-darwin to manage other managers?
+    ./sops.nix
   ];
 }

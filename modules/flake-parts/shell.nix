@@ -13,7 +13,6 @@
             pkgs.just
             pkgs.git
             pkgs.zsh
-            inputs'.agenix.packages.agenix
           ];
         };
       };

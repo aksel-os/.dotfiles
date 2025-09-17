@@ -1,20 +1,16 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 
 {
-  imports = [
-    inputs.sops-nix.homeManagerModules.sops
-  ];
-
   sops = {
-    age.keyFile = "/var/lib/sops-nix/key.txt";
+    # age.keyFile = "/var/lib/sops-nix/key.txt";
+    age.sshKeyPaths = [ "${config.home.homeDirectory}/.ssh/id_ed25519" ];
 
     defaultSopsFile = "${inputs.secrets}/secrets.yaml";
-    validateSopsFiles = false;
 
     secrets = {
       "keys/ssh/github" = { };
 
-      "keys/ssh/uni" = { };
+      "keys/ssh/uio" = { };
     };
   };
 }

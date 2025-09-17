@@ -1,4 +1,4 @@
-{ inputs, secrets, ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -6,8 +6,8 @@
   ];
 
   sops = {
-    defaultSopsFile = "${secrets}/secrets.yaml";
-    validateSopsFiles = false;
+    defaultSopsFormat = "yaml";
+    defaultSopsFile = "${inputs.secrets}/secrets.yaml";
 
     age = {
       sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

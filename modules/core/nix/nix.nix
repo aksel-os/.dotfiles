@@ -1,7 +1,7 @@
 {
   lib,
-  pkgs,
   inputs,
+  config,
   ...
 }:
 
@@ -20,7 +20,6 @@ in
       nixpkgs = mkForce { flake = inputs.nixpkgs; };
     };
 
-    
     settings = {
 
       # Nix store optimize automatically
@@ -57,6 +56,10 @@ in
         "flakes"
         "nix-command"
       ];
+
+      # extraOptions = ''
+      #   !include ${config.sops.secrets."keys/ssh/github".path}
+      # '';
 
       # I'm not dirty, nor smelly!
       warn-dirty = false;

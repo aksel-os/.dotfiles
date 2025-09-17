@@ -43,13 +43,6 @@
     };
 
     # Secrets
-    agenix = {
-      type = "github";
-      owner = "ryantm";
-      repo = "agenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sops-nix = {
       type = "github";
       owner = "Mic92";

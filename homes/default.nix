@@ -43,6 +43,8 @@ in
           home.stateVersion = if pkgs.stdenv.isDarwin then "24.05" else config.system.stateVersion;
         }
 
+        inputs.sops-nix.homeManagerModules.sops
+
         (self + /modules/home/core)
       ];
     };
