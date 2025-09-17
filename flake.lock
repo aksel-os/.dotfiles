@@ -272,16 +272,17 @@
         "homebrew": "homebrew",
         "nixpkgs": "nixpkgs_2",
         "secrets": "secrets",
+        "sops-nix": "sops-nix",
         "systems": "systems_2"
       }
     },
     "secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1758064198,
-        "narHash": "sha256-yqKs5EuDVbhxElPw+YAMA+OpJCoI6YJvEb6f8mfo4Ao=",
+        "lastModified": 1758070865,
+        "narHash": "sha256-M/PKeXecDSGm0nsA5ZjYL6FNplhJ3k5k0rAC1dkyRXY=",
         "ref": "refs/heads/main",
-        "rev": "3843e9c83088f04d7344ba992851668ddde044be",
+        "rev": "6a5077eb707aaec56bb6c00d4fdf059c96098ba5",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/aksel-os/.secrets.git"
@@ -290,6 +291,26 @@
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/aksel-os/.secrets.git"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1758007585,
+        "narHash": "sha256-HYnwlbY6RE5xVd5rh0bYw77pnD8lOgbT4mlrfjgNZ0c=",
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "rev": "f77d4cfa075c3de66fc9976b80e0c4fc69e2c139",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Mic92",
+        "repo": "sops-nix",
+        "type": "github"
       }
     },
     "systems": {
