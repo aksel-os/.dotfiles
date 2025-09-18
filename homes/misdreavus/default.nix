@@ -1,7 +1,7 @@
-{ self, lib, ... }:
+{ lib, ... }:
 
 let
-  optional = self + /modules/home/optional;
+  optional = ../../modules/home/optional;
 
 in
 {
