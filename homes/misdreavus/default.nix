@@ -1,7 +1,12 @@
 { self, lib, ... }:
 
+let
+  optional = self + /modules/home/optional;
+
+in
 {
   imports = [
+    (optional + /apps/zen.nix)
     ./ssh.nix
     ./sops.nix
   ];

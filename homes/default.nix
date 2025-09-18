@@ -44,6 +44,7 @@ in
         }
 
         inputs.sops-nix.homeManagerModules.sops
+        inputs.zen-browser.homeModules.beta
 
         (self + /modules/home/core)
       ];

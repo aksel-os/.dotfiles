@@ -75,5 +75,13 @@
       repo = "homebrew-emacs-plus";
       flake = false;
     };
+
+    # Zen
+    zen-browser = {
+      type = "github";
+      owner = "0xc000022070";
+      repo = "zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }
