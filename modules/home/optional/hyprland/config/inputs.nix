@@ -12,7 +12,7 @@
       };
     };
 
-    gestures.workspace_swipe = true;
+    # gestures.workspace_swipe = true;
 
     cursor = {
       enable_hyprcursor = false;

@@ -57,12 +57,14 @@
 
       brews = [
         "age"
+        "sops"
       ];
 
       casks = [
         "racket"
         "utm"
         "raycast"
+        "rectangle"
       ];
     };
   };
