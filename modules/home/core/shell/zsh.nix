@@ -45,6 +45,7 @@ in
     onefetch
     wget
     nvd
+    dix
     nix-output-monitor
   ];
 }
