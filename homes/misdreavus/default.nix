@@ -7,6 +7,7 @@ in
 {
   imports = [
     (optional + /apps/zen.nix)
+    (optional + /dev)
     ./ssh.nix
     ./sops.nix
   ];
