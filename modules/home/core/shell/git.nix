@@ -26,7 +26,7 @@
       st = "status";
       last = "log -1 HEAD";
       ll = "log --oneline";
-      graph = "log --all --decorate --graph";
+      graph = "log --all --decorate --graph --abbrev-commit --oneline";
       la = "!git config -l | grep alias | cut -c 7-";
       tuah = "push";
     };
