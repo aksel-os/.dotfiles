@@ -29,7 +29,7 @@ builder goal *args:
     {{ rebuild }} {{ goal }} \
     --flake {{ flake }} \
     {{ args }} \
-    |& nom && dix $(find /nix/var/nix/profiles/system-*-link|tail -n 2)
+    |& nom && dix $(find /nix/var/nix/profiles/system-*-link|tail -n 2|head -n 1) /run/current-system
     
 [group('rebuild')]
 switch *args: (builder "switch" args)
