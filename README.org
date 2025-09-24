@@ -25,14 +25,12 @@
 
   2. Clone this repo
     #+begin_src sh
-    git clone --recurse-submodules git@github.com:aksel-os/.dotfiles
+    git clone git@github.com:aksel-os/.dotfiles
         
     # or
 
-    git clone --recurse-submodules https://github.com/aksel-os/.dotfiles.git    
+    git clone https://github.com/aksel-os/.dotfiles.git    
     #+end_src
-
-    =--recurse-submodules= will also clone my emacs repo.
 
   3. cd into =.dotfiles=
    #+begin_src sh
