@@ -90,5 +90,18 @@
       repo = "zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Neovim
+    neovim-overlay = {
+      type = "github";
+      owner = "nix-community";
+      repo = "neovim-nightly-overlay";
+    };
+
+    nixvim = {
+      type = "github";
+      owner = "nix-community";
+      repo = "nixvim";
+    };
   };
 }
