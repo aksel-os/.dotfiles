@@ -14,5 +14,11 @@
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
+
+    secrets = {
+      "passwords/aether" = {
+        neededForUsers = true;
+      };
+    };
   };
 }

@@ -5,8 +5,8 @@ let
 in
 {
   imports = [
-    ./ssh.nix
-    ./sops.nix
+    ../ssh.nix
+    ../sops.nix
     optionals
   ];
 

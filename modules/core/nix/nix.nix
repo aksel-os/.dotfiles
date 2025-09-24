@@ -28,6 +28,7 @@ in
 
       # Users who can interact with the nix daemon
       allowed-users = [
+        "aether"
         "misdreavus"
         "kepler"
         "@wheel"
@@ -36,6 +37,7 @@ in
 
       # Users who can manage the nix store
       trusted-users = [
+        "aether"
         "misdreavus"
         "kepler"
         "@wheel"

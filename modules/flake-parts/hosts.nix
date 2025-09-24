@@ -10,7 +10,8 @@ let
   kalos = import (hostPath + /kalos);
   sinnoh = import (hostPath + /sinnoh);
   johto = import (hostPath + /johto);
-  systems = kalos.systems ++ sinnoh.systems ++ johto.systems;
+  ophicus = import (hostPath + /ophicus);
+  systems = kalos.systems ++ sinnoh.systems ++ johto.systems ++ ophicus.systems;
 in
 {
   flake = {

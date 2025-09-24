@@ -14,8 +14,8 @@ in
 
   config = {
     home = {
-      username = lib.mkDefault "misdreavus";
-      homeDirectory = lib.mkDefault "/home/misdreavus";
+      username = lib.mkDefault "aether";
+      homeDirectory = lib.mkDefault "/home/aether";
     };
 
     programs.home-manager.enable = true;

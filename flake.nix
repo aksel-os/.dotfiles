@@ -28,6 +28,13 @@
       repo = "default";
     };
 
+    disko = {
+      type = "github";
+      owner = "nix-community";
+      repo = "disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Darwin
     darwin = {
       type = "github";
