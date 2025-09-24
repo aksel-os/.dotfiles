@@ -1,20 +1,15 @@
-{ modulesPath, ... }:
+{ inputs, ... }:
 
 {
   imports = [
-    (modulesPath + "/profiles/qemu-guest.nix")
+    inputs.disko.nixosModules.disko
   ];
-
-  services = {
-    qemuGuest.enable = true;
-    spice-vdagentd.enable = true;
-  };
 
   disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = "/dev/vda";
+        device = "/dev/sda";
         content = {
           type = "gpt";
           partitions = {

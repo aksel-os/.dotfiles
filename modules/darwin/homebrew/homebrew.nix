@@ -1,9 +1,14 @@
 {
   pkgs,
+  inputs,
   config,
   ...
 }:
 {
+  imports = [
+    inputs.homebrew.darwinModules.nix-homebrew
+  ];
+
   config = {
     nix-homebrew = {
       enable = true;

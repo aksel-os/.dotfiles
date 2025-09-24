@@ -1,5 +1,9 @@
+{ inputs, ... }:
+
 {
   imports = [
+    inputs.home-manager.nixosModules.home-manager
+
     ./window-manager/hyprland
     ./networking
     ./boot
