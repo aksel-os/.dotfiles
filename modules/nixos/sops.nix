@@ -1,4 +1,4 @@
-{ inputs, secrets, ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -6,7 +6,7 @@
   ];
 
   sops = {
-    defaultSopsFile = "${secrets}/secrets.yaml";
+    defaultSopsFile = "${inputs.secrets}/secrets.yaml";
     validateSopsFiles = false;
 
     age = {
