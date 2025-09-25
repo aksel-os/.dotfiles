@@ -9,7 +9,7 @@
     ./boot
     ./hardware
     ./services
-    ./misc.nix
+    ./system
     ./console.nix
     ./locale.nix
     ./fonts.nix
