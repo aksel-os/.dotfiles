@@ -10,9 +10,7 @@
     ./hardware
     ./services
     ./system
-    ./console.nix
-    ./locale.nix
-    ./fonts.nix
     ./nix.nix
+    ./sops.nix
   ];
 }
