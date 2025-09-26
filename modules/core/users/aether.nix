@@ -21,7 +21,7 @@ in
       "sops-nix"
     ];
 
-    hashedPasswordFile = secrets.passwords.aether.path;
+    # hashedPasswordFile = secrets.passwords.aether.path;
   };
 
   programs.zsh.enable = true;
