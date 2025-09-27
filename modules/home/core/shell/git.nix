@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.packages = [ pkgs.git ];
@@ -13,6 +13,12 @@
       ".envrc"
       ".direnv"
     ];
+
+    signing = {
+      format = "ssh";
+      key = "${config.home.homeDirectory}/.ssh/github_signingkey.pub";
+      signByDefault = true;
+    };
 
     aliases = {
       co = "checkout";
@@ -33,7 +39,12 @@
 
     extraConfig = {
       init.defaultBranch = "main";
-      pull.rebase = false;
+
+      pull.rebase = true;
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+      };
 
       # Prune branches not on remote
       fetch.prune = true;

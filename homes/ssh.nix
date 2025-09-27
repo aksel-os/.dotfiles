@@ -94,4 +94,8 @@ in
     };
 
   };
+
+  home.file.".ssh/github_signingkey.pub".text = ''
+    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGVHLm7Ml3lTEJTS4fyJsCu0rKIx3JNV3oniyvNQgKuK
+  '';
 }
