@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 let
   myAliases = {
     em = "emacs -nw";
@@ -27,25 +25,6 @@ in
     shellAliases = myAliases;
     initContent = ''
       eval "$(starship init zsh)"
-      ## Nix
-      #if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-      #. '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-      #fi
-      ## End Nix
     '';
   };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = myAliases;
-  };
-
-  home.packages = with pkgs; [
-    disfetch
-    onefetch
-    wget
-    nvd
-    dix
-    nix-output-monitor
-  ];
 }

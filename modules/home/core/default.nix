@@ -1,7 +1,8 @@
 {
   imports = [
-    ./shell
     ./editors
+    ./shell
     ./term
+    ./cli
   ];
 }

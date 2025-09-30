@@ -14,11 +14,11 @@
       ".direnv"
     ];
 
-    signing = {
-      format = "ssh";
-      key = "${config.home.homeDirectory}/.ssh/github_signingkey.pub";
-      signByDefault = true;
-    };
+    # signing = {
+    #   format = "ssh";
+    #   key = "${config.home.homeDirectory}/.ssh/github_signingkey.pub";
+    #   signByDefault = true;
+    # };
 
     aliases = {
       co = "checkout";
