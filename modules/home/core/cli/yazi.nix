@@ -1,14 +1,41 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
+let
+  yazi-flavors = pkgs.fetchFromGitHub {
+    owner = "yazi-rs";
+    repo = "flavors";
+    rev = "main";
+    hash = "sha256-+awiEG5ep0/6GaW8YXJ7FP0/xrL4lSrJZgr7qjh8iBc=";
+  };
+
+in
 {
   home.packages = [ pkgs.yazi ];
 
-  catppuccin.yazi = {
-    enable = true;
-    flavor = "latte";
-  };
-
   programs.yazi = {
     enable = true;
+
+    settings = {
+      manager = {
+        show_hidden = true;
+      };
+    };
+
+    theme = {
+      flavor = {
+        dark = "catppuccin-mocha";
+        light = "catppuccin-latte";
+      };
+    };
+  };
+
+  home.file = {
+    "${config.xdg.configHome}/yazi/flavors/catppuccin-mocha.yazi" = {
+      source = "${yazi-flavors}/catppuccin-mocha.yazi";
+    };
+
+    "${config.xdg.configHome}/yazi/flavors/catppuccin-latte.yazi" = {
+      source = "${yazi-flavors}/catppuccin-latte.yazi";
+    };
   };
 }
