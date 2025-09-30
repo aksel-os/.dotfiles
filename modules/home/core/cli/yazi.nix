@@ -16,9 +16,23 @@ in
     enable = true;
 
     settings = {
-      manager = {
+      mgr = {
         show_hidden = true;
       };
+
+    };
+
+    keymap = {
+      mgr.prepend_keymap = [
+        {
+          on = [
+            "g"
+            "r"
+          ];
+          run = "shell -- ya emit cd '$(git rev-parse --show-toplevel)'";
+          desc = "Go to root of current Git repository";
+        }
+      ];
     };
 
     theme = {
