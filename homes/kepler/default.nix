@@ -1,6 +1,5 @@
 { self, ... }:
 let
-  # homePath = (self + /modules/home);
   optionals = self + /modules/home/optional;
 in
 {
@@ -8,7 +7,6 @@ in
     ../ssh.nix
     ../sops.nix
     optionals
-    (optionals + /dev/docker.nix)
   ];
 
   config = {
