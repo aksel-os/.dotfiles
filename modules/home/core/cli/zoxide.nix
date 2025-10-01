@@ -3,7 +3,7 @@
 {
   home.packages = [ pkgs.zoxide ];
 
-  packages.zoxide = {
+  programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
