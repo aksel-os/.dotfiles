@@ -9,6 +9,7 @@
     ./fastfetch.nix # System information
     ./btop.nix # Resource monitor
     ./yazi.nix # Terminal based file manager
+    ./zoxide.nix # A smarter cd command
   ];
 
   # Packages without configuration

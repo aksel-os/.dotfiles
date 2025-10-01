@@ -3,11 +3,9 @@
     em = "emacs -nw";
     evim = "emacs -nw";
 
-    nix-fix = "/nix/nix-installer repair";
-
+    cd = "z";
     bat = "bat --paging=never --style=plain";
     cat = "bat";
-    sl = "ls";
     ls = "eza --icons -l -T -L=1";
     tree = "eza --tree --icons";
     htop = "btop";
