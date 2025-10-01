@@ -1,6 +1,7 @@
 {
   imports = [
     ./john.nix
+    ./wordlists.nix
     ./sqlmap.nix
     ./steghide.nix
     ./exiftool.nix
