@@ -8,6 +8,7 @@ in
     ../ssh.nix
     ../sops.nix
     optionals
+    (optionals + /dev/docker.nix)
   ];
 
   config = {
