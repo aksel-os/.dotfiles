@@ -1,10 +1,4 @@
-{ inputs, ... }:
-
 {
-  imports = [
-    inputs.disko.nixosModules.disko
-  ];
-
   disko.devices = {
     disk = {
       main = {
@@ -19,7 +13,7 @@
               content = {
                 type = "filesystem";
                 format = "vfat";
-                moutpoint = "/boot";
+                mountpoint = "/boot";
               };
             };
 
@@ -31,7 +25,7 @@
             };
 
             root = {
-              end = "100%";
+              size = "100%";
               content = {
                 type = "filesystem";
                 format = "ext4";
