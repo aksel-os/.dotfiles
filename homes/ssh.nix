@@ -1,9 +1,27 @@
 {
   config,
+  lib,
   ...
 }:
 let
   inherit (config.sops) secrets;
+  inherit (lib.attrsets) mapAttrs;
+
+  mkServers = server: {
+    user = "akselos";
+    hostname = "${server}.ifi.uio.no";
+    proxyJump = "morgoth";
+    identityFile = secrets."keys/ssh/uio".path;
+  };
+
+  servers = {
+    # Alias : Hostname
+    ifi = "login";
+    adenin = "adenin";
+    tymin = "tymin";
+    sytosin = "sytosin";
+    guanin = "guanin";
+  };
 
 in
 {
@@ -51,51 +69,10 @@ in
         identityFile = secrets."keys/ssh/uio".path;
       };
 
-      "ifi" = {
-        user = "akselos";
-        hostname = "login.ifi.uio.no";
-        proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
-      # To be optimized
-
-      "adenin" = {
-        user = "akselos";
-        hostname = "adenin.ifi.uio.no";
-        proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
-      "tymin" = {
-        user = "akselos";
-        hostname = "tymin.ifi.uio.no";
-        proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
-      "sytosin" = {
-        user = "akselos";
-        hostname = "sytosin.ifi.uio.no";
-        proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
-      "guanin" = {
-        user = "akselos";
-        hostname = "guanin.ifi.uio.no";
-        proxyJump = "morgoth";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
       "*.uio.no !login.uio.no" = {
         proxyJump = "akselos@login.uio.no";
       };
-    };
-
+    }
+    // mapAttrs (name: server: mkServers server) servers;
   };
-
-  home.file.".ssh/github_signingkey.pub".text = ''
-    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGVHLm7Ml3lTEJTS4fyJsCu0rKIx3JNV3oniyvNQgKuK
-  '';
 }
