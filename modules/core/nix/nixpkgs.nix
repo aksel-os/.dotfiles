@@ -1,8 +1,8 @@
 {
   nixpkgs.config = {
-    # I don't like Unfree, so I have disabled it for now
-    allowUnfree = false;
-    allowUnfreePredicate = false;
+    # I don't like Unfree, but spicetify and discord requires it
+    allowUnfree = true;
+    allowUnfreePredicate = true;
 
     allowBroken = false;
   };
