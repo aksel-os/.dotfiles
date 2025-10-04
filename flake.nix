@@ -82,15 +82,6 @@
       repo = "homebrew-emacs-plus";
       flake = false;
     };
-
-    # Zen
-    zen-browser = {
-      type = "github";
-      owner = "0xc000022070";
-      repo = "zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # Neovim
     neovim-overlay = {
       type = "github";
@@ -102,6 +93,20 @@
       type = "github";
       owner = "nix-community";
       repo = "nixvim";
+    };
+
+    # Apps
+    zen-browser = {
+      type = "github";
+      owner = "0xc000022070";
+      repo = "zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    spicetify = {
+      type = "github";
+      owner = "Gerg-L";
+      repo = "spicetify-nix";
     };
   };
 }

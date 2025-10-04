@@ -5,5 +5,6 @@
     ./dev
     ./cli
     ./apps/pandoc.nix
+    ./apps/spicetify.nix
   ];
 }
