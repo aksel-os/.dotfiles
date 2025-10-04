@@ -48,6 +48,10 @@
     just setup  
     #+end_src
 
+** Installing on NixOS
+   Use disko on correct config
+
+   
     
 * Updating
   To apply changes made to the =./modules=, =./homes= or =./hosts=, run the following:

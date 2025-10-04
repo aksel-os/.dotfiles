@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   boot = {
     loader = {
@@ -12,11 +10,11 @@
         "virtio_pci"
         "usbhid"
         "usb_storage"
-        "sr_mod"        
+        "sr_mod"
       ];
 
       kernelModules = [
-        
+
       ];
     };
   };

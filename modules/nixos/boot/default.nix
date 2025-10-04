@@ -1,6 +1,6 @@
 {
   imports = [
     ./core.nix
-    ./loader.nix
+    ./grub.nix
   ];
 }

@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   config = {
     boot.loader.grub = {

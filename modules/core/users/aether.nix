@@ -22,6 +22,7 @@ in
     ];
 
     # hashedPasswordFile = secrets.passwords.aether.path;
+    hashedPassword = "$y$j9T$dPb2xAQb4YQyk2G5AQO6C0$NaInkWbv.zzHPXPO1Bn6QubKx82E8eQq38v7XSr0DI/";
   };
 
   programs.zsh.enable = true;
