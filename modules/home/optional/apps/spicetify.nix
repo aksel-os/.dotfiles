@@ -11,6 +11,7 @@ in
 
   programs.spicetify = {
     enable = true;
-    theme = plugins.themes.text;
+    theme = plugins.themes.catppuccin;
+    colorScheme = "mocha";
   };
 }
