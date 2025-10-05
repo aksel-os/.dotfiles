@@ -1,5 +1,3 @@
-{ ... }:
-
 {
   services.yabai = {
     enable = false;

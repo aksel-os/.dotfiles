@@ -8,7 +8,7 @@ let
     if pkgs.stdenv.isLinux then
       pkgs.emacs-pgtk
     else
-      (pkgs.emacs-git).overrideAttrs (o: {
+      pkgs.emacs-git.overrideAttrs (o: {
         patches = [
           # "${inputs.emacs-plus}/patches/emacs-31/fix-window-role.patch"
           "${inputs.emacs-plus}/patches/emacs-31/round-undecorated-frame.patch"

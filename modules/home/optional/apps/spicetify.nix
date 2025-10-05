@@ -13,5 +13,10 @@ in
     enable = true;
     theme = plugins.themes.catppuccin;
     colorScheme = "mocha";
+
+    enabledExtensions = with plugins.extensions; [
+      keyboardShortcut
+      fullAppDisplay
+    ];
   };
 }

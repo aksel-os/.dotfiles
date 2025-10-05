@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
-  home.packages = [
-    pkgs.nil
-    pkgs.alejandra
-    pkgs.nixfmt-rfc-style
+  home.packages = with pkgs; [
+    nil
+    nixfmt-rfc-style
+    statix
   ];
 }

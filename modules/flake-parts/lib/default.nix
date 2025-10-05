@@ -1,5 +1,5 @@
 {
-  inputs ? throw ("No inputs found!"),
+  inputs ? throw "No inputs found!",
   lib ? inputs.nixpkgs.lib,
   withSystem ? inputs.flake-parts.withSystem,
   ...

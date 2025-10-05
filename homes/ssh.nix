@@ -73,6 +73,6 @@ in
         proxyJump = "akselos@login.uio.no";
       };
     }
-    // mapAttrs (name: server: mkServers server) servers;
+    // mapAttrs (name: mkServers) servers;
   };
 }
