@@ -25,19 +25,9 @@
 
       # Declerative tap management
       taps = {
-        "homebrew/homebrew-core" = pkgs.fetchFromGitHub {
-          owner = "homebrew";
-          repo = "homebrew-core";
-          rev = "da3f6d90344231a582630ad915b4f1aee516f57d";
-          hash = "sha256-6bpTS9EhefG9Ir5TgAHa1wxz4wB6/3GeOdx6KFWYtsI=";
-        };
+        "homebrew/homebrew-core" = inputs.homebrew-core;
 
-        "homebrew/homebrew-cask" = pkgs.fetchFromGitHub {
-          owner = "homebrew";
-          repo = "homebrew-cask";
-          rev = "da8791ec611a7d32d4767ab697c7c09fe757b8cc";
-          hash = "sha256-aS1ZEGDMKG9Dg3k40+aKrl1GnWxO78lxTwJ2PIh32+g=";
-        };
+        "homebrew/homebrew-cask" = inputs.homebrew-cask;
 
         "d12frosted/homebrew-emacs-plus" = pkgs.fetchFromGitHub {
           owner = "d12frosted";
@@ -70,6 +60,7 @@
         "utm"
         "raycast"
         "rectangle"
+        "docker-desktop"
       ];
     };
   };

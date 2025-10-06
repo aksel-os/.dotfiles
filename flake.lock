@@ -349,6 +349,38 @@
         "type": "github"
       }
     },
+    "homebrew-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759747738,
+        "narHash": "sha256-N9BWcT2J0p455YtbPR4OM8Wfkw12mEZUXwMC3qGjuFg=",
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "rev": "b86a26bfb607db93493f74805b5951077731be65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
+    "homebrew-core": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1759740378,
+        "narHash": "sha256-SGIx1vrn43tW5A0fKqtVGlEOzz9BpUJhxlR2/w/gVTY=",
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "rev": "360f1c8e29b731041ddd6a5175d593f2b221866d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "homebrew",
+        "repo": "homebrew-core",
+        "type": "github"
+      }
+    },
     "ixx": {
       "inputs": {
         "flake-utils": [
@@ -567,6 +599,8 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "homebrew": "homebrew",
+        "homebrew-cask": "homebrew-cask",
+        "homebrew-core": "homebrew-core",
         "neovim-overlay": "neovim-overlay",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",

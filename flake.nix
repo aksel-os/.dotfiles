@@ -49,6 +49,20 @@
       repo = "nix-homebrew";
     };
 
+    homebrew-core = {
+      type = "github";
+      owner = "homebrew";
+      repo = "homebrew-core";
+      flake = false;
+    };
+
+    homebrew-cask = {
+      type = "github";
+      owner = "homebrew";
+      repo = "homebrew-cask";
+      flake = false;
+    };
+
     # Secrets
     sops-nix = {
       type = "github";
