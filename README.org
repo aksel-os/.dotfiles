@@ -49,8 +49,27 @@
     #+end_src
 
 ** Installing on NixOS
-   Use disko on correct config
+   Assuming you've cloned the directory.
 
+   1. Format the drive NixOS will be installed on
+      #+begin_src sh
+      nix --experimental-features "nix-command flakes" run
+      github:nix-community/disko/latest -- --mode destroy,format,mount path/to/disko/config
+#+end_src
+
+   2. Remove any mentions to my secrets flake. As this will cause the build to
+      fail.
+   
+   3. Run the nixos-install command targeting the flake and correct host
+      #+begin_src sh
+      nixos-install --flake /absolute/path/to/flake.nix.#<host>
+      #+end_src
+
+   4. Add your own secrets, and rebuild the flake afterwards to apply the
+      changes.
+      #+begin_src sh
+      just switch
+      #+end_src
    
     
 * Updating
