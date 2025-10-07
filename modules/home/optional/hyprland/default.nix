@@ -1,14 +1,8 @@
 {
   imports = [
-    ./config
+    ./hyprland.nix
+    ../apps/rofi.nix
+    ../apps/waybar.nix
+    ../apps/dunst.nix
   ];
-  
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-
-    systemd = {
-      enable = true;
-    };
-  };
 }

@@ -33,14 +33,12 @@ in
       users.aether = lib.mkIf pkgs.stdenv.isLinux {
         imports = [
           ./aether
-          ../modules/home/optional/hyprland
         ];
       };
 
       users.misdreavus = lib.mkIf pkgs.stdenv.isLinux {
         imports = [
           ./misdreavus
-          ../modules/home/optional/hyprland
         ];
       };
 

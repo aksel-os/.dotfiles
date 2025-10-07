@@ -6,8 +6,9 @@ let
 in
 {
   imports = [
+    (optional + /hyprland)
+    (optional + /linux.nix)
     (optional + /apps/zen.nix)
-    (optional + /dev)
     ../ssh.nix
     ../sops.nix
   ];
