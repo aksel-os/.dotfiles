@@ -61,6 +61,7 @@
         "raycast"
         "rectangle"
         "docker-desktop"
+        "karabiner-elements"
       ];
     };
   };
