@@ -5,6 +5,8 @@
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
     settings = {
       format = "$hostname$username$directory$git_branch$git_state$git_status$fill$cmd_duration$line_break$character";
 
