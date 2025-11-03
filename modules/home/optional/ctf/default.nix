@@ -7,7 +7,7 @@
     ./exiftool.nix
     ./postman.nix
     ./nmap.nix
-    ./wireshark.nix
+    # ./wireshark.nix
     ./hash-identifier.nix
     # ./ida-free.nix
   ];

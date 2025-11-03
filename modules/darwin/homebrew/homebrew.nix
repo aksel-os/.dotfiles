@@ -60,8 +60,7 @@
         "utm"
         "raycast"
         "rectangle"
-        "docker-desktop"
-        "karabiner-elements"
+        "wireshark"
       ];
     };
   };
