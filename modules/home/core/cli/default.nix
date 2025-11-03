@@ -14,7 +14,7 @@
 
   # Packages without configuration
   home.packages = with pkgs; [
-    du-dust # Disk usage util written in rust
+    dust # Disk usage util written in rust
     disfetch # Minimal fastfetch
     onefetch # Fastfetch but for git
     bat # A cat clone
