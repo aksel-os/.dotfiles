@@ -1,6 +1,7 @@
 {
   imports = [
     ./john.nix
+    ./hashcat.nix
     ./wordlists.nix
     ./sqlmap.nix
     ./steghide.nix
