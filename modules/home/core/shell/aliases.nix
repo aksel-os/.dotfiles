@@ -6,7 +6,10 @@
     cd = "z";
     bat = "bat --paging=never --style=plain";
     cat = "bat";
-    ls = "eza --icons -l -T -L=1";
+    ls = "eza -lT --icons -L=1 --hyperlink";
+    la = "ls -a";
+    ll = "eza -lT --icons -L=1 --git-repos --git  --hyperlink";
+    lla = "ll -a";
     tree = "eza --tree --icons";
     htop = "btop";
     gitfetch = "onefetch";
