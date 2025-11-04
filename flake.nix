@@ -96,6 +96,7 @@
       repo = "homebrew-emacs-plus";
       flake = false;
     };
+
     # Neovim
     neovim-overlay = {
       type = "github";
@@ -122,6 +123,12 @@
       owner = "Gerg-L";
       repo = "spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    vicinae = {
+      type = "github";
+      owner = "vicinaehq";
+      repo = "vicinae";
     };
   };
 }
