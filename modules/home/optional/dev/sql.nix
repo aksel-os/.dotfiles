@@ -1,4 +1,8 @@
 { pkgs, ... }:
+
 {
-  home.packages = [ pkgs.postgresql ];
+  home.packages = with pkgs; [
+    postgresql
+    pgformatter
+  ];
 }
