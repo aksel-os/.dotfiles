@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     python312
-    pypy3
+    # pypy3 # Problem with compiling "'ffi_prep_cif_var' has been marked as being introduced in macOS 10.15 here, but the deployment target is macOS 10.13.0"
     pyright
     pylint
     python312Packages.autopep8
