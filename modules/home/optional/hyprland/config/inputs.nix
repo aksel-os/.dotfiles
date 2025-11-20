@@ -1,6 +1,8 @@
 {
   wayland.windowManager.hyprland.settings = {
     input = {
+      kb_layout = "no";
+      
       repeat_rate = 50;
       repeat_delay = 275;
 

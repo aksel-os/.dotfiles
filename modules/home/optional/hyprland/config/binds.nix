@@ -5,7 +5,8 @@ in
 {
   wayland.windowManager.hyprland.settings.bind = [
     # App launchers / session
-    "${mod}, Space, exec, rofi -show drun -show-icons"
+    # "${mod}, Space, exec, rofi -show drun -show-icons"
+    "${mod}, Space, exec, vicinae toggle"
     "${mod}, Return, exec, kitty"
     "${mod}, E, exec, emacs"
     "${mod}, B, exec, zen"
