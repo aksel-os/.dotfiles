@@ -7,7 +7,7 @@ in
 {
   imports = [
     (optional + /hyprland)
-    (optional + /linux.nix)
+    # (optional + /linux.nix)
     (optional + /apps/zen.nix)
     ../ssh.nix
     ../sops.nix

@@ -12,6 +12,6 @@
     ./services
     ./system
     ./nix.nix
-    ./sops.nix
+    # ./sops.nix
   ];
 }
