@@ -1,7 +1,7 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, config, ... }:
 
 {
-  modules = [
+  imports = [
     inputs.vicinae.homeManagerModules.default
   ];
 
