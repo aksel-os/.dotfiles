@@ -6,11 +6,12 @@ let
 in
 {
   imports = [
-    (optional + /hyprland)
-    # (optional + /linux.nix)
-    (optional + /apps/zen.nix)
     ../ssh.nix
     ../sops.nix
+    (optional + /hyprland)
+    (optional + /apps/zen.nix)
+    # (optional + /linux.nix)
+    optional
   ];
 
   config = {

@@ -1,12 +1,14 @@
 { self, ... }:
 let
-  optionals = self + /modules/home/optional;
+  optional = self + /modules/home/optional;
 in
 {
   imports = [
     ../ssh.nix
     ../sops.nix
-    optionals
+    (optional + /ctf)
+    (optional + /vm)
+    optional
   ];
 
   config = {
