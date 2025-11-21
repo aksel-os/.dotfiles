@@ -1,4 +1,4 @@
-{ inputs, inputs', ... }:
+{ inputs, inputs', pkgs, ... }:
 
 let
   plugins = inputs'.spicetify.legacyPackages;
@@ -10,7 +10,7 @@ in
   ];
 
   programs.spicetify = {
-    enable = true;
+    enable = pkgs.stdenv.isDarwin;
     theme = plugins.themes.catppuccin;
     colorScheme = "mocha";
 
