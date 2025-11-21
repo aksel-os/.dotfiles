@@ -3,7 +3,8 @@
     ./general.nix
     ./decorations.nix
     ./animations.nix
-    ./inputs.nix
+    ./input.nix
     ./binds.nix
+    ./cursor.nix
   ];
 }

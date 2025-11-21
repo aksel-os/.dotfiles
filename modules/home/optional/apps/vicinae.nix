@@ -1,4 +1,9 @@
-{ inputs, pkgs, config, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -6,7 +11,7 @@
   ];
 
   services.vicinae = {
-    enable = true;
+    enable = false;
     autoStart = true;
     settings = {
 
