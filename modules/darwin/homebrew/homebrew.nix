@@ -61,6 +61,7 @@
         "raycast"
         "rectangle"
         "wireshark"
+        "spotify"
       ];
     };
   };
