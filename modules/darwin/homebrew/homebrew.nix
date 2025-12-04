@@ -62,6 +62,7 @@
         "rectangle"
         "wireshark"
         "spotify"
+        "android-studio"
       ];
     };
   };
