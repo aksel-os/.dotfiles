@@ -8,5 +8,6 @@
   home.packages = with pkgs; [
     cbonsai
     pastel
+    pay-respects # thefuck in Rust
   ];
 }
