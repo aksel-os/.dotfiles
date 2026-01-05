@@ -53,6 +53,7 @@
       brews = [
         "age"
         "sops"
+        "gcc"
       ];
 
       casks = [
