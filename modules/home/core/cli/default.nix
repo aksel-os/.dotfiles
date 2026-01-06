@@ -8,6 +8,7 @@
     ./starship.nix # Customizable shell prompt
     ./fastfetch.nix # System information
     ./btop.nix # Resource monitor
+    ./bat.nix # A cat clone
     ./yazi.nix # Terminal based file manager
     ./zoxide.nix # A smarter cd command
   ];
@@ -17,7 +18,6 @@
     dust # Disk usage util written in rust
     disfetch # Minimal fastfetch
     onefetch # Fastfetch but for git
-    bat # A cat clone
     inetutils # Common networking programs
     wget
 
