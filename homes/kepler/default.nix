@@ -7,6 +7,7 @@ in
     ../sops.nix
     (optional + /ctf)
     (optional + /vm)
+    (optional + /apps/prism.nix)
     optional
   ];
 
