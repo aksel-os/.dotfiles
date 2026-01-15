@@ -62,8 +62,9 @@
         "raycast"
         "rectangle"
         "wireshark"
-        "spotify"
+        # "spotify" # Buggy/Incompatible SHA
         "android-studio"
+        "prismlauncher"
       ];
     };
   };
