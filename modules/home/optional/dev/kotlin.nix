@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.kotlin ];
+  home.packages = with pkgs; [
+    kotlin
+    gradle
+  ];
 }
