@@ -8,5 +8,6 @@
     ./html.nix
     ./scheme.nix
     ./sql.nix
+    ./kotlin.nix
   ];
 }
