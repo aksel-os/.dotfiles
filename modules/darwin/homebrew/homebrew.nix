@@ -65,6 +65,8 @@
         # "spotify" # Buggy/Incompatible SHA
         "android-studio"
         "prismlauncher"
+        "slack"
+        "postman"
       ];
     };
   };
