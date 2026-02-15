@@ -9,12 +9,16 @@ let
   inherit (lib.attrsets) mapAttrs;
   inherit (inputs.secrets) uni;
 
-  mkServers = server: {
-    user = uni.user;
-    hostname = server;
-    proxyJump = "morgoth";
-    identityFile = secrets."keys/ssh/uio".path;
-  };
+  mkServers =
+    server:
+    {
+      user = uni.user;
+      hostname = server.hostname;
+      identityFile = secrets."keys/ssh/uio".path;
+    }
+    // lib.optionalAttrs (server ? proxy) {
+      proxyJump = server.proxy;
+    };
 
 in
 {
@@ -48,18 +52,6 @@ in
 
       "github.uio.no" = {
         user = "git";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
-      "uio" = {
-        user = uni.user;
-        hostname = "login.uio.no";
-        identityFile = secrets."keys/ssh/uio".path;
-      };
-
-      "morgoth" = {
-        user = uni.user;
-        hostname = "morgoth.uio.no";
         identityFile = secrets."keys/ssh/uio".path;
       };
 
