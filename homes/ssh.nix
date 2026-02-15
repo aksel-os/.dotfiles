@@ -1,26 +1,19 @@
 {
   config,
   lib,
+  inputs,
   ...
 }:
 let
   inherit (config.sops) secrets;
   inherit (lib.attrsets) mapAttrs;
+  inherit (inputs.secrets) uni-user ifi-servers;
 
   mkServers = server: {
-    user = "akselos";
-    hostname = "${server}.ifi.uio.no";
+    user = uni-user;
+    hostname = server;
     proxyJump = "morgoth";
     identityFile = secrets."keys/ssh/uio".path;
-  };
-
-  servers = {
-    # Alias : Hostname
-    ifi = "login";
-    adenin = "adenin";
-    tymin = "tymin";
-    sytosin = "sytosin";
-    guanin = "guanin";
   };
 
 in
@@ -59,21 +52,21 @@ in
       };
 
       "uio" = {
-        user = "akselos";
+        user = uni-user;
         hostname = "login.uio.no";
         identityFile = secrets."keys/ssh/uio".path;
       };
 
       "morgoth" = {
-        user = "akselos";
+        user = uni-user;
         hostname = "morgoth.uio.no";
         identityFile = secrets."keys/ssh/uio".path;
       };
 
       "*.uio.no !login.uio.no" = {
-        proxyJump = "akselos@login.uio.no";
+        proxyJump = "${uni-user}@login.uio.no";
       };
     }
-    // mapAttrs (name: mkServers) servers;
+    // mapAttrs (name: mkServers) ifi-servers;
   };
 }
