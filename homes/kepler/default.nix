@@ -6,7 +6,6 @@ in
     ../ssh.nix
     ../sops.nix
     (optional + /ctf)
-    (optional + /vm)
     optional
   ];
 

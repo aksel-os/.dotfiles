@@ -61,12 +61,15 @@
         "utm"
         "raycast"
         "rectangle"
-        "wireshark"
+        "wireshark-app"
         # "spotify" # Buggy/Incompatible SHA
         "android-studio"
         "prismlauncher"
         "slack"
         "postman"
+        "betterdisplay"
+        "discord" # Vesktop is currently fucked up
+        "pycharm" # Free for students :)
       ];
     };
   };
