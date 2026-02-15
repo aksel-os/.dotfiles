@@ -73,7 +73,6 @@
 
     secrets = {
       url = "git+ssh://git@github.com/aksel-os/.secrets.git?shallow=1";
-      flake = false;
     };
 
     # Emacs, my beloved

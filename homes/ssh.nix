@@ -7,10 +7,10 @@
 let
   inherit (config.sops) secrets;
   inherit (lib.attrsets) mapAttrs;
-  inherit (inputs.secrets) uni-user ifi-servers;
+  inherit (inputs.secrets) uni;
 
   mkServers = server: {
-    user = uni-user;
+    user = uni.user;
     hostname = server;
     proxyJump = "morgoth";
     identityFile = secrets."keys/ssh/uio".path;
@@ -52,21 +52,21 @@ in
       };
 
       "uio" = {
-        user = uni-user;
+        user = uni.user;
         hostname = "login.uio.no";
         identityFile = secrets."keys/ssh/uio".path;
       };
 
       "morgoth" = {
-        user = uni-user;
+        user = uni.user;
         hostname = "morgoth.uio.no";
         identityFile = secrets."keys/ssh/uio".path;
       };
 
       "*.uio.no !login.uio.no" = {
-        proxyJump = "${uni-user}@login.uio.no";
+        proxyJump = "${uni.user}@login.uio.no";
       };
     }
-    // mapAttrs (name: mkServers) ifi-servers;
+    // mapAttrs (name: mkServers) uni.servers;
   };
 }
