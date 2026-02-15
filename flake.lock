@@ -60,11 +60,11 @@
     "emacs-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1771167763,
-        "narHash": "sha256-uSXgh1jMB4FW2zOybK+/U8SjwyWewYSoXyBM3X1s4LY=",
+        "lastModified": 1771167952,
+        "narHash": "sha256-pieaPrjugKWFH+Bzvm4u6NloQFFX1is2nOkChYG4fI0=",
         "owner": "aksel-os",
         "repo": ".emacs.d",
-        "rev": "18081ccd8f2e325eb836a00d57b3a398ce2f8b17",
+        "rev": "59a2bec97d3f36a2c9a570e89ebfc4bec4238a00",
         "type": "github"
       },
       "original": {
