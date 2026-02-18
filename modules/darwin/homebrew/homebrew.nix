@@ -54,6 +54,7 @@
         "age"
         "sops"
         "gcc"
+        "gitu"
       ];
 
       casks = [

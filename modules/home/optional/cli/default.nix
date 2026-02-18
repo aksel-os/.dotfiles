@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     zellij # A modern terminal multiplexer
-    gitu # A magit like cli
+    # gitu # A magit like cli - moved to homebrew
     cbonsai
     pastel
   ];
