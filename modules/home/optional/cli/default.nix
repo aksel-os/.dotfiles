@@ -7,6 +7,8 @@
   ];
 
   home.packages = with pkgs; [
+    zellij # A modern terminal multiplexer
+    gitu # A magit like cli
     cbonsai
     pastel
   ];
