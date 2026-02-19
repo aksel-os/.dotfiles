@@ -11,6 +11,8 @@
     ./bat.nix # A cat clone
     ./yazi.nix # Terminal based file manager
     ./zoxide.nix # A smarter cd command
+    ./atuin.nix # Shell history
+    ./carapace.nix # Completion library
   ];
 
   # Packages without configuration
