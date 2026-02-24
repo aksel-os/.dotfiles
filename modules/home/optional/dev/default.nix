@@ -9,5 +9,6 @@
     ./scheme.nix
     ./sql.nix
     ./kotlin.nix
+    ./typescript.nix
   ];
 }
