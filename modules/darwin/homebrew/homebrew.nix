@@ -32,8 +32,15 @@
         "d12frosted/homebrew-emacs-plus" = pkgs.fetchFromGitHub {
           owner = "d12frosted";
           repo = "homebrew-emacs-plus";
-          rev = "3e95d573d5f13aba7808193b66312b38a7c66851";
+          rev = "3e95d573d5f13aba7808193b66312b38a7c66851"; # main 31.03.2025
           hash = "sha256-Eepinxv05Yl79AoPVJveGDZPKHhlAes7XtUvrssflrU=";
+        };
+
+        "cormacrelf/homebrew-dark-notify" = pkgs.fetchFromGitHub {
+          owner = "cormacrelf";
+          repo = "homebrew-dark-notify";
+          rev = "9b85a0d2a62385baeed6b20046104baba56453dc"; # main 20.02.2026
+          hash = "sha256-XGvgNHmh5/2Z5vonSw3DvsIlEoFhQWua4M/1DYWGcco=";
         };
       };
     };
@@ -55,6 +62,7 @@
         "sops"
         "gcc"
         "gitu"
+        "dark-notify"
       ];
 
       casks = [
@@ -63,7 +71,6 @@
         "raycast"
         "rectangle"
         "wireshark-app"
-        # "spotify" # Buggy/Incompatible SHA
         "android-studio"
         "prismlauncher"
         "slack"
@@ -72,6 +79,8 @@
         "discord" # Vesktop is currently fucked up
         "pycharm" # Free for students :)
         "obsidian"
+        "webstorm" # Webdev
+        "linearmouse"
       ];
     };
   };

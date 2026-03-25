@@ -22,6 +22,7 @@
     onefetch # Fastfetch but for git
     inetutils # Common networking programs
     wget
+    tmux
 
     # Nix rebuild
     nvd

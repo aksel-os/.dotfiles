@@ -7,7 +7,7 @@
 let
   inherit (config.sops) secrets;
   inherit (lib.attrsets) mapAttrs;
-  inherit (inputs.secrets) uni;
+  inherit (inputs.secrets) uni progsys nrec;
 
   mkServers =
     server:
@@ -55,10 +55,14 @@ in
         identityFile = secrets."keys/ssh/uio".path;
       };
 
-      "*.uio.no !login.uio.no" = {
+      "*.uio.no !login.uio.no !github.uio.no" = {
         proxyJump = "${uni.user}@login.uio.no";
       };
+
+      
     }
-    // mapAttrs (name: mkServers) uni.servers;
+    // mapAttrs (name: mkServers) uni.servers
+    // progsys
+    // nrec;
   };
 }

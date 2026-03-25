@@ -18,7 +18,7 @@ let
 in
 {
   programs.emacs = {
-    enable = true;
+    enable = false;
     package = pkgs.emacsWithPackagesFromUsePackage {
       config = "${inputs.emacs-config}/init.org";
       package = emacs-pkg;

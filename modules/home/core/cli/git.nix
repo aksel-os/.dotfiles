@@ -12,6 +12,10 @@
       ".direnv"
     ];
 
+    signing = {
+      format = null;
+    };
+    
     settings = {
       user = {
         name = "Aksel O. Steen";
@@ -35,7 +39,7 @@
 
       url = {
         "git@github.com:".insteadOf = "gh:";
-        "git@github.uio.no".insteadOf = "gho:";
+        "git@github.uio.no:".insteadOf = "gho:";
       };
 
       alias = {

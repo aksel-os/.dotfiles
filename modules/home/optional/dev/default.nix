@@ -10,5 +10,6 @@
     ./sql.nix
     ./kotlin.nix
     ./typescript.nix
+    ./go.nix
   ];
 }
