@@ -10,7 +10,7 @@ in
   ];
 
   programs.spicetify = {
-    enable = pkgs.stdenv.isDarwin;
+    enable = false;
     theme = plugins.themes.catppuccin;
     colorScheme = "mocha";
 

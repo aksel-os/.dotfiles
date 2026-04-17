@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.steghide ];
+  home.packages = [ pkgs.steghide pkgs.zsteg ];
 }

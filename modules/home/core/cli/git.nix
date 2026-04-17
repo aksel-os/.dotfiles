@@ -43,10 +43,10 @@
       };
 
       alias = {
-        co = "checkout";
+        co = "switch";
+        cob = "switch -c";
         ec = "config --global -e";
         ppr = "pull --rebase --prune";
-        cob = "checkout -b";
         rb = "branch -m";
         cm = "!git add -A && git commit -m";
         amend = "commit -a --amend";

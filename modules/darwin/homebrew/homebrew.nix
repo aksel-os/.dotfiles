@@ -81,6 +81,7 @@
         "obsidian"
         "webstorm" # Webdev
         "linearmouse"
+        "docker-desktop"
       ];
     };
   };
