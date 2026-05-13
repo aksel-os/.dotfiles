@@ -4,6 +4,7 @@
   imports = [
     ./nix-search.nix
     ./pay-respects.nix # thefuck in Rust
+    ./tealdeer.nix # tldr in Rust
   ];
 
   home.packages = with pkgs; [
