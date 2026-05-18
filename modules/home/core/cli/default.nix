@@ -20,7 +20,12 @@
     dust # Disk usage util written in rust
     disfetch # Minimal fastfetch
     onefetch # Fastfetch but for git
+    fzf # A command-line fuzzy finder
+    ripgrep # A modern grep
+    fd # A fast alternative to find
+
     inetutils # Common networking programs
+
     wget
     tmux
 
