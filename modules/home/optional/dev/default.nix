@@ -11,12 +11,12 @@
     ./kotlin.nix
     ./typescript.nix
     ./go.nix
+    ./markdown.nix
   ];
 
   home.packages = with pkgs; [
     tinyscheme # Scheme LSP
     tinymist # Typst LSP
-    marksman # Markdown LSP
     lua-language-server
     vscode-langservers-extracted # HTML    
   ];
