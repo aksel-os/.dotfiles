@@ -5,6 +5,6 @@
 
   programs.tealdeer = {
     enable = true;
-    settings.updates = true;
+    enableAutoUpdates = true;
   };
 }

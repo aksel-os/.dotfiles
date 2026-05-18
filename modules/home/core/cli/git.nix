@@ -25,6 +25,7 @@
       init.defaultBranch = "main";
 
       pull.rebase = true;
+      push.autoSetupRemote = true;
       rebase = {
         autoSquash = true;
         autoStash = true;

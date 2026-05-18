@@ -103,12 +103,6 @@
       repo = "neovim-nightly-overlay";
     };
 
-    nixvim = {
-      type = "github";
-      owner = "nix-community";
-      repo = "nixvim";
-    };
-
     # Apps
     zen-browser = {
       type = "github";

@@ -11,5 +11,6 @@
     ./kotlin.nix
     ./typescript.nix
     ./go.nix
+    ./lua.nix
   ];
 }
