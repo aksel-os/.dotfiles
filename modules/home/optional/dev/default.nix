@@ -12,5 +12,6 @@
     ./typescript.nix
     ./go.nix
     ./lua.nix
+    ./markdown.nix
   ];
 }
