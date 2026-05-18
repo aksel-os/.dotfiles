@@ -17,7 +17,7 @@
   home.packages = with pkgs; [
     tinyscheme # Scheme LSP
     tinymist # Typst LSP
-    lua-language-server
+    lua-language-server stylua # Lua Tooling
     vscode-langservers-extracted # HTML    
   ];
 }

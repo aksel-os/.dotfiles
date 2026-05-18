@@ -2,7 +2,8 @@
 
 {
   home.packages = with pkgs; [
-    marksman
+    marksman # LSP
+    rumdl # Linter
     marp-cli
     # slidev
   ];
