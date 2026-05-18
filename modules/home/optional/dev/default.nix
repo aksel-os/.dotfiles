@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./just.nix
@@ -5,13 +7,17 @@
     ./python.nix
     ./java.nix
     ./c.nix
-    ./html.nix
-    ./scheme.nix
     ./sql.nix
     ./kotlin.nix
     ./typescript.nix
     ./go.nix
-    ./lua.nix
-    ./markdown.nix
+  ];
+
+  home.packages = with pkgs; [
+    tinyscheme # Scheme LSP
+    tinymist # Typst LSP
+    marksman # Markdown LSP
+    lua-language-server
+    vscode-langservers-extracted # HTML    
   ];
 }
