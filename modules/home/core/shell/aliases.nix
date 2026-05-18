@@ -2,6 +2,7 @@
   home.shellAliases = {
     em = "emacs -nw";
     evim = "emacs -nw";
+    n = "nvim";
 
     cd = "z";
     ".." = "cd ..";

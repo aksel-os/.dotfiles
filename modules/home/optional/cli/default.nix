@@ -12,5 +12,6 @@
     # gitu # A magit like cli - moved to homebrew
     cbonsai
     pastel
+    chafa # Terminal graphics
   ];
 }
