@@ -42,6 +42,13 @@
           rev = "9b85a0d2a62385baeed6b20046104baba56453dc"; # main 20.02.2026
           hash = "sha256-XGvgNHmh5/2Z5vonSw3DvsIlEoFhQWua4M/1DYWGcco=";
         };
+
+        "Jetbrains/utils" = pkgs.fetchFromGitHub {
+          owner = "JetBrains";
+          repo = "homebrew-utils";
+          rev = "e664ad2d3d434fa4a24fdf0f9d8f649d5a801161"; # main 20.05.2026
+          hash = "sha256-jVFkLMIazYsAsdfvCYCg7u6kSfXan1Gv6f1KP4u3eAE=";
+        };
       };
     };
 
@@ -63,6 +70,7 @@
         "gcc"
         "gitu"
         "dark-notify"
+        "kotlin-lsp" # Official Kotlin LSP
       ];
 
       casks = [
