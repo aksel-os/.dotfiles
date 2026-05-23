@@ -12,12 +12,13 @@
     ./typescript.nix
     ./go.nix
     ./markdown.nix
+    ./typst.nix
   ];
 
   home.packages = with pkgs; [
     tinyscheme # Scheme LSP
-    tinymist # Typst LSP
-    lua-language-server stylua # Lua Tooling
-    vscode-langservers-extracted # HTML    
+    lua-language-server
+    stylua # Lua Tooling
+    vscode-langservers-extracted # HTML
   ];
 }
