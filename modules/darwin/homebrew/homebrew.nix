@@ -49,6 +49,13 @@
           rev = "e664ad2d3d434fa4a24fdf0f9d8f649d5a801161"; # main 20.05.2026
           hash = "sha256-jVFkLMIazYsAsdfvCYCg7u6kSfXan1Gv6f1KP4u3eAE=";
         };
+
+        "homebrew-zathura/homebrew-zathura" = pkgs.fetchFromGitHub {
+          owner = "homebrew-zathura";
+          repo = "homebrew-zathura";
+          rev = "7e256f501f6aa733dc2afb9af2ebecdbb36cafc9"; # main 24.05.2026
+          hash = "sha256-lVGXxB5IKy7reMMLIVtDZVSnVKtKQ35xLqhCdOEKcxs=";
+        };
       };
     };
 
@@ -71,6 +78,8 @@
         "gitu"
         "dark-notify"
         "kotlin-lsp" # Official Kotlin LSP
+        "zathura"
+        "zathura-pdf-mupdf"
       ];
 
       casks = [

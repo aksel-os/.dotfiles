@@ -16,6 +16,7 @@
   ];
 
   home.packages = with pkgs; [
+    tree-sitter
     tinyscheme # Scheme LSP
     lua-language-server
     stylua # Lua Tooling
