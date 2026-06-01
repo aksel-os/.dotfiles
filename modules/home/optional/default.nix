@@ -6,6 +6,5 @@
     # ./apps/vesktop.nix
     ./apps/mpv.nix
     ./apps/spicetify.nix
-    ./apps/qutebrowser.nix
   ];
 }
