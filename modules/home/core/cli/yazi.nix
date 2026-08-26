@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 let
   yazi-flavors = pkgs.fetchFromGitHub {
@@ -20,7 +20,16 @@ in
       mgr = {
         show_hidden = true;
       };
+    };
 
+    flavors = {
+      catppuccin-mocha = "${yazi-flavors}/catppuccin-mocha.yazi";
+      catppuccin-latte = "${yazi-flavors}/catppuccin-latte.yazi";
+    };
+
+    theme.flavor = {
+      dark = "catppuccin-mocha";
+      light = "catppuccin-latte";
     };
 
     keymap = {
@@ -34,23 +43,6 @@ in
           desc = "Go to root of current Git repository";
         }
       ];
-    };
-
-    theme = {
-      flavor = {
-        dark = "catppuccin-mocha";
-        light = "catppuccin-latte";
-      };
-    };
-  };
-
-  home.file = {
-    "${config.xdg.configHome}/yazi/flavors/catppuccin-mocha.yazi" = {
-      source = "${yazi-flavors}/catppuccin-mocha.yazi";
-    };
-
-    "${config.xdg.configHome}/yazi/flavors/catppuccin-latte.yazi" = {
-      source = "${yazi-flavors}/catppuccin-latte.yazi";
     };
   };
 }

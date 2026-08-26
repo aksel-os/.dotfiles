@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./git.nix # Version controll
+    ./git.nix # Version control
     ./direnv.nix # Environment variable manager
     ./eza.nix # A modern alternative to ls
     ./starship.nix # Customizable shell prompt

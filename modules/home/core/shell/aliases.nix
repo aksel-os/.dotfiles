@@ -14,9 +14,9 @@
     cat = "bat";
     icat = "kitten icat"; # Show images in Kitty
 
-    ls = "eza -lT --icons -L=1 --hyperlink";
+    ls = "eza -lT --icons -L=1 --hyperlink auto";
     la = "ls -a";
-    ll = "eza -lT --icons -L=1 --git-repos --git  --hyperlink";
+    ll = "eza -lT --icons -L=1 --git-repos --git  --hyperlink auto";
     lla = "ll -a";
     tree = "eza --tree --icons";
 

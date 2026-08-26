@@ -13,5 +13,6 @@
     cbonsai
     pastel
     chafa # Terminal graphics
+    gh-dash # GitHub (gh) wrapper
   ];
 }

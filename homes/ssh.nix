@@ -26,7 +26,7 @@ in
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
       "*" = {
         # https://security.stackexchange.com/questions/110639/how-exploitable-is-the-recent-useroaming-ssh-vulnerability
         # useRoaming = false;
@@ -59,7 +59,6 @@ in
         proxyJump = "${uni.user}@login.uio.no";
       };
 
-      
     }
     // mapAttrs (name: mkServers) uni.servers
     // progsys
